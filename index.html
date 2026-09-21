@@ -1,126 +1,436 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HELP WANTED — SpongeBob Dub Archive</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HELP WANTED — SpongeBob Dub Archive</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <!-- Decorations (behind everything, not clickable) -->
-  <div class="decor" aria-hidden="true">
-    <span class="bubble"></span>
-    <span class="bubble"></span>
-    <span class="bubble"></span>
-    <span class="bubble"></span>
-    <span class="bubble"></span>
-    <span class="bubble"></span>
-    <span class="bubble"></span>
-    <span class="bubble"></span>
-    <div class="jellyfish jelly-left"></div>
-    <div class="jellyfish jelly-right"></div>
-  </div>
+<div class="page">
 
-  <div class="window" id="app-window">
-
-    <!-- XP title bar -->
+    <!-- XP TITLE BAR -->
     <div class="titlebar">
-      <span class="titlebar-text">🌊 HELP WANTED — SpongeBob Dub Archive</span>
-      <span class="titlebar-controls" aria-hidden="true">
-        <span class="ctl ctl-min">_</span>
-        <span class="ctl ctl-max">□</span>
-        <span class="ctl ctl-close">✕</span>
-      </span>
+        <div class="titlebar-left">
+            <div class="title-icon">★</div>
+            <span>HELP WANTED — SpongeBob Dub Archive</span>
+        </div>
+
+        <div class="window-buttons">
+            <div class="window-button">_</div>
+            <div class="window-button">□</div>
+            <div class="window-button">×</div>
+        </div>
     </div>
 
-    <!-- Menu bar -->
-    <nav class="menubar" aria-label="Main navigation">
-      <button type="button" class="menu-item" data-action="all">🌐 All Dubs</button>
-      <button type="button" class="menu-item" data-action="tv">📺 TV Broadcasts</button>
-      <button type="button" class="menu-item" data-action="cast">🎙️ Cast Information</button>
-      <button type="button" class="menu-item" data-action="history">📅 Broadcast History</button>
-      <button type="button" class="menu-item" data-action="about">ℹ️ About</button>
-    </nav>
 
+    <!-- NAVIGATION -->
+    <div class="navbar">
+        <a class="xp-button" href="#">Home</a>
+        <a class="xp-button" href="#dubs">Dubs</a>
+        <a class="xp-button" href="#about">About</a>
+        <a class="xp-button" href="#credits">Credits</a>
+    </div>
+
+
+    <!-- HERO -->
+    <div class="hero">
+
+        <div class="jellyfish one"></div>
+        <div class="jellyfish two"></div>
+
+        <div class="hero-content">
+            <div class="hero-badge">NICKELODEON • INTERNATIONAL ARCHIVE</div>
+
+            <h1>HELP WANTED</h1>
+
+            <p>
+                A multilingual archive of SpongeBob SquarePants'
+                first episode.
+            </p>
+
+            <p>
+                Explore international titles, dub versions,
+                broadcasters and dubbing information.
+            </p>
+        </div>
+
+    </div>
+
+
+    <!-- CONTENT -->
     <div class="content">
 
-      <!-- Header banner -->
-      <header class="banner">
-        <h1>HELP WANTED</h1>
-        <p>A multilingual archive of SpongeBob SquarePants' first episode.</p>
-      </header>
+        <!-- SIDEBAR -->
+        <aside>
 
-      <!-- Statistics -->
-      <section class="stats" aria-label="Archive statistics">
-        <div class="stat"><span class="stat-label">Dubs listed</span><span class="stat-value" id="stat-dubs">…</span></div>
-        <div class="stat"><span class="stat-label">Languages</span><span class="stat-value" id="stat-languages">…</span></div>
-        <div class="stat"><span class="stat-label">Episode</span><span class="stat-value" id="stat-episodes">…</span></div>
-        <div class="stat"><span class="stat-label">Status</span><span class="stat-value" id="stat-status">…</span></div>
-      </section>
+            <div class="window">
 
-      <!-- Video player -->
-      <section class="panel" id="player-section">
-        <div class="panel-title">▶ Currently Playing</div>
-        <div class="panel-body">
-          <p class="now-playing" id="now-playing">Now playing: Test player</p>
-          <div class="video-frame">
-            <iframe id="player-frame" src="https://streamtape.com/e/e3v3o7K0jLcwv4" title="Video player" allowfullscreen></iframe>
-            <div class="video-unavailable" id="player-unavailable" hidden>
-              <span>⚠ Video unavailable for this version.</span>
+                <div class="window-title">
+                    Archive Menu
+                </div>
+
+                <div class="window-body">
+
+                    <ul class="sidebar-menu">
+
+                        <li>
+                            <a href="#dubs">
+                                🌐 All Dubs
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#dubs">
+                                📺 TV Versions
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#dubs">
+                                🎙️ Dub Versions
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#dubs">
+                                📅 International Titles
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#about">
+                                ℹ️ About
+                            </a>
+                        </li>
+
+                    </ul>
+
+
+                    <div class="stats">
+
+                        <strong>Archive Statistics</strong>
+
+                        <hr>
+
+                        Languages:
+                        <b id="languageCount">0</b>
+
+                        <br>
+
+                        Multiple versions:
+                        <b id="versionCount">0</b>
+
+                        <br>
+
+                        Episode:
+                        <b>1A</b>
+
+                        <br>
+
+                        Status:
+                        <b>Work in progress</b>
+
+                    </div>
+
+                </div>
+
             </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- Database table -->
-      <section class="panel" id="database">
-        <div class="panel-title">🌐 Dub Database</div>
-        <div class="panel-body">
-          <div class="db-error" id="db-error" hidden></div>
-          <div class="table-wrap">
-            <table class="dub-table">
-              <thead>
-                <tr>
-                  <th scope="col">Language</th>
-                  <th scope="col">Dub Name</th>
-                  <th scope="col">Versions</th>
-                  <th scope="col">Play</th>
-                </tr>
-              </thead>
-              <tbody id="dub-tbody">
-                <tr><td colspan="4" class="loading-cell">Loading database…</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
+        </aside>
 
-      <!-- Archive information -->
-      <section class="info-section" id="info-section">
-        <button type="button" class="xp-btn" id="info-toggle" aria-expanded="false" aria-controls="info-box">▼ Show more information</button>
-        <div class="info-box" id="info-box" hidden>
-          <h2>About this archive</h2>
-          <p>This is a fan-made archive of the international dubs of the SpongeBob SquarePants episode "Help Wanted". It is a work in progress and is not affiliated with Nickelodeon, Paramount, or any broadcaster or dubbing studio.</p>
-          <h2>About the data</h2>
-          <p>Language and version lists are based on research from the Dubbing Database wiki (dubdb.fandom.com). Dub titles, studios, and cast are only filled in when they have been verified. A dash or a "not yet verified" note means the information still needs to be confirmed.</p>
-          <h2>About the videos</h2>
-          <p>Only versions with a video link can be played. The player at the top currently shows a test embed. Versions without a link show "Video unavailable".</p>
-          <h2>Contributing</h2>
-          <p>To add or correct an entry, edit the <code>dubs</code> list at the top of <code>script.js</code>.</p>
-        </div>
-      </section>
+
+        <!-- MAIN -->
+        <main>
+
+            <!-- VIDEO PLAYER -->
+            <div class="window player-window">
+
+                <div class="window-title">
+                    ▶ Currently Playing
+                </div>
+
+                <div class="window-body">
+
+                    <div class="video" id="videoPlayer">
+
+                        <div class="video-placeholder">
+                            <div class="video-placeholder-icon">▶</div>
+
+                            <strong>Select a dub</strong>
+
+                            <span>
+                                No authorized video source has been
+                                attached to this entry yet.
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <div class="now-playing">
+
+                        Now playing:
+
+                        <span id="nowPlaying">
+                            Nothing selected
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DUB TABLE -->
+            <div class="window" id="dubs">
+
+                <div class="window-title">
+                    🌐 International Dubs
+                </div>
+
+                <div class="window-body">
+
+                    <div class="table-note">
+                        <strong>HELP WANTED</strong> — SpongeBob SquarePants
+                        S1E1A
+                    </div>
+
+                    <div class="table-wrapper">
+
+                        <table class="dub-table">
+
+                            <thead>
+
+                                <tr>
+                                    <th>Language</th>
+                                    <th>Show Title</th>
+                                    <th>Versions</th>
+                                    <th>Play</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="dubTableBody"></tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <!-- SHOW MORE -->
+                    <div class="show-more-container">
+
+                        <button
+                            class="xp-button"
+                            id="showMoreButton"
+                            onclick="toggleArchiveInfo()">
+
+                            ▼ Show more information
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- ARCHIVE INFORMATION -->
+                    <div
+                        class="archive-info"
+                        id="archiveInfo">
+
+                        <h3>📋 Archive Information</h3>
+
+                        <div class="details-grid">
+
+                            <div class="detail-box">
+                                <span class="detail-label">
+                                    Episode
+                                </span>
+
+                                <br><br>
+
+                                SpongeBob SquarePants
+                                <br>
+                                Season 1, Episode 1A
+                                <br>
+                                <strong>Help Wanted</strong>
+                            </div>
+
+
+                            <div class="detail-box">
+                                <span class="detail-label">
+                                    International titles
+                                </span>
+
+                                <br><br>
+
+                                The table records localized
+                                show titles rather than translating
+                                the episode title.
+                            </div>
+
+
+                            <div class="detail-box">
+                                <span class="detail-label">
+                                    Versions
+                                </span>
+
+                                <br><br>
+
+                                Where multiple documented versions
+                                exist, use "Show versions" to expand
+                                the entry.
+                            </div>
+
+
+                            <div class="detail-box">
+                                <span class="detail-label">
+                                    Broadcast information
+                                </span>
+
+                                <br><br>
+
+                                Documented broadcasters and production
+                                versions are listed where available.
+                            </div>
+
+
+                            <div class="detail-box">
+                                <span class="detail-label">
+                                    Video
+                                </span>
+
+                                <br><br>
+
+                                Video sources are intentionally left
+                                blank unless an authorized source is
+                                added to the database.
+                            </div>
+
+
+                            <div class="detail-box">
+                                <span class="detail-label">
+                                    Source
+                                </span>
+
+                                <br><br>
+
+                                International-version information is
+                                based on The Dubbing Database and
+                                related documentation.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ABOUT -->
+            <div class="window about" id="about">
+
+                <div class="window-title">
+                    ℹ️ About This Archive
+                </div>
+
+                <div class="window-body">
+
+                    <p>
+                        This is a fan-made archive documenting
+                        international language versions of
+                        <strong>SpongeBob SquarePants</strong>.
+                    </p>
+
+                    <p>
+                        The main table records the localized
+                        <strong>name of the show</strong>, rather
+                        than simply repeating "Help Wanted" for
+                        every language.
+                    </p>
+
+                    <p>
+                        Multiple documented dubbing, broadcast and
+                        production versions can be expanded directly
+                        from the table.
+                    </p>
+
+                    <p>
+                        <strong>Archive status:</strong>
+                        Work in progress.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- CREDITS -->
+            <div class="window about" id="credits">
+
+                <div class="window-title">
+                    📝 Credits
+                </div>
+
+                <div class="window-body">
+
+                    <p>
+                        Archive design and development:
+                        Help Wanted Dub Archive
+                    </p>
+
+                    <p>
+                        International dubbing information:
+                        The Dubbing Database and other documented
+                        sources.
+                    </p>
+
+                    <p>
+                        This is an unofficial fan archive and is not
+                        affiliated with Nickelodeon or Paramount.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </main>
 
     </div>
 
-    <!-- XP status bar -->
-    <div class="statusbar">
-      <span class="status-cell" id="status-text">Ready</span>
-      <span class="status-cell status-right">🌊 Bikini Bottom Internet Zone</span>
+
+    <!-- FOOTER -->
+    <div class="footer">
+
+        HELP WANTED DUB ARCHIVE
+
+        ·
+
+        International SpongeBob versions
+
+        ·
+
+        Best viewed at 1024 × 768
+
+        ·
+
+        Windows XP compatible
+
     </div>
 
-  </div>
+</div>
 
-  <script src="script.js"></script>
+
+<!-- IMPORTANT: the file is dub.js, not dubs.js -->
+<script src="dub.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>
