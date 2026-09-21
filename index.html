@@ -63,11 +63,11 @@
                 <div class="stats-grid">
                     <div class="stat-item">
                         <span class="stat-label">Dubs Listed:</span>
-                        <span id="stat-dubs-count" class="stat-value">0</span>
+                        <span id="stat-dubs-count" class="stat-value">85+</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">Languages:</span>
-                        <span id="stat-languages-count" class="stat-value">0</span>
+                        <span id="stat-languages-count" class="stat-value">71</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">Episode:</span>
@@ -84,7 +84,7 @@
             <section class="player-section">
                 <div class="player-header">
                     <span class="player-title">▶ Currently Playing</span>
-                    <span id="now-playing-label" class="now-playing-info">Default Test Player (English)</span>
+                    <span id="now-playing-label" class="now-playing-info">English — Help Wanted</span>
                 </div>
                 
                 <div class="player-container">
@@ -111,38 +111,209 @@
                                 <th style="width: 15%;">Play</th>
                             </tr>
                         </thead>
-                        <tbody id="dub-table-body">
-                            <!-- Populated dynamically by script.js -->
-                        </tbody>
-                    </table>
-                </div>
-            </section>
+                        <tbody>
+                            <!-- English -->
+                            <tr class="main-row">
+                                <td><strong>English</strong></td>
+                                <td>Help Wanted</td>
+                                <td><span class="no-versions">—</span></td>
+                                <td><button class="xp-action-btn play-btn" onclick="playDub('English — Help Wanted', 'https://streamtape.com/e/e3v3o7K0jLcwv4')">▶ Play</button></td>
+                            </tr>
 
-            <!-- Archive Information Toggle Section -->
-            <section class="info-toggle-section">
-                <button id="toggle-info-btn" class="xp-action-btn toggle-btn">
-                    <span class="arrow">▼</span> Show more information
-                </button>
-                
-                <div id="info-content-box" class="info-box hidden">
-                    <h3>About the Help Wanted Dub Archive</h3>
-                    <p>This fan-made project aims to document and catalog all official international dubs and broadcasts of the pilot episode of <em>SpongeBob SquarePants</em> ("Help Wanted" / 1999).</p>
-                    <ul>
-                        <li><strong>Data Verification:</strong> Information is sourced from community preservation efforts and verified databases like DubDB.</li>
-                        <li><strong>Multiple Dubs:</strong> Languages with redubs or alternate network releases feature expandable version sub-rows.</li>
-                        <li><strong>Video Availability:</strong> Streams are provided where legitimate fan embeds exist. Versions without confirmed links remain cataloged for historical completeness.</li>
-                    </ul>
-                </div>
-            </section>
+                            <!-- Afrikaans -->
+                            <tr class="main-row">
+                                <td><strong>Afrikaans</strong></td>
+                                <td>Hulp Gevra</td>
+                                <td><span class="no-versions">—</span></td>
+                                <td><button class="xp-action-btn play-btn" onclick="playDub('Afrikaans — Hulp Gevra', '')">▶ Play</button></td>
+                            </tr>
 
-            <!-- Footer -->
-            <footer class="xp-footer">
-                <p>SpongeBob SquarePants © Nickelodeon / Paramount Global. This website is an independent non-commercial fan project.</p>
-            </footer>
+                            <!-- Albanian -->
+                            <tr class="main-row">
+                                <td><strong>Albanian</strong></td>
+                                <td>Kërkohet Ndihmë</td>
+                                <td><span class="no-versions">—</span></td>
+                                <td><button class="xp-action-btn play-btn" onclick="playDub('Albanian — Kërkohet Ndihmë', '')">▶ Play</button></td>
+                            </tr>
 
-        </div>
-    </main>
+                            <!-- Arabic -->
+                            <tr class="main-row">
+                                <td><strong>Arabic</strong></td>
+                                <td>مطلوب موظف</td>
+                                <td><button class="xp-action-btn version-btn" onclick="toggleVersion('ver-arabic', this)">▶ Show versions (3)</button></td>
+                                <td><button class="xp-action-btn play-btn" onclick="playDub('Arabic — مطلوب موظف', '')">▶ Play</button></td>
+                            </tr>
+                            <tr id="ver-arabic" class="version-row hidden">
+                                <td colspan="4">
+                                    <div class="version-container">
+                                        <div class="version-item">
+                                            <div class="version-details"><span class="version-title-text">Childhood Voice Institute</span><span class="version-studio-text">Studio: Childhood Voice Institute</span></div>
+                                            <button class="xp-action-btn play-btn" onclick="playDub('Arabic (Childhood Voice Institute)', '')">▶ Play Version</button>
+                                        </div>
+                                        <div class="version-item">
+                                            <div class="version-details"><span class="version-title-text">Image Production House</span><span class="version-studio-text">Studio: Image Production House</span></div>
+                                            <button class="xp-action-btn play-btn" onclick="playDub('Arabic (Image Production House)', '')">▶ Play Version</button>
+                                        </div>
+                                        <div class="version-item">
+                                            <div class="version-details"><span class="version-title-text">Neo Productions / New Interactive Studio</span><span class="version-studio-text">Studio: Neo Productions</span></div>
+                                            <button class="xp-action-btn play-btn" onclick="playDub('Arabic (Neo Productions)', '')">▶ Play Version</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
 
-    <script src="script.js"></script>
-</body>
-</html>
+                            <!-- Armenian -->
+                            <tr class="main-row">
+                                <td><strong>Armenian</strong></td>
+                                <td>Փնտրվում է աշխատակից</td>
+                                <td><span class="no-versions">—</span></td>
+                                <td><button class="xp-action-btn play-btn" onclick="playDub('Armenian', '')">▶ Play</button></td>
+                            </tr>
+
+                            <!-- Assamese -->
+                            <tr class="main-row">
+                                <td><strong>Assamese</strong></td>
+                                <td><em>Needs Verification</em></td>
+                                <td><span class="no-versions">—</span></td>
+                                <td><button class="xp-action-btn play-btn" onclick="playDub('Assamese', '')">▶ Play</button></td>
+                            </tr>
+
+                            <!-- Azerbaijani -->
+                            <tr class="main-row">
+                                <td><strong>Azerbaijani</strong></td>
+                                <td>Köməkçilər Axtarılır</td>
+                                <td><button class="xp-action-btn version-btn" onclick="toggleVersion('ver-azerbaijani', this)">▶ Show versions (2)</button></td>
+                                <td><button class="xp-action-btn play-btn" onclick="playDub('Azerbaijani', '')">▶ Play</button></td>
+                            </tr>
+                            <tr id="ver-azerbaijani" class="version-row hidden">
+                                <td colspan="4">
+                                    <div class="version-container">
+                                        <div class="version-item">
+                                            <div class="version-details"><span class="version-title-text">Northern Azerbaijani</span><span class="version-studio-text">Studio: Unknown</span></div>
+                                            <button class="xp-action-btn play-btn" onclick="playDub('Northern Azerbaijani', '')">▶ Play Version</button>
+                                        </div>
+                                        <div class="version-item">
+                                            <div class="version-details"><span class="version-title-text">Southern Azerbaijani</span><span class="version-studio-text">Studio: Unknown</span></div>
+                                            <button class="xp-action-btn play-btn" onclick="playDub('Southern Azerbaijani', '')">▶ Play Version</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Bengali -->
+                            <tr class="main-row">
+                                <td><strong>Bengali</strong></td>
+                                <td>সাহায্য চাই</td>
+                                <td><button class="xp-action-btn version-btn" onclick="toggleVersion('ver-bengali', this)">▶ Show versions (2)</button></td>
+                                <td><button class="xp-action-btn play-btn" onclick="playDub('Bengali', '')">▶ Play</button></td>
+                            </tr>
+                            <tr id="ver-bengali" class="version-row hidden">
+                                <td colspan="4">
+                                    <div class="version-container">
+                                        <div class="version-item">
+                                            <div class="version-details"><span class="version-title-text">Audio People</span><span class="version-studio-text">Studio: Audio People</span></div>
+                                            <button class="xp-action-btn play-btn" onclick="playDub('Bengali (Audio People)', '')">▶ Play Version</button>
+                                        </div>
+                                        <div class="version-item">
+                                            <div class="version-details"><span class="version-title-text">Octave Studio</span><span class="version-studio-text">Studio: Octave Studio</span></div>
+                                            <button class="xp-action-btn play-btn" onclick="playDub('Bengali (Octave Studio)', '')">▶ Play Version</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Bulgarian -->
+                            <tr class="main-row">
+                                <td><strong>Bulgarian</strong></td>
+                                <td>Tursi se pomoshtnik</td>
+                                <td><span class="no-versions">—</span></td>
+                                <td><button class="xp-action-btn play-btn" onclick="playDub('Bulgarian', '')">▶ Play</button></td>
+                            </tr>
+
+                            <!-- Cantonese -->
+                            <tr class="main-row">
+                                <td><strong>Cantonese</strong></td>
+                                <td>急聘助手</td>
+                                <td><button class="xp-action-btn version-btn" onclick="toggleVersion('ver-cantonese', this)">▶ Show versions (3)</button></td>
+                                <td><button class="xp-action-btn play-btn" onclick="playDub('Cantonese', '')">▶ Play</button></td>
+                            </tr>
+                            <tr id="ver-cantonese" class="version-row hidden">
+                                <td colspan="4">
+                                    <div class="version-container">
+                                        <div class="version-item">
+                                            <div class="version-details"><span class="version-title-text">ATV Home</span><span class="version-studio-text">Broadcaster: ATV Home</span></div>
+                                            <button class="xp-action-btn play-btn" onclick="playDub('Cantonese (ATV Home)', '')">▶ Play Version</button>
+                                        </div>
+                                        <div class="version-item">
+                                            <div class="version-details"><span class="version-title-text">Netflix</span><span class="version-studio-text">Platform: Netflix</span></div>
+                                            <button class="xp-action-btn play-btn" onclick="playDub('Cantonese (Netflix)', '')">▶ Play Version</button>
+                                        </div>
+                                        <div class="version-item">
+                                            <div class="version-details"><span class="version-title-text">ViuTV</span><span class="version-studio-text">Broadcaster: ViuTV</span></div>
+                                            <button class="xp-action-btn play-btn" onclick="playDub('Cantonese (ViuTV)', '')">▶ Play Version</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Croatian -->
+                            <tr class="main-row">
+                                <td><strong>Croatian</strong></td>
+                                <td>Traži se pomoćnik</td>
+                                <td><button class="xp-action-btn version-btn" onclick="toggleVersion('ver-croatian', this)">▶ Show versions (2)</button></td>
+                                <td><button class="xp-action-btn play-btn" onclick="playDub('Croatian', '')">▶ Play</button></td>
+                            </tr>
+                            <tr id="ver-croatian" class="version-row hidden">
+                                <td colspan="4">
+                                    <div class="version-container">
+                                        <div class="version-item">
+                                            <div class="version-details"><span class="version-title-text">Project 6 Studio</span><span class="version-studio-text">Studio: Project 6 Studio</span></div>
+                                            <button class="xp-action-btn play-btn" onclick="playDub('Croatian (Project 6 Studio)', '')">▶ Play Version</button>
+                                        </div>
+                                        <div class="version-item">
+                                            <div class="version-details"><span class="version-title-text">VSI-NET</span><span class="version-studio-text">Studio: VSI-NET</span></div>
+                                            <button class="xp-action-btn play-btn" onclick="playDub('Croatian (VSI-NET)', '')">▶ Play Version</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Czech -->
+                            <tr class="main-row">
+                                <td><strong>Czech</strong></td>
+                                <td>Hledá se kuchař</td>
+                                <td><span class="no-versions">—</span></td>
+                                <td><button class="xp-action-btn play-btn" onclick="playDub('Czech', '')">▶ Play</button></td>
+                            </tr>
+
+                            <!-- Danish -->
+                            <tr class="main-row">
+                                <td><strong>Danish</strong></td>
+                                <td>Hjælp Søges</td>
+                                <td><span class="no-versions">—</span></td>
+                                <td><button class="xp-action-btn play-btn" onclick="playDub('Danish', '')">▶ Play</button></td>
+                            </tr>
+
+                            <!-- Dari -->
+                            <tr class="main-row">
+                                <td><strong>Dari</strong></td>
+                                <td><em>Needs Verification</em></td>
+                                <td><span class="no-versions">—</span></td>
+                                <td><button class="xp-action-btn play-btn" onclick="playDub('Dari', '')">▶ Play</button></td>
+                            </tr>
+
+                            <!-- Dutch -->
+                            <tr class="main-row">
+                                <td><strong>Dutch</strong></td>
+                                <td>Hulp Gevraagd</td>
+                                <td><span class="no-versions">—</span></td>
+                                <td><button class="xp-action-btn play-btn" onclick="playDub('Dutch', '')">▶ Play</button></td>
+                            </tr>
+
+                            <!-- Filipino -->
+                            <tr class="main-row">
+                                <td><strong>Filipino</strong></td>
+                                <td>Kailangan ng Tulong</td>
+                                <td><span class="no-versions">—</span></td>
+                                <td><button class="xp-action-btn play-btn" onclick="playDub('Filipino', '')">▶ Play</button></td>
+                            </
