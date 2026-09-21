@@ -1,8 +1,8 @@
 /* =========================================================
-   HELP WANTED — AVAILABILITY AND VERSION PLAYBACK ENHANCEMENTS
+   HELP WANTED — AVAILABILITY, ENGLISH, AND FAN-DUB CONTROLS
 
-   Every dub is unavailable until an authorized source is explicitly
-   enabled in dub.js by setting available: true.
+   Every dub remains unavailable until an authorized source is
+   explicitly enabled in dub.js by setting available: true.
    ========================================================= */
 
 "use strict";
@@ -25,11 +25,19 @@ function markUnavailable(button, label) {
     button.setAttribute("aria-label", label + " unavailable");
 }
 
-function addVersionPlaybackOptions() {
-    if (typeof dubs === "undefined" || !Array.isArray(dubs)) {
-        return;
+function addEnglishDub() {
+    if (!dubs.some(function (dub) { return dub.language === "English"; })) {
+        dubs.unshift({
+            language: "English",
+            flag: "🇺🇸",
+            title: "SpongeBob SquarePants",
+            versions: [],
+            available: false
+        });
     }
+}
 
+function addVersionPlaybackOptions() {
     const mainRows = document.querySelectorAll("#dubTableBody tr.main-row");
 
     dubs.forEach(function (dub, index) {
@@ -81,4 +89,91 @@ function addVersionPlaybackOptions() {
     });
 }
 
-document.addEventListener("DOMContentLoaded", addVersionPlaybackOptions);
+function getFanDubRows(mainRow) {
+    const rows = [mainRow];
+    let row = mainRow.nextElementSibling;
+
+    while (row && (row.classList.contains("version-row") || row.classList.contains("details-row"))) {
+        rows.push(row);
+        row = row.nextElementSibling;
+    }
+
+    return rows;
+}
+
+function setupFanDubDropdown() {
+    const table = document.querySelector(".dub-table");
+    const fanRows = Array.from(document.querySelectorAll("#dubTableBody tr.main-row.real-fandub-row"));
+
+    if (!table || !fanRows.length) {
+        return;
+    }
+
+    const oldMenu = document.getElementById("fanDubMenu");
+    if (oldMenu) {
+        oldMenu.remove();
+    }
+
+    const menu = document.createElement("div");
+    menu.id = "fanDubMenu";
+    menu.className = "fan-dub-menu";
+
+    const label = document.createElement("label");
+    label.htmlFor = "fanDubSelect";
+    label.textContent = "🎙️ Fan dubs: ";
+
+    const select = document.createElement("select");
+    select.id = "fanDubSelect";
+    select.className = "xp-button";
+    select.innerHTML = "<option value=\"\">Select a fan dub</option>";
+
+    fanRows.forEach(function (row, index) {
+        const dub = dubs.find(function (entry) {
+            return entry.realFandub && entry.language === row.querySelector(".language").textContent.replace(/^\S+\s/, "");
+        });
+
+        const option = document.createElement("option");
+        option.value = String(index);
+        option.textContent = dub
+            ? dub.language + " — " + dub.title
+            : row.querySelector(".language").textContent + " — " + row.querySelector(".show-title").textContent;
+        select.appendChild(option);
+    });
+
+    const allFanRows = fanRows.map(getFanDubRows);
+    allFanRows.forEach(function (rows) {
+        rows.forEach(function (row) {
+            row.hidden = true;
+        });
+    });
+
+    select.addEventListener("change", function () {
+        allFanRows.forEach(function (rows) {
+            rows.forEach(function (row) {
+                row.hidden = true;
+            });
+        });
+
+        const selectedRows = allFanRows[Number(select.value)];
+        if (selectedRows) {
+            selectedRows.forEach(function (row) {
+                row.hidden = false;
+            });
+        }
+    });
+
+    menu.appendChild(label);
+    menu.appendChild(select);
+    table.parentNode.insertBefore(menu, table);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    if (typeof dubs === "undefined" || !Array.isArray(dubs)) {
+        return;
+    }
+
+    addEnglishDub();
+    buildDubTable();
+    addVersionPlaybackOptions();
+    setupFanDubDropdown();
+});
