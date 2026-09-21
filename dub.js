@@ -816,7 +816,7 @@ const dubs = [
         title: "SpongeBob SquarePants",
         versions: [
             {
-                name:"Fan dub",
+                name: "Fan dub",
                 info: "Google Drive; YouTube season 10 upcoming"
             }
         ],
