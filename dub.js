@@ -902,8 +902,376 @@ const dubs = [
             {
                 name: "Alternate title",
                 info: "SpongeBob SquarePants"
-            }
+            },
+/* =========================================================
+   REAL FANDUBS
+   Source: Fandub Database — SpongeBob SquarePants
+
+   realFandub = true makes the entry receive the pink
+   fandub styling and enables its expanded information panel.
+========================================================= */
+
+    {
+        language: "Aeviek",
+        flag: "🟪",
+        title: "Sænkrquckéranti",
+        versions: [],
+        realFandub: true,
+        details: {
+            type: "Real fandub",
+            completeness: "Not yet documented",
+            distribution: "Avi Go!",
+            notes: "Fan-made language",
+            source: "Fandub Database"
+        }
+    },
+
+    {
+        language: "Bambara",
+        flag: "🇲🇱",
+        title: "SpongeBob Ka Pantalon Carré",
+        versions: [],
+        realFandub: true,
+        details: {
+            type: "Real fandub",
+            completeness: "Not yet documented",
+            distribution: "Internet Archive (upcoming)",
+            notes: "Fan-made Bambara dub",
+            source: "Fandub Database"
+        }
+    },
+
+    {
+        language: "Belarusian",
+        flag: "🇧🇾",
+        title: "Спанч Боб Скуэ Пэнс",
+        versions: [],
+        realFandub: true,
+        details: {
+            type: "Real fandub",
+            completeness: "Not yet documented",
+            distribution: "Kinakipa",
+            notes: "Fan-made Belarusian dub",
+            source: "Fandub Database"
+        }
+    },
+
+    {
+        language: "Belarusian",
+        flag: "🇧🇾",
+        title: "Губка Боб Квадратныя Штаны",
+        versions: [],
+        realFandub: true,
+        details: {
+            type: "Real fandub",
+            completeness: "Not yet documented",
+            distribution: "Google Drive (upcoming)",
+            notes: "Bondian Dubbing Studios fan dub",
+            source: "Fandub Database"
+        }
+    },
+
+    {
+        language: "Berber",
+        flag: "🌍",
+        title: "Lponge Lhcen",
+        versions: [],
+        realFandub: true,
+        details: {
+            type: "Real fandub",
+            completeness: "Not yet documented",
+            distribution: "Veoh (formerly)",
+            notes: "",
+            source: "Fandub Database"
+        }
+    },
+
+    {
+        language: "Bosnian",
+        flag: "🇧🇦",
+        title: "Spužva Bob KockaPantaloni",
+        versions: [],
+        realFandub: true,
+        details: {
+            type: "Real fandub",
+            completeness: "Not yet documented",
+            distribution: "Google Drive",
+            notes: "Project BR fan dub",
+            source: "Fandub Database"
+        }
+    },
+
+    {
+        language: "Burmese",
+        flag: "🇲🇲",
+        title: "ရေမြှုပ်ဘော့ စတုရမ်း",
+        versions: [],
+        realFandub: true,
+        details: {
+            type: "Real fandub",
+            completeness: "Not yet documented",
+            distribution: "Google Drive",
+            notes: "BFTT Studios fan dub",
+            source: "Fandub Database"
+        }
+    },
+
+    {
+        language: "Ededd",
+        flag: "🟪",
+        title: "Bbcebbe Sueazdjdalx",
+        versions: [],
+        realFandub: true,
+        details: {
+            type: "Real fandub",
+            completeness: "Not yet documented",
+            distribution: "YouTube",
+            notes: "Fan-made language",
+            source: "Fandub Database"
+        }
+    },
+
+    {
+        language: "Estonian",
+        flag: "🇪🇪",
+        title: "Käsna-Kalle Kantpüks",
+        versions: [],
+        realFandub: true,
+        details: {
+            type: "Real fandub",
+            completeness: "Not yet documented",
+            distribution: "Google Drive; YouTube (upcoming)",
+            notes: "Media Hyper Studio fan dub",
+            source: "Fandub Database"
+        }
+    },
+
+    {
+        language: "Guinea-Bissau Creole",
+        flag: "🇬🇼",
+        title: "SpongeBob SquarePants",
+        versions: [],
+        realFandub: true,
+        details: {
+            type: "Real fandub",
+            completeness: "Not yet documented",
+            distribution: "Google Drive; YouTube (season 10 only, upcoming)",
+            notes: "",
+            source: "Fandub Database"
+        }
+    },
+
+    {
+        language: "Latvian",
+        flag: "🇱🇻",
+        title: "Sūklis Bobs Kvātrbiksis",
+        versions: [],
+        realFandub: true,
+        details: {
+            type: "Real fandub",
+            completeness: "Not yet documented",
+            distribution: "YouTube (upcoming)",
+            notes: "Latvian Project Studio fan dub",
+            source: "Fandub Database"
+        }
+    },
+
+    {
+        language: "Luxembourgish",
+        flag: "🇱🇺",
+        title: "SchwammBob QuadratHosen",
+        versions: [],
+        realFandub: true,
+        details: {
+            type: "Real fandub",
+            completeness: "Not yet documented",
+            distribution: "Google Drive (upcoming); YouTube (upcoming)",
+            notes: "",
+            source: "Fandub Database"
+        }
+    },
+
+    {
+        language: "Macedonian",
+        flag: "🇲🇰",
+        title: "Сунѓерот Боб",
+        versions: [],
+        realFandub: true,
+        details: {
+            type: "Real fandub",
+            completeness: "Not yet documented",
+            distribution: "Google Drive (formerly)",
+            notes: "Project BR fan dub, 2017",
+            source: "Fandub Database"
+        }
+    },
+
+    {
+        language: "Macedonian",
+        flag: "🇲🇰",
+        title: "Сунѓерот Боб Плоштадот Панталони",
+        versions: [],
+        realFandub: true,
+        details: {
+            type: "Real fandub",
+            completeness: "Not yet documented",
+            distribution: "Google Drive (formerly)",
+            notes: "Project BR fan dub, 2018",
+            source: "Fandub Database"
+        }
+    },
+
+    {
+        language: "Occitan",
+        flag: "🇫🇷",
+        title: "Bob Esponja",
+        versions: [],
+        realFandub: true,
+        details: {
+            type: "Real fandub",
+            completeness: "Not yet documented",
+            distribution: "Google Drive (upcoming)",
+            notes: "Occitan Dubbing Studio fan dub",
+            source: "Fandub Database"
+        }
+    },
+
+    {
+        language: "Ojibwe",
+        flag: "🪶",
+        title: "Biinichigens",
+        versions: [],
+        realFandub: true,
+        details: {
+            type: "Real fandub",
+            completeness: "Not yet documented",
+            distribution: "YouTube",
+            notes: "Love 2 Dub Ojibwe fan dub",
+            source: "Fandub Database"
+        }
+    },
+
+    {
+        language: "Portuguese (Brazil)",
+        flag: "🇧🇷",
+        title: "Bob Esponja",
+        versions: [],
+        realFandub: true,
+        details: {
+            type: "Real fandub",
+            completeness: "Not yet documented",
+            distribution: "YouTube",
+            notes: "Soberana TV fan dub",
+            source: "Fandub Database"
+        }
+    },
+
+    {
+        language: "Portuguese (Brazil)",
+        flag: "🇧🇷",
+        title: "Bob Esponja Calça Quadrada",
+        versions: [],
+        realFandub: true,
+        details: {
+            type: "Real fandub",
+            completeness: "Not yet documented",
+            distribution: "YouTube; Google Drive",
+            notes: "",
+            source: "Fandub Database"
+        }
+    },
+
+    {
+        language: "Polish",
+        flag: "🇵🇱",
+        title: "Zabawny SpongeBob",
+        versions: [],
+        realFandub: true,
+        details: {
+            type: "Real fandub",
+            completeness: "Not yet documented",
+            distribution: "Google Drive; YouTube (presumably)",
+            notes: "Chromium fan dub",
+            source: "Fandub Database"
+        }
+    },
+
+    {
+        language: "Rexan",
+        flag: "🟪",
+        title: "Фсрогегрб фqхатетаофу",
+        versions: [],
+        realFandub: true,
+        details: {
+            type: "Real fandub",
+            completeness: "Not yet documented",
+            distribution: "Google Drive; YouTube",
+            notes: "Fan-made language",
+            source: "Fandub Database"
+        }
+    },
+
+    {
+        language: "Speaki",
+        flag: "🟪",
+        title: "Cuayo Speaki",
+        versions: [],
+        realFandub: true,
+        details: {
+            type: "Real fandub",
+            completeness: "Not yet documented",
+            distribution: "Internet Archive",
+            notes: "Fan-made language",
+            source: "Fandub Database"
+        }
+    },
+
+    {
+        language: "Welsh",
+        flag: "🏴",
+        title: "SpynjBob Pantsgwâr",
+        versions: [],
+        realFandub: true,
+        details: {
+            type: "Real fandub",
+            completeness: "Not yet documented",
+            distribution: "Google Drive (upcoming)",
+            notes: "Light Idea Productions fan dub",
+            source: "Fandub Database"
+        }
+    },
+
+    {
+        language: "Quebec Spanish",
+        flag: "🇨🇦",
+        title: "Bob Esponja",
+        versions: [],
+        realFandub: true,
+        details: {
+            type: "Real fandub",
+            completeness: "Not yet documented",
+            distribution: "YouTube; Google Drive",
+            notes: "",
+            source: "Fandub Database"
+        }
+    },
+
+    {
+        language: "Zenderstien",
+        flag: "🟪",
+        title: "Spûngubûb Sὰéἑἑupἑnήὀ",
+        versions: [],
+        realFandub: true,
+        details: {
+            type: "Real fandub",
+            completeness: "Not yet documented",
+            distribution: "YouTube; Google Drive",
+            notes: "Fan-made language",
+            source: "Fandub Database"
+        }
+    }
         ]
+
     }
 
 ];
