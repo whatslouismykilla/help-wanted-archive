@@ -1,574 +1,336 @@
-/* =========================================================
-HELP WANTED — DUB ARCHIVE
-Main JavaScript
-========================================================= */
-
-/* =========================================================
-BUILD DUB TABLE
-========================================================= */
-
-function buildDubTable() {
-
-const tableBody =
-    document.getElementById("dubTableBody");
-
-const databaseStatus =
-    document.getElementById("databaseStatus");
-
-const databaseError =
-    document.getElementById("databaseError");
-
-
-/* -----------------------------------------
-   DATABASE CHECK
------------------------------------------ */
-
-if (typeof dubs === "undefined" || !Array.isArray(dubs)) {
-
-    console.error(
-        "HELP WANTED ARCHIVE: dub.js did not load correctly."
-    );
-
-    databaseStatus.textContent = "Error";
-    databaseError.hidden = false;
-
-    return;
-}
-
-
-/* -----------------------------------------
-   CLEAR TABLE
------------------------------------------ */
-
-tableBody.innerHTML = "";
-
-databaseError.hidden = true;
-
-
-let multipleVersions = 0;
-
-
-/* -----------------------------------------
-   CREATE EACH DUB
------------------------------------------ */
-
-dubs.forEach(function (dub, index) {
-
-    const mainRow =
-        document.createElement("tr");
-
-    mainRow.className = "main-row";
-
-
-    /* LANGUAGE */
-
-    const languageCell =
-        document.createElement("td");
-
-    languageCell.className = "language";
-
-    languageCell.textContent =
-        dub.flag
-            ? dub.flag + " " + dub.language
-            : dub.language;
-
-
-    /* TITLE */
-
-    const titleCell =
-        document.createElement("td");
-
-    titleCell.textContent =
-        dub.title || "Unknown";
-
-
-    /* VERSIONS */
-
-    const versionsCell =
-        document.createElement("td");
-
-    versionsCell.className = "versions-cell";
-
-
-    /* PLAY */
-
-    const playCell =
-        document.createElement("td");
-
-    playCell.className = "play-cell";
-
-
-    /* -----------------------------------------
-       VERSION BUTTON
-    ----------------------------------------- */
-
-    if (
-        Array.isArray(dub.versions) &&
-        dub.versions.length > 1
-    ) {
-
-        multipleVersions++;
-
-
-        const versionButton =
-            document.createElement("button");
-
-        versionButton.type = "button";
-
-        versionButton.className =
-            "version-button";
-
-        versionButton.textContent =
-            "▶ Show versions";
-
-
-        const versionId =
-            "versions-" + index;
-
-
-        versionButton.addEventListener(
-            "click",
-            function () {
-
-                toggleVersions(
-                    versionId,
-                    versionButton
-                );
-
-            }
-        );
-
-
-        versionsCell.appendChild(
-            versionButton
-        );
-
-    } else {
-
-        versionsCell.textContent = "—";
-
-    }
-
-
-    /* -----------------------------------------
-       PLAY BUTTON
-    ----------------------------------------- */
-
-    const playButton =
-        document.createElement("button");
-
-    playButton.type = "button";
-
-    playButton.className =
-        "play-button";
-
-    playButton.textContent =
-        "▶ Play";
-
-
-    playButton.addEventListener(
-        "click",
-        function () {
-
-            changeVideo(
-                dub.video || "",
-                (dub.language || "Unknown") +
-                " — " +
-                (dub.title || "Help Wanted")
-            );
-
+// HELP WANTED — International Dub Archive
+// Builds the dub table and handles the interactive controls.
+
+(function () {
+    "use strict";
+
+    function buildDubTable() {
+        const tableBody = document.getElementById("dubTableBody");
+        const status = document.getElementById("dubStatus");
+        const error = document.getElementById("dubError");
+
+        // Always read the database explicitly from window.
+        const dubDatabase = window.dubs;
+
+        if (!tableBody) {
+            console.error("dubTableBody was not found.");
+            return;
         }
-    );
 
+        // Clear any previous content.
+        tableBody.innerHTML = "";
 
-    playCell.appendChild(
-        playButton
-    );
+        // Check that dub.js loaded correctly.
+        if (!Array.isArray(dubDatabase)) {
+            console.error("window.dubs is missing or is not an array.");
 
+            if (status) {
+                status.style.display = "none";
+            }
 
-    /* -----------------------------------------
-       ADD MAIN ROW
-    ----------------------------------------- */
+            if (error) {
+                error.style.display = "block";
+                error.textContent =
+                    "The dub database could not be loaded. Please check that dub.js exists in the same folder as this page.";
+            }
 
-    mainRow.appendChild(
-        languageCell
-    );
+            return;
+        }
 
-    mainRow.appendChild(
-        titleCell
-    );
+        if (status) {
+            status.style.display = "none";
+        }
 
-    mainRow.appendChild(
-        versionsCell
-    );
+        if (error) {
+            error.style.display = "none";
+        }
 
-    mainRow.appendChild(
-        playCell
-    );
+        dubDatabase.forEach(function (dub, index) {
+            const mainRow = document.createElement("tr");
 
+            const languageCell = document.createElement("td");
+            languageCell.className = "language-cell";
+            languageCell.textContent = dub.language || "Unknown";
 
-    tableBody.appendChild(
-        mainRow
-    );
+            const titleCell = document.createElement("td");
+            titleCell.className = "title-cell";
+            titleCell.textContent = dub.title || "Untitled";
 
+            const versionsCell = document.createElement("td");
+            versionsCell.className = "versions-cell";
 
-    /* -----------------------------------------
-       EXPANDED VERSION ROW
-    ----------------------------------------- */
+            const playCell = document.createElement("td");
+            playCell.className = "play-cell";
 
-    if (
-        Array.isArray(dub.versions) &&
-        dub.versions.length > 1
-    ) {
+            /*
+             * VERSION BUTTON
+             */
+            if (Array.isArray(dub.versions) && dub.versions.length > 1) {
+                const versionButton = document.createElement("button");
 
-        const versionRow =
-            document.createElement("tr");
+                versionButton.className = "version-button";
+                versionButton.type = "button";
+                versionButton.textContent = "▶ Show versions";
 
-        versionRow.className =
-            "version-row";
+                versionButton.onclick = function () {
+                    toggleVersions(index, versionButton);
+                };
 
-        versionRow.id =
-            "versions-" + index;
+                versionsCell.appendChild(versionButton);
+            } else {
+                versionsCell.textContent = "—";
+            }
 
+            /*
+             * MAIN PLAY BUTTON
+             */
+            const playButton = document.createElement("button");
 
-        const versionCell =
-            document.createElement("td");
+            playButton.className = "play-button";
+            playButton.type = "button";
+            playButton.textContent = "▶ Play";
 
-        versionCell.colSpan = 4;
+            playButton.onclick = function () {
+                changeVideo(
+                    dub.video || "",
+                    dub.title || dub.language || "Dub"
+                );
+            };
 
+            playCell.appendChild(playButton);
 
-        const versionList =
-            document.createElement("div");
+            mainRow.appendChild(languageCell);
+            mainRow.appendChild(titleCell);
+            mainRow.appendChild(versionsCell);
+            mainRow.appendChild(playCell);
 
-        versionList.className =
-            "version-list";
+            tableBody.appendChild(mainRow);
 
+            /*
+             * VERSION ROWS
+             */
+            if (Array.isArray(dub.versions) && dub.versions.length > 1) {
+                const versionRow = document.createElement("tr");
 
-        const heading =
-            document.createElement("h3");
+                versionRow.className = "version-row";
+                versionRow.id = "versions-" + index;
 
-        heading.className =
-            "version-list-title";
+                const versionCell = document.createElement("td");
 
-        heading.textContent =
-            (dub.language || "Language") +
-            " versions";
+                versionCell.colSpan = 4;
+                versionCell.className = "version-list-cell";
 
+                const versionList = document.createElement("div");
+                versionList.className = "version-list";
 
-        versionList.appendChild(
-            heading
-        );
+                dub.versions.forEach(function (version) {
+                    const versionItem = document.createElement("div");
+                    versionItem.className = "version-item";
 
+                    /*
+                     * Version information
+                     */
+                    const versionInfo = document.createElement("div");
+                    versionInfo.className = "version-info";
 
-        dub.versions.forEach(
-            function (version) {
+                    const versionName = document.createElement("strong");
 
-                const versionBox =
-                    document.createElement("div");
+                    versionName.textContent =
+                        version.name ||
+                        version.title ||
+                        "Unnamed version";
 
-                versionBox.className =
-                    "version";
+                    versionInfo.appendChild(versionName);
 
+                    if (version.studio) {
+                        const studio = document.createElement("span");
 
-                const versionName =
-                    document.createElement("div");
+                        studio.className = "version-studio";
+                        studio.textContent = " — " + version.studio;
 
-                versionName.className =
-                    "version-name";
+                        versionInfo.appendChild(studio);
+                    }
 
-                versionName.textContent =
-                    version.name || "Unnamed version";
+                    versionItem.appendChild(versionInfo);
 
-
-                const versionInfo =
-                    document.createElement("div");
-
-                versionInfo.className =
-                    "version-info";
-
-                versionInfo.textContent =
-                    version.info || "";
-
-
-                /* VERSION PLAY BUTTON */
-
-                if (version.video) {
-
-                    const versionPlay =
+                    /*
+                     * Version play button
+                     */
+                    const versionPlayButton =
                         document.createElement("button");
 
-                    versionPlay.type = "button";
+                    versionPlayButton.className = "play-button";
+                    versionPlayButton.type = "button";
+                    versionPlayButton.textContent = "▶ Play";
 
-                    versionPlay.className =
-                        "play-button version-play";
+                    versionPlayButton.onclick = function () {
+                        changeVideo(
+                            version.video || "",
+                            version.name ||
+                            version.title ||
+                            dub.title ||
+                            dub.language ||
+                            "Dub"
+                        );
+                    };
 
-                    versionPlay.textContent =
-                        "▶ Play";
+                    versionItem.appendChild(versionPlayButton);
+                    versionList.appendChild(versionItem);
+                });
 
-
-                    versionPlay.addEventListener(
-                        "click",
-                        function () {
-
-                            changeVideo(
-                                version.video,
-                                (dub.language || "Unknown") +
-                                " — " +
-                                (version.name || "Version")
-                            );
-
-                        }
-                    );
-
-
-                    versionBox.appendChild(
-                        versionName
-                    );
-
-                    versionBox.appendChild(
-                        versionInfo
-                    );
-
-                    versionBox.appendChild(
-                        versionPlay
-                    );
-
-                } else {
-
-                    versionBox.appendChild(
-                        versionName
-                    );
-
-                    versionBox.appendChild(
-                        versionInfo
-                    );
-
-                }
-
-
-                versionList.appendChild(
-                    versionBox
-                );
-
+                versionCell.appendChild(versionList);
+                versionRow.appendChild(versionCell);
+                tableBody.appendChild(versionRow);
             }
-        );
+        });
 
+        /*
+         * Update statistics if the elements exist.
+         */
+        const languageCount =
+            document.getElementById("languageCount");
 
-        versionCell.appendChild(
-            versionList
-        );
-
-        versionRow.appendChild(
-            versionCell
-        );
-
-        tableBody.appendChild(
-            versionRow
-        );
-
+        if (languageCount) {
+            languageCount.textContent = dubDatabase.length;
+        }
     }
 
-});
 
-
-/* -----------------------------------------
-   STATISTICS
------------------------------------------ */
-
-document.getElementById(
-    "languageCount"
-).textContent =
-    dubs.length;
-
-
-document.getElementById(
-    "versionCount"
-).textContent =
-    multipleVersions;
-
-
-databaseStatus.textContent =
-    "Loaded";
-
-}
-
-/* =========================================================
-SHOW / HIDE VERSIONS
-========================================================= */
-
-function toggleVersions(
-id,
-button
-) {
-
-const row =
-    document.getElementById(id);
-
-
-if (!row) {
-    return;
-}
-
-
-const isOpen =
-    row.classList.contains("open");
-
-
-if (isOpen) {
-
-    row.classList.remove("open");
-
-    button.textContent =
-        "▶ Show versions";
-
-} else {
-
-    row.classList.add("open");
-
-    button.textContent =
-        "▼ Hide versions";
-
-}
-
-}
-
-/* =========================================================
-SHOW / HIDE ARCHIVE INFORMATION
-========================================================= */
-
-function toggleArchiveInfo() {
-
-const info =
-    document.getElementById("archiveInfo");
-
-const button =
-    document.getElementById("showMoreButton");
-
-
-if (!info || !button) {
-    return;
-}
-
-
-const isHidden =
-    info.style.display === "none" ||
-    info.style.display === "";
-
-
-if (isHidden) {
-
-    info.style.display = "block";
-
-    button.textContent =
-        "▲ Show less information";
-
-} else {
-
-    info.style.display = "none";
-
-    button.textContent =
-        "▼ Show more information";
-
-}
-
-}
-
-/* =========================================================
-CHANGE VIDEO
-========================================================= */
-
-function changeVideo(
-url,
-title
-) {
-
-const player =
-    document.getElementById("videoPlayer");
-
-const nowPlaying =
-    document.getElementById("nowPlaying");
-
-
-if (!player || !nowPlaying) {
-    return;
-}
-
-
-if (!url) {
-
-    nowPlaying.textContent =
-        title +
-        " — video unavailable";
-
-    return;
-}
-
-
-player.innerHTML = "";
-
-
-const iframe =
-    document.createElement("iframe");
-
-iframe.src = url;
-
-iframe.title = title;
-
-iframe.allowFullscreen = true;
-
-
-player.appendChild(
-    iframe
-);
-
-
-nowPlaying.textContent =
-    title;
-
-
-const playerWindow =
-    document.querySelector(
-        ".player-window"
-    );
-
-
-if (playerWindow) {
-
-    playerWindow.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
-
-}
-
-}
-
-/* =========================================================
-START
-========================================================= */
-
-document.addEventListener(
-"DOMContentLoaded",
-function () {
-
-    buildDubTable();
-
-
-    const showMoreButton =
-        document.getElementById(
-            "showMoreButton"
+    /*
+     * SHOW / HIDE VERSIONS
+     */
+    window.toggleVersions = function (index, button) {
+        const row = document.getElementById("versions-" + index);
+
+        if (!row) {
+            console.warn("Version row not found:", index);
+            return;
+        }
+
+        const isOpen = row.classList.contains("open");
+
+        if (isOpen) {
+            row.classList.remove("open");
+
+            if (button) {
+                button.textContent = "▶ Show versions";
+            }
+        } else {
+            row.classList.add("open");
+
+            if (button) {
+                button.textContent = "▼ Hide versions";
+            }
+        }
+    };
+
+
+    /*
+     * SHOW / HIDE ARCHIVE INFORMATION
+     */
+    window.toggleArchiveInfo = function () {
+        const info = document.getElementById("archiveInfo");
+
+        if (!info) {
+            return;
+        }
+
+        const isHidden =
+            info.style.display === "none" ||
+            getComputedStyle(info).display === "none";
+
+        info.style.display = isHidden ? "block" : "none";
+    };
+
+
+    /*
+     * CHANGE THE VIDEO PLAYER
+     */
+    window.changeVideo = function (url, title) {
+        const player = document.getElementById("videoPlayer");
+        const playerContainer =
+            document.getElementById("videoContainer");
+
+        const unavailable =
+            document.getElementById("videoUnavailable");
+
+        if (!url) {
+            console.warn("No video URL provided for:", title);
+
+            if (unavailable) {
+                unavailable.textContent =
+                    "Video unavailable for this version.";
+                unavailable.style.display = "block";
+            }
+
+            if (player) {
+                player.style.display = "none";
+            }
+
+            return;
+        }
+
+        if (unavailable) {
+            unavailable.style.display = "none";
+        }
+
+        if (player) {
+            player.style.display = "block";
+            player.src = url;
+        }
+
+        /*
+         * Update the player title if the page has one.
+         */
+        const playerTitle =
+            document.getElementById("playerTitle");
+
+        if (playerTitle) {
+            playerTitle.textContent =
+                title || "Help Wanted";
+        }
+
+        /*
+         * Scroll back to the player when a dub is selected.
+         */
+        if (playerContainer) {
+            playerContainer.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
+    };
+
+
+    /*
+     * START THE TABLE
+     *
+     * dub.js MUST load before this function runs.
+     */
+    function startArchive() {
+        console.log("HELP WANTED archive starting...");
+
+        console.log(
+            "window.dubs:",
+            Array.isArray(window.dubs)
+                ? window.dubs.length + " entries"
+                : "NOT FOUND"
         );
 
-
-    if (showMoreButton) {
-
-        showMoreButton.addEventListener(
-            "click",
-            toggleArchiveInfo
-        );
-
+        buildDubTable();
     }
 
-}
 
-);
+    /*
+     * Wait until the HTML is ready.
+     */
+    if (document.readyState === "loading") {
+        document.addEventListener(
+            "DOMContentLoaded",
+            startArchive
+        );
+    } else {
+        startArchive();
+    }
+
+})();
