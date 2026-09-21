@@ -1,0 +1,759 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+    font-size: 13px;
+
+    color: #123d52;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #63d5ef 0%,
+            #19a8d1 45%,
+            #0876a5 100%
+        );
+
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   BUBBLES
+========================================================= */
+
+body::before,
+body::after {
+    content: "";
+
+    position: fixed;
+
+    border-radius: 50%;
+
+    border: 2px solid rgba(255,255,255,.35);
+
+    pointer-events: none;
+}
+
+body::before {
+    width: 27px;
+    height: 27px;
+
+    left: 6%;
+    top: 24%;
+}
+
+body::after {
+    width: 12px;
+    height: 12px;
+
+    right: 9%;
+    top: 15%;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page {
+    width: 950px;
+
+    max-width: calc(100% - 20px);
+
+    margin: 20px auto;
+
+    background: #f4f4e9;
+
+    border: 2px solid #174b65;
+
+    box-shadow:
+        5px 5px 0 rgba(0,0,0,.25),
+        inset 1px 1px white;
+}
+
+
+/* =========================================================
+   XP TITLE BAR
+========================================================= */
+
+.titlebar {
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 8px;
+
+    color: white;
+
+    font-weight: bold;
+
+    font-size: 14px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #42c5f3,
+            #0878ca 45%,
+            #0758a7
+        );
+
+    border-bottom: 2px solid #164e82;
+
+    text-shadow: 1px 1px #174a79;
+}
+
+.titlebar-left {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.title-icon {
+    width: 23px;
+    height: 23px;
+
+    background: #f5e84c;
+
+    border: 2px solid white;
+
+    border-radius: 4px;
+
+    box-shadow:
+        inset -2px -2px #b5a800,
+        inset 2px 2px white;
+}
+
+.window-buttons {
+    display: flex;
+
+    gap: 3px;
+}
+
+.window-button {
+    width: 23px;
+    height: 21px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #55c8f4,
+            #0873bd
+        );
+
+    border: 1px solid white;
+
+    border-right-color: #174a78;
+    border-bottom-color: #174a78;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.navbar {
+    display: flex;
+
+    gap: 5px;
+
+    padding: 6px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #fffef0,
+            #d9d9ca
+        );
+
+    border-bottom: 1px solid #999;
+}
+
+.xp-button {
+    display: inline-block;
+
+    padding: 5px 14px;
+
+    color: #073d63;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #fffef4,
+            #e9eddb 45%,
+            #c8d3bf
+        );
+
+    border: 1px solid #6e8270;
+
+    border-radius: 3px;
+
+    box-shadow:
+        inset 1px 1px white,
+        inset -1px -1px #a1a99c;
+
+    cursor: pointer;
+}
+
+.xp-button:hover {
+    background:
+        linear-gradient(
+            to bottom,
+            #fff9a8,
+            #e9d83b
+        );
+
+    color: #173900;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    position: relative;
+
+    margin: 10px;
+
+    padding: 25px;
+
+    min-height: 165px;
+
+    overflow: hidden;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #0da3d3,
+            #006b9c
+        );
+
+    border: 2px solid #075b80;
+
+    box-shadow:
+        inset 2px 2px rgba(255,255,255,.35),
+        inset -2px -2px rgba(0,0,0,.25);
+}
+
+.hero h1 {
+    margin: 0;
+
+    font-size: 42px;
+
+    letter-spacing: 5px;
+
+    color: #ffe943;
+
+    text-shadow:
+        2px 2px #735e00,
+        3px 3px rgba(0,0,0,.3);
+}
+
+.hero p {
+    margin-top: 8px;
+
+    font-size: 15px;
+
+    max-width: 650px;
+}
+
+
+/* =========================================================
+   JELLYFISH
+========================================================= */
+
+.jellyfish {
+    position: absolute;
+
+    width: 55px;
+    height: 40px;
+
+    background: #ef8de8;
+
+    border-radius: 50px 50px 15px 15px;
+
+    opacity: .85;
+
+    box-shadow:
+        0 0 10px rgba(255,170,255,.8);
+}
+
+.jellyfish::before,
+.jellyfish::after {
+    content: "";
+
+    position: absolute;
+
+    top: 30px;
+
+    width: 8px;
+    height: 35px;
+
+    border-left: 3px solid #ef8de8;
+
+    border-radius: 50%;
+}
+
+.jellyfish::before {
+    left: 12px;
+}
+
+.jellyfish::after {
+    right: 12px;
+}
+
+.jellyfish.one {
+    right: 80px;
+    top: 35px;
+
+    transform: rotate(10deg);
+}
+
+.jellyfish.two {
+    right: 25px;
+    bottom: 15px;
+
+    transform: scale(.65);
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.content {
+    display: grid;
+
+    grid-template-columns: 205px 1fr;
+
+    gap: 10px;
+
+    padding: 0 10px 10px;
+}
+
+
+/* =========================================================
+   WINDOWS
+========================================================= */
+
+.window {
+    background: #f5f5ea;
+
+    border: 2px solid #638092;
+
+    box-shadow:
+        inset 1px 1px white,
+        2px 2px rgba(0,0,0,.18);
+}
+
+.window-title {
+    padding: 5px 8px;
+
+    color: white;
+
+    font-weight: bold;
+
+    background:
+        linear-gradient(
+            to right,
+            #087bc4,
+            #36bce8
+        );
+
+    border-bottom: 1px solid #456c7d;
+}
+
+.window-body {
+    padding: 10px;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar-menu {
+    list-style: none;
+
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    margin-bottom: 4px;
+}
+
+.sidebar-menu a {
+    display: block;
+
+    padding: 5px 7px;
+
+    color: #075b86;
+
+    text-decoration: none;
+
+    background: #e8f0df;
+
+    border: 1px solid #b5c5ae;
+}
+
+.sidebar-menu a:hover {
+    background: #fff28b;
+}
+
+.stats {
+    margin-top: 15px;
+
+    padding: 8px;
+
+    background: #fffde0;
+
+    border: 1px solid #c5b95d;
+}
+
+
+/* =========================================================
+   PLAYER
+========================================================= */
+
+.player-window {
+    margin-bottom: 10px;
+}
+
+.video {
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    background: #111;
+
+    overflow: hidden;
+
+    border: 4px solid #333;
+}
+
+.video iframe {
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+}
+
+.now-playing {
+    margin-top: 6px;
+
+    padding: 5px 7px;
+
+    background: #ffffd7;
+
+    border: 1px solid #bbb75c;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   DUB TABLE
+========================================================= */
+
+.dub-table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+.dub-table th {
+    padding: 7px;
+
+    text-align: left;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #099bd0,
+            #076ca1
+        );
+
+    border: 1px solid #07557c;
+}
+
+.dub-table td {
+    padding: 7px;
+
+    vertical-align: middle;
+
+    border: 1px solid #b6c0b8;
+
+    background: #f9f9ef;
+}
+
+.dub-table tr.main-row:hover td {
+    background: #fffbd0;
+}
+
+.language {
+    font-weight: bold;
+
+    color: #075b86;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.version-button,
+.play-button {
+    padding: 4px 8px;
+
+    font-family: Tahoma, Arial, sans-serif;
+
+    font-weight: bold;
+
+    color: #064d74;
+
+    cursor: pointer;
+
+    border: 1px solid #61756d;
+
+    border-radius: 3px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #fffef4,
+            #d5dfcd
+        );
+
+    box-shadow:
+        inset 1px 1px white,
+        inset -1px -1px #a2aaa0;
+}
+
+.version-button:hover,
+.play-button:hover {
+    background:
+        linear-gradient(
+            to bottom,
+            #fffaa0,
+            #e4d23b
+        );
+}
+
+
+/* =========================================================
+   EXPANDED VERSIONS
+========================================================= */
+
+.version-row {
+    display: none;
+}
+
+.version-row.open {
+    display: table-row;
+}
+
+.version-list {
+    padding: 10px;
+
+    background:
+        linear-gradient(
+            to right,
+            #f7f4c9,
+            #fffef1
+        );
+
+    border-left: 5px solid #f0d928;
+}
+
+.version-list-title {
+    margin-top: 0;
+
+    color: #075b86;
+}
+
+.version {
+    margin-bottom: 7px;
+
+    padding: 8px;
+
+    background: white;
+
+    border: 1px solid #b8b8a5;
+}
+
+.version:last-child {
+    margin-bottom: 0;
+}
+
+.version-name {
+    font-weight: bold;
+
+    color: #176d8e;
+}
+
+.version-info {
+    margin-top: 3px;
+
+    color: #444;
+}
+
+
+/* =========================================================
+   SHOW MORE
+========================================================= */
+
+.show-more-container {
+    text-align: center;
+
+    margin-top: 12px;
+}
+
+.archive-info {
+    display: none;
+
+    margin-top: 10px;
+
+    padding: 12px;
+
+    background:
+        linear-gradient(
+            to right,
+            #f7f4c9,
+            #fffef1
+        );
+
+    border: 1px solid #bbb45e;
+
+    border-left: 5px solid #f0d928;
+}
+
+.archive-info h3 {
+    margin-top: 0;
+
+    color: #075b86;
+}
+
+.details-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+}
+
+.detail-box {
+    padding: 8px;
+
+    background: white;
+
+    border: 1px solid #b8b8a5;
+}
+
+.detail-label {
+    font-weight: bold;
+
+    color: #176d8e;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about {
+    margin-top: 10px;
+}
+
+.about p {
+    margin: 6px 0;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+    margin-top: 5px;
+
+    padding: 12px;
+
+    text-align: center;
+
+    color: #275368;
+
+    background: #d7e2d1;
+
+    border-top: 2px solid #809487;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 750px) {
+
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 550px) {
+
+    .page {
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .dub-table {
+        font-size: 12px;
+    }
+
+}
