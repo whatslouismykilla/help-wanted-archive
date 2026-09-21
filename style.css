@@ -375,6 +375,8 @@ body {
 }
 
 .table-container {
+    max-height: 480px;
+    overflow-y: auto;
     overflow-x: auto;
     border: 1px solid #7f9db9;
 }
@@ -395,6 +397,7 @@ body {
     font-weight: bold;
     position: sticky;
     top: 0;
+    z-index: 5;
 }
 
 .xp-table td {
@@ -404,12 +407,12 @@ body {
     vertical-align: middle;
 }
 
-.xp-table tbody tr:nth-child(4n+1) {
-    background-color: #ffffff;
+.xp-table tbody tr.main-row:nth-child(even) {
+    background-color: #f4f8fb;
 }
 
-.xp-table tbody tr:nth-child(4n+3) {
-    background-color: #f4f8fb;
+.xp-table tbody tr.main-row:nth-child(odd) {
+    background-color: #ffffff;
 }
 
 .xp-table tbody tr.main-row:hover {
@@ -565,7 +568,7 @@ body {
     }
 
     .jellyfish {
-        display: none; /* Hide decorative elements on small screens */
+        display: none;
     }
 
     .main-title {
