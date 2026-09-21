@@ -23,7 +23,7 @@ const databaseError =
    DATABASE CHECK
 ----------------------------------------- */
 
-if (!Array.isArray(window.dubs)) {
+if (typeof dubs === "undefined" || !Array.isArray(dubs)) {
 
     console.error(
         "HELP WANTED ARCHIVE: dub.js did not load correctly."
