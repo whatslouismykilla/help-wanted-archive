@@ -6,10 +6,10 @@
    versions = documented alternate production/broadcast
               versions where applicable
 
-   video = optional authorized video URL
+   realFandub = true for documented fan-made dubs
 
-   Information compiled from documented international
-   SpongeBob version listings.
+   details = additional information shown when a row
+             is clicked
 ========================================================= */
 
 const dubs = [
@@ -26,14 +26,8 @@ const dubs = [
         flag: "🇦🇱",
         title: "Multiple titles",
         versions: [
-            {
-                name: "Seasons 1–7",
-                info: "SpongeBob SquarePants"
-            },
-            {
-                name: "Seasons 8–11",
-                info: "BobSfungjeri Pantallon-Katrori"
-            }
+            { name: "Seasons 1–7", info: "SpongeBob SquarePants" },
+            { name: "Seasons 8–11", info: "BobSfungjeri Pantallon-Katrori" }
         ]
     },
 
@@ -42,18 +36,9 @@ const dubs = [
         flag: "🇸🇦",
         title: "Multiple Arabic versions",
         versions: [
-            {
-                name: "Image Production House",
-                info: "أسبنش بوب"
-            },
-            {
-                name: "Neo Productions / New Interactive Studio",
-                info: "سبونج بوب سكوير بانتس"
-            },
-            {
-                name: "Childhood Voice Institute",
-                info: "سبونج بوب"
-            }
+            { name: "Image Production House", info: "أسبنش بوب" },
+            { name: "Neo Productions / New Interactive Studio", info: "سبونج بوب سكوير بانتس" },
+            { name: "Childhood Voice Institute", info: "سبونج بوب" }
         ]
     },
 
@@ -76,14 +61,8 @@ const dubs = [
         flag: "🇦🇿",
         title: "Multiple versions",
         versions: [
-            {
-                name: "Northern Azerbaijani",
-                info: "SpancBob"
-            },
-            {
-                name: "Southern Azerbaijani",
-                info: "باب اسفنجی شلوارو مکعبی"
-            }
+            { name: "Northern Azerbaijani", info: "SpancBob" },
+            { name: "Southern Azerbaijani", info: "باب اسفنجی شلوارو مکعبی" }
         ]
     },
 
@@ -92,14 +71,8 @@ const dubs = [
         flag: "🇧🇩",
         title: "Multiple versions",
         versions: [
-            {
-                name: "Audio People",
-                info: "স্পঞ্জবব স্কয়ারপ্যান্টস্‌"
-            },
-            {
-                name: "Octave Studio",
-                info: "SpongeBob SquarePants"
-            }
+            { name: "Audio People", info: "স্পঞ্জবব স্কয়ারপ্যান্টস্‌" },
+            { name: "Octave Studio", info: "SpongeBob SquarePants" }
         ]
     },
 
@@ -115,18 +88,9 @@ const dubs = [
         flag: "🇭🇰",
         title: "海綿寶寶",
         versions: [
-            {
-                name: "ATV Home",
-                info: "海綿寶寶"
-            },
-            {
-                name: "Netflix",
-                info: "海綿寶寶"
-            },
-            {
-                name: "ViuTV",
-                info: "海綿寶寶"
-            }
+            { name: "ATV Home", info: "海綿寶寶" },
+            { name: "Netflix", info: "海綿寶寶" },
+            { name: "ViuTV", info: "海綿寶寶" }
         ]
     },
 
@@ -135,14 +99,8 @@ const dubs = [
         flag: "🇭🇷",
         title: "Spužva Bob Skockani",
         versions: [
-            {
-                name: "Project 6 Studio",
-                info: "Croatian production/version"
-            },
-            {
-                name: "VSI-NET",
-                info: "Alternate Croatian production/version"
-            }
+            { name: "Project 6 Studio", info: "Croatian production/version" },
+            { name: "VSI-NET", info: "Alternate Croatian production/version" }
         ]
     },
 
@@ -207,14 +165,8 @@ const dubs = [
         flag: "🇮🇷",
         title: "Multiple versions",
         versions: [
-            {
-                name: "Filmiiz",
-                info: "باب اسفنجی"
-            },
-            {
-                name: "Haft",
-                info: "باب اسفنجی تومون مکعبی"
-            }
+            { name: "Filmiiz", info: "باب اسفنجی" },
+            { name: "Haft", info: "باب اسفنجی تومون مکعبی" }
         ]
     },
 
@@ -230,14 +182,8 @@ const dubs = [
         flag: "🇮🇳",
         title: "સ્પોન્જબોબ સ્ક્વેરપેન્ટ",
         versions: [
-            {
-                name: "Colors Gujarati",
-                info: "Gujarati version"
-            },
-            {
-                name: "ETV Bal Bharat",
-                info: "Gujarati version"
-            }
+            { name: "Colors Gujarati", info: "Gujarati version" },
+            { name: "ETV Bal Bharat", info: "Gujarati version" }
         ]
     },
 
@@ -253,14 +199,8 @@ const dubs = [
         flag: "🇮🇳",
         title: "SpongeBob SquarePants",
         versions: [
-            {
-                name: "ETV Bal Bharat",
-                info: "Hindi version"
-            },
-            {
-                name: "Viacom18",
-                info: "Hindi version"
-            }
+            { name: "ETV Bal Bharat", info: "Hindi version" },
+            { name: "Viacom18", info: "Hindi version" }
         ]
     },
 
@@ -283,14 +223,8 @@ const dubs = [
         flag: "🇮🇩",
         title: "SpongeBob SquarePants",
         versions: [
-            {
-                name: "GTV / Nickelodeon",
-                info: "Indonesian version"
-            },
-            {
-                name: "Lativi",
-                info: "Indonesian television version"
-            }
+            { name: "GTV / Nickelodeon", info: "Indonesian version" },
+            { name: "Lativi", info: "Indonesian television version" }
         ]
     },
 
@@ -320,14 +254,8 @@ const dubs = [
         flag: "🇮🇳",
         title: "SpongeBob SquarePants",
         versions: [
-            {
-                name: "Chintu TV",
-                info: "Kannada version"
-            },
-            {
-                name: "ETV Bal Bharat",
-                info: "Kannada version"
-            }
+            { name: "Chintu TV", info: "Kannada version" },
+            { name: "ETV Bal Bharat", info: "Kannada version" }
         ]
     },
 
@@ -336,14 +264,8 @@ const dubs = [
         flag: "🇰🇿",
         title: "Спанч Боб Шаршы Шалбар",
         versions: [
-            {
-                name: "KTK",
-                info: "Kazakh television version"
-            },
-            {
-                name: "Nickelodeon",
-                info: "Kazakh version"
-            }
+            { name: "KTK", info: "Kazakh television version" },
+            { name: "Nickelodeon", info: "Kazakh version" }
         ]
     },
 
@@ -352,14 +274,8 @@ const dubs = [
         flag: "🇰🇷",
         title: "Multiple Korean titles",
         versions: [
-            {
-                name: "EBS",
-                info: "네모네모 스펀지 송"
-            },
-            {
-                name: "Nickelodeon",
-                info: "스폰지밥 네모바지 / 보글보글 스폰지밥 / 네모바지 스폰지밥"
-            }
+            { name: "EBS", info: "네모네모 스펀지 송" },
+            { name: "Nickelodeon", info: "스폰지밥 네모바지 / 보글보글 스폰지밥 / 네모바지 스폰지밥" }
         ]
     },
 
@@ -368,18 +284,9 @@ const dubs = [
         flag: "🟩",
         title: "Multiple versions",
         versions: [
-            {
-                name: "Kurdsat",
-                info: "سپۆنج بۆب پانتۆل چوارگۆشئا"
-            },
-            {
-                name: "Pêlistank TV",
-                info: "سپۆنج بۆب — 2012 / 2016 / 2025 versions"
-            },
-            {
-                name: "Zaro TV",
-                info: "SpongeBob SquarePants"
-            }
+            { name: "Kurdsat", info: "سپۆنج بۆب پانتۆل چوارگۆشئا" },
+            { name: "Pêlistank TV", info: "سپۆنج بۆب — 2012 / 2016 / 2025 versions" },
+            { name: "Zaro TV", info: "SpongeBob SquarePants" }
         ]
     },
 
@@ -388,18 +295,9 @@ const dubs = [
         flag: "🟩",
         title: "Multiple versions",
         versions: [
-            {
-                name: "Filmiiz",
-                info: "باب اسفنجی لە پانتۆل چوارگۆشی"
-            },
-            {
-                name: "Heshin TV",
-                info: "باب اسفنجی"
-            },
-            {
-                name: "Türkiye",
-                info: "Sifinc Bob Carcik Sôrt"
-            }
+            { name: "Filmiiz", info: "باب اسفنجی لە پانتۆل چوارگۆشی" },
+            { name: "Heshin TV", info: "باب اسفنجی" },
+            { name: "Türkiye", info: "Sifinc Bob Carcik Sôrt" }
         ]
     },
 
@@ -415,18 +313,9 @@ const dubs = [
         flag: "🇲🇰",
         title: "Сунѓерот Боб Панталоновски",
         versions: [
-            {
-                name: "A1",
-                info: "Macedonian television version"
-            },
-            {
-                name: "HBO GO",
-                info: "Macedonian version"
-            },
-            {
-                name: "MRT 1",
-                info: "Macedonian television version"
-            }
+            { name: "A1", info: "Macedonian television version" },
+            { name: "HBO GO", info: "Macedonian version" },
+            { name: "MRT 1", info: "Macedonian television version" }
         ]
     },
 
@@ -442,14 +331,8 @@ const dubs = [
         flag: "🇮🇳",
         title: "SpongeBob SquarePants",
         versions: [
-            {
-                name: "ETV Bal Bharat",
-                info: "Malayalam version"
-            },
-            {
-                name: "Kochu TV",
-                info: "Malayalam version"
-            }
+            { name: "ETV Bal Bharat", info: "Malayalam version" },
+            { name: "Kochu TV", info: "Malayalam version" }
         ]
     },
 
@@ -465,14 +348,8 @@ const dubs = [
         flag: "🇹🇼",
         title: "海綿寶寶",
         versions: [
-            {
-                name: "Nickelodeon",
-                info: "Taiwan Mandarin version"
-            },
-            {
-                name: "YoYo TV",
-                info: "Alternate Taiwan Mandarin version"
-            }
+            { name: "Nickelodeon", info: "Taiwan Mandarin version" },
+            { name: "YoYo TV", info: "Alternate Taiwan Mandarin version" }
         ]
     },
 
@@ -488,14 +365,8 @@ const dubs = [
         flag: "🇳🇿",
         title: "SpongeBob Tarau Porowhā",
         versions: [
-            {
-                name: "Māori Television",
-                info: "Māori version"
-            },
-            {
-                name: "Nickelodeon",
-                info: "Māori version"
-            }
+            { name: "Māori Television", info: "Māori version" },
+            { name: "Nickelodeon", info: "Māori version" }
         ]
     },
 
@@ -511,14 +382,8 @@ const dubs = [
         flag: "🇳🇴",
         title: "SvampeBob Firkant",
         versions: [
-            {
-                name: "Eurotroll / NorDubb",
-                info: "Norwegian production/version"
-            },
-            {
-                name: "Sun Studio",
-                info: "Norwegian production/version"
-            }
+            { name: "Eurotroll / NorDubb", info: "Norwegian production/version" },
+            { name: "Sun Studio", info: "Norwegian production/version" }
         ]
     },
 
@@ -534,78 +399,24 @@ const dubs = [
         flag: "🇮🇷",
         title: "باب اسفنجی",
         versions: [
-            {
-                name: "Asia Resane Cinema Home Entertainment",
-                info: "Persian dub"
-            },
-            {
-                name: "Avazheh",
-                info: "Persian dub"
-            },
-            {
-                name: "Baniwak Studio",
-                info: "Persian dub"
-            },
-            {
-                name: "Diamonds",
-                info: "Persian dub"
-            },
-            {
-                name: "Esfahani Persian",
-                info: "Persian version"
-            },
-            {
-                name: "Glory Entertainment",
-                info: "Persian dub"
-            },
-            {
-                name: "IRIB",
-                info: "اسفنج دریایی"
-            },
-            {
-                name: "Khorasani Persian Bonyan Sokout",
-                info: "Persian dub"
-            },
-            {
-                name: "Khorasani Persian Filmiiz",
-                info: "Persian dub"
-            },
-            {
-                name: "Kimiya",
-                info: "Persian dub"
-            },
-            {
-                name: "Makath Studio",
-                info: "Persian dub"
-            },
-            {
-                name: "MBC Persia",
-                info: "SpongeBob SquarePants"
-            },
-            {
-                name: "Persian Toon Studio",
-                info: "Persian dub"
-            },
-            {
-                name: "Qualima",
-                info: "Persian dub"
-            },
-            {
-                name: "Rainbow Speech Studio",
-                info: "Persian dub"
-            },
-            {
-                name: "Sandika",
-                info: "Persian dub"
-            },
-            {
-                name: "Soundo Studio",
-                info: "Persian dub"
-            },
-            {
-                name: "TDH Films",
-                info: "Persian dub"
-            }
+            { name: "Asia Resane Cinema Home Entertainment", info: "Persian dub" },
+            { name: "Avazheh", info: "Persian dub" },
+            { name: "Baniwak Studio", info: "Persian dub" },
+            { name: "Diamonds", info: "Persian dub" },
+            { name: "Esfahani Persian", info: "Persian version" },
+            { name: "Glory Entertainment", info: "Persian dub" },
+            { name: "IRIB", info: "اسفنج دریایی" },
+            { name: "Khorasani Persian Bonyan Sokout", info: "Persian dub" },
+            { name: "Khorasani Persian Filmiiz", info: "Persian dub" },
+            { name: "Kimiya", info: "Persian dub" },
+            { name: "Makath Studio", info: "Persian dub" },
+            { name: "MBC Persia", info: "SpongeBob SquarePants" },
+            { name: "Persian Toon Studio", info: "Persian dub" },
+            { name: "Qualima", info: "Persian dub" },
+            { name: "Rainbow Speech Studio", info: "Persian dub" },
+            { name: "Sandika", info: "Persian dub" },
+            { name: "Soundo Studio", info: "Persian dub" },
+            { name: "TDH Films", info: "Persian dub" }
         ]
     },
 
@@ -628,14 +439,8 @@ const dubs = [
         flag: "🇵🇹",
         title: "SpongeBob SquarePants",
         versions: [
-            {
-                name: "Nickelodeon",
-                info: "European Portuguese version"
-            },
-            {
-                name: "SIC",
-                info: "European Portuguese television version"
-            }
+            { name: "Nickelodeon", info: "European Portuguese version" },
+            { name: "SIC", info: "European Portuguese television version" }
         ]
     },
 
@@ -651,14 +456,8 @@ const dubs = [
         flag: "🇷🇴",
         title: "SpongeBob Pantaloni Pătrați",
         versions: [
-            {
-                name: "Documented title",
-                info: "SpongeBob Pantaloni Pătrați"
-            },
-            {
-                name: "Alternate title",
-                info: "Buretele Bob Pantaloni Pătrați"
-            }
+            { name: "Documented title", info: "SpongeBob Pantaloni Pătrați" },
+            { name: "Alternate title", info: "Buretele Bob Pantaloni Pătrați" }
         ]
     },
 
@@ -667,14 +466,8 @@ const dubs = [
         flag: "🇷🇺",
         title: "Губка Боб Квадратные Штаны",
         versions: [
-            {
-                name: "Localized title",
-                info: "Губка Боб Квадратные Штаны"
-            },
-            {
-                name: "Alternate title",
-                info: "Спанч Боб Сквепентс"
-            }
+            { name: "Localized title", info: "Губка Боб Квадратные Штаны" },
+            { name: "Alternate title", info: "Спанч Боб Сквепентс" }
         ]
     },
 
@@ -690,18 +483,9 @@ const dubs = [
         flag: "🇷🇸",
         title: "Sunđer Bob Kockalone",
         versions: [
-            {
-                name: "B92",
-                info: "Serbian production/version"
-            },
-            {
-                name: "Gold Digi Net — DVD",
-                info: "Serbian DVD production/version"
-            },
-            {
-                name: "Gold Digi Net — TV",
-                info: "Serbian television production/version"
-            }
+            { name: "B92", info: "Serbian production/version" },
+            { name: "Gold Digi Net — DVD", info: "Serbian DVD production/version" },
+            { name: "Gold Digi Net — TV", info: "Serbian television production/version" }
         ]
     },
 
@@ -717,14 +501,8 @@ const dubs = [
         flag: "🇸🇰",
         title: "SpongeBob v šortkách",
         versions: [
-            {
-                name: "Markíza",
-                info: "SpongeBob v šortkách"
-            },
-            {
-                name: "Štúdio FINIKIN",
-                info: "SpongeBob v nohaviciach"
-            }
+            { name: "Markíza", info: "SpongeBob v šortkách" },
+            { name: "Štúdio FINIKIN", info: "SpongeBob v nohaviciach" }
         ]
     },
 
@@ -733,18 +511,9 @@ const dubs = [
         flag: "🇸🇮",
         title: "Spuži Kvadratnik",
         versions: [
-            {
-                name: "Nickelodeon",
-                info: "Slovene version"
-            },
-            {
-                name: "Studio Ritem",
-                info: "Slovene production/version"
-            },
-            {
-                name: "TV3",
-                info: "Slovene television version"
-            }
+            { name: "Nickelodeon", info: "Slovene version" },
+            { name: "Studio Ritem", info: "Slovene production/version" },
+            { name: "TV3", info: "Slovene television version" }
         ]
     },
 
@@ -774,18 +543,9 @@ const dubs = [
         flag: "🇮🇳",
         title: "SpongeBob SquarePants",
         versions: [
-            {
-                name: "Chutti TV",
-                info: "Tamil version"
-            },
-            {
-                name: "ETV Bal Bharat",
-                info: "Tamil version"
-            },
-            {
-                name: "Nickelodeon",
-                info: "Tamil version"
-            }
+            { name: "Chutti TV", info: "Tamil version" },
+            { name: "ETV Bal Bharat", info: "Tamil version" },
+            { name: "Nickelodeon", info: "Tamil version" }
         ]
     },
 
@@ -794,18 +554,9 @@ const dubs = [
         flag: "🇮🇳",
         title: "SpongeBob SquarePants",
         versions: [
-            {
-                name: "ETV Bal Bharat",
-                info: "Telugu version"
-            },
-            {
-                name: "Kushi TV",
-                info: "Telugu version"
-            },
-            {
-                name: "Nickelodeon",
-                info: "Telugu version"
-            }
+            { name: "ETV Bal Bharat", info: "Telugu version" },
+            { name: "Kushi TV", info: "Telugu version" },
+            { name: "Nickelodeon", info: "Telugu version" }
         ]
     },
 
@@ -828,14 +579,8 @@ const dubs = [
         flag: "🇹🇷",
         title: "Sünger Bob Kare Pantolon",
         versions: [
-            {
-                name: "Aton Production",
-                info: "Sünger Bob Kare Pantolon"
-            },
-            {
-                name: "NTV Studios",
-                info: "Sünger Bob Kare Şort / Sünger Bob Kare Pantolon (VCD)"
-            }
+            { name: "Aton Production", info: "Sünger Bob Kare Pantolon" },
+            { name: "NTV Studios", info: "Sünger Bob Kare Şort / Sünger Bob Kare Pantolon (VCD)" }
         ]
     },
 
@@ -865,14 +610,8 @@ const dubs = [
         flag: "🇻🇳",
         title: "Chú Bọt Biển Tinh Nghịch",
         versions: [
-            {
-                name: "Netflix",
-                info: "Vietnamese version"
-            },
-            {
-                name: "YouTV",
-                info: "Vietnamese version"
-            }
+            { name: "Netflix", info: "Vietnamese version" },
+            { name: "YouTV", info: "Vietnamese version" }
         ]
     },
 
@@ -902,26 +641,31 @@ const dubs = [
             {
                 name: "Alternate title",
                 info: "SpongeBob SquarePants"
-            },
-/* =========================================================
-   REAL FANDUBS
-   Source: Fandub Database — SpongeBob SquarePants
+            }
+        ]
+    },
 
-   realFandub = true makes the entry receive the pink
-   fandub styling and enables its expanded information panel.
-========================================================= */
+
+    /* =========================================================
+       REAL FANDUBS
+       ========================================================= */
 
     {
         language: "Aeviek",
         flag: "🟪",
         title: "Sænkrquckéranti",
-        versions: [],
+        versions: [
+            {
+                name: "Avi Go!",
+                info: "Aeviek fan-made dub"
+            }
+        ],
         realFandub: true,
         details: {
-            type: "Real fandub",
-            completeness: "Not yet documented",
+            type: "Fan dub",
+            completeness: "Documented",
             distribution: "Avi Go!",
-            notes: "Fan-made language",
+            notes: "Aeviek fan-made language project",
             source: "Fandub Database"
         }
     },
@@ -930,12 +674,17 @@ const dubs = [
         language: "Bambara",
         flag: "🇲🇱",
         title: "SpongeBob Ka Pantalon Carré",
-        versions: [],
+        versions: [
+            {
+                name: "Internet Archive",
+                info: "Upcoming"
+            }
+        ],
         realFandub: true,
         details: {
-            type: "Real fandub",
-            completeness: "Not yet documented",
-            distribution: "Internet Archive (upcoming)",
+            type: "Fan dub",
+            completeness: "Documented",
+            distribution: "Internet Archive",
             notes: "Fan-made Bambara dub",
             source: "Fandub Database"
         }
@@ -945,13 +694,18 @@ const dubs = [
         language: "Belarusian",
         flag: "🇧🇾",
         title: "Спанч Боб Скуэ Пэнс",
-        versions: [],
+        versions: [
+            {
+                name: "Kinakipa",
+                info: "Fan dub"
+            }
+        ],
         realFandub: true,
         details: {
-            type: "Real fandub",
-            completeness: "Not yet documented",
+            type: "Fan dub",
+            completeness: "Documented",
             distribution: "Kinakipa",
-            notes: "Fan-made Belarusian dub",
+            notes: "Belarusian fan dub",
             source: "Fandub Database"
         }
     },
@@ -960,12 +714,17 @@ const dubs = [
         language: "Belarusian",
         flag: "🇧🇾",
         title: "Губка Боб Квадратныя Штаны",
-        versions: [],
+        versions: [
+            {
+                name: "Bondian Dubbing Studios",
+                info: "Google Drive — upcoming"
+            }
+        ],
         realFandub: true,
         details: {
-            type: "Real fandub",
-            completeness: "Not yet documented",
-            distribution: "Google Drive (upcoming)",
+            type: "Fan dub",
+            completeness: "Upcoming",
+            distribution: "Google Drive",
             notes: "Bondian Dubbing Studios fan dub",
             source: "Fandub Database"
         }
@@ -975,13 +734,18 @@ const dubs = [
         language: "Berber",
         flag: "🌍",
         title: "Lponge Lhcen",
-        versions: [],
+        versions: [
+            {
+                name: "Veoh",
+                info: "Formerly available"
+            }
+        ],
         realFandub: true,
         details: {
-            type: "Real fandub",
-            completeness: "Not yet documented",
-            distribution: "Veoh (formerly)",
-            notes: "",
+            type: "Fan dub",
+            completeness: "Documented",
+            distribution: "Veoh",
+            notes: "Previously distributed fan dub",
             source: "Fandub Database"
         }
     },
@@ -990,11 +754,16 @@ const dubs = [
         language: "Bosnian",
         flag: "🇧🇦",
         title: "Spužva Bob KockaPantaloni",
-        versions: [],
+        versions: [
+            {
+                name: "Project BR",
+                info: "Google Drive"
+            }
+        ],
         realFandub: true,
         details: {
-            type: "Real fandub",
-            completeness: "Not yet documented",
+            type: "Fan dub",
+            completeness: "Documented",
             distribution: "Google Drive",
             notes: "Project BR fan dub",
             source: "Fandub Database"
@@ -1005,28 +774,18 @@ const dubs = [
         language: "Burmese",
         flag: "🇲🇲",
         title: "ရေမြှုပ်ဘော့ စတုရမ်း",
-        versions: [],
+        versions: [
+            {
+                name: "BFTT Studios",
+                info: "Google Drive"
+            }
+        ],
         realFandub: true,
         details: {
-            type: "Real fandub",
-            completeness: "Not yet documented",
+            type: "Fan dub",
+            completeness: "Documented",
             distribution: "Google Drive",
             notes: "BFTT Studios fan dub",
-            source: "Fandub Database"
-        }
-    },
-
-    {
-        language: "Ededd",
-        flag: "🟪",
-        title: "Bbcebbe Sueazdjdalx",
-        versions: [],
-        realFandub: true,
-        details: {
-            type: "Real fandub",
-            completeness: "Not yet documented",
-            distribution: "YouTube",
-            notes: "Fan-made language",
             source: "Fandub Database"
         }
     },
@@ -1035,12 +794,17 @@ const dubs = [
         language: "Estonian",
         flag: "🇪🇪",
         title: "Käsna-Kalle Kantpüks",
-        versions: [],
+        versions: [
+            {
+                name: "Media Hyper Studio",
+                info: "Google Drive; YouTube upcoming"
+            }
+        ],
         realFandub: true,
         details: {
-            type: "Real fandub",
-            completeness: "Not yet documented",
-            distribution: "Google Drive; YouTube (upcoming)",
+            type: "Fan dub",
+            completeness: "Documented",
+            distribution: "Google Drive / YouTube",
             notes: "Media Hyper Studio fan dub",
             source: "Fandub Database"
         }
@@ -1050,13 +814,18 @@ const dubs = [
         language: "Guinea-Bissau Creole",
         flag: "🇬🇼",
         title: "SpongeBob SquarePants",
-        versions: [],
+        versions: [
+            {
+                name:"Fan dub",
+                info: "Google Drive; YouTube season 10 upcoming"
+            }
+        ],
         realFandub: true,
         details: {
-            type: "Real fandub",
-            completeness: "Not yet documented",
-            distribution: "Google Drive; YouTube (season 10 only, upcoming)",
-            notes: "",
+            type: "Fan dub",
+            completeness: "Season 10 documented",
+            distribution: "Google Drive / YouTube",
+            notes: "Guinea-Bissau Creole fan dub",
             source: "Fandub Database"
         }
     },
@@ -1065,12 +834,17 @@ const dubs = [
         language: "Latvian",
         flag: "🇱🇻",
         title: "Sūklis Bobs Kvātrbiksis",
-        versions: [],
+        versions: [
+            {
+                name: "Latvian Project Studio",
+                info: "YouTube upcoming"
+            }
+        ],
         realFandub: true,
         details: {
-            type: "Real fandub",
-            completeness: "Not yet documented",
-            distribution: "YouTube (upcoming)",
+            type: "Fan dub",
+            completeness: "Upcoming",
+            distribution: "YouTube",
             notes: "Latvian Project Studio fan dub",
             source: "Fandub Database"
         }
@@ -1080,13 +854,18 @@ const dubs = [
         language: "Luxembourgish",
         flag: "🇱🇺",
         title: "SchwammBob QuadratHosen",
-        versions: [],
+        versions: [
+            {
+                name: "Fan dub",
+                info: "Google Drive / YouTube upcoming"
+            }
+        ],
         realFandub: true,
         details: {
-            type: "Real fandub",
-            completeness: "Not yet documented",
-            distribution: "Google Drive (upcoming); YouTube (upcoming)",
-            notes: "",
+            type: "Fan dub",
+            completeness: "Upcoming",
+            distribution: "Google Drive / YouTube",
+            notes: "Luxembourgish fan dub",
             source: "Fandub Database"
         }
     },
@@ -1095,13 +874,18 @@ const dubs = [
         language: "Macedonian",
         flag: "🇲🇰",
         title: "Сунѓерот Боб",
-        versions: [],
+        versions: [
+            {
+                name: "Project BR — 2017",
+                info: "Google Drive — formerly available"
+            }
+        ],
         realFandub: true,
         details: {
-            type: "Real fandub",
-            completeness: "Not yet documented",
-            distribution: "Google Drive (formerly)",
-            notes: "Project BR fan dub, 2017",
+            type: "Fan dub",
+            completeness: "Documented",
+            distribution: "Google Drive",
+            notes: "Project BR fan dub from 2017",
             source: "Fandub Database"
         }
     },
@@ -1110,13 +894,18 @@ const dubs = [
         language: "Macedonian",
         flag: "🇲🇰",
         title: "Сунѓерот Боб Плоштадот Панталони",
-        versions: [],
+        versions: [
+            {
+                name: "Project BR — 2018",
+                info: "Google Drive — formerly available"
+            }
+        ],
         realFandub: true,
         details: {
-            type: "Real fandub",
-            completeness: "Not yet documented",
-            distribution: "Google Drive (formerly)",
-            notes: "Project BR fan dub, 2018",
+            type: "Fan dub",
+            completeness: "Documented",
+            distribution: "Google Drive",
+            notes: "Project BR fan dub from 2018",
             source: "Fandub Database"
         }
     },
@@ -1125,13 +914,18 @@ const dubs = [
         language: "Occitan",
         flag: "🇫🇷",
         title: "Bob Esponja",
-        versions: [],
+        versions: [
+            {
+                name: "Occitan Dubbing Studio",
+                info: "Google Drive — upcoming"
+            }
+        ],
         realFandub: true,
         details: {
-            type: "Real fandub",
-            completeness: "Not yet documented",
-            distribution: "Google Drive (upcoming)",
-            notes: "Occitan Dubbing Studio fan dub",
+            type: "Fan dub",
+            completeness: "Upcoming",
+            distribution: "Google Drive",
+            notes: "Occitan fan dub",
             source: "Fandub Database"
         }
     },
@@ -1140,13 +934,18 @@ const dubs = [
         language: "Ojibwe",
         flag: "🪶",
         title: "Biinichigens",
-        versions: [],
+        versions: [
+            {
+                name: "Love 2 Dub Ojibwe",
+                info: "YouTube"
+            }
+        ],
         realFandub: true,
         details: {
-            type: "Real fandub",
-            completeness: "Not yet documented",
+            type: "Fan dub",
+            completeness: "Documented",
             distribution: "YouTube",
-            notes: "Love 2 Dub Ojibwe fan dub",
+            notes: "Love 2 Dub Ojibwe project",
             source: "Fandub Database"
         }
     },
@@ -1155,11 +954,16 @@ const dubs = [
         language: "Portuguese (Brazil)",
         flag: "🇧🇷",
         title: "Bob Esponja",
-        versions: [],
+        versions: [
+            {
+                name: "Soberana TV",
+                info: "YouTube — Sponge WorldLand Fandubs"
+            }
+        ],
         realFandub: true,
         details: {
-            type: "Real fandub",
-            completeness: "Not yet documented",
+            type: "Fan dub",
+            completeness: "Documented",
             distribution: "YouTube",
             notes: "Soberana TV fan dub",
             source: "Fandub Database"
@@ -1170,13 +974,18 @@ const dubs = [
         language: "Portuguese (Brazil)",
         flag: "🇧🇷",
         title: "Bob Esponja Calça Quadrada",
-        versions: [],
+        versions: [
+            {
+                name: "Fan dub",
+                info: "YouTube / Google Drive"
+            }
+        ],
         realFandub: true,
         details: {
-            type: "Real fandub",
-            completeness: "Not yet documented",
-            distribution: "YouTube; Google Drive",
-            notes: "",
+            type: "Fan dub",
+            completeness: "Documented",
+            distribution: "YouTube / Google Drive",
+            notes: "Brazilian Portuguese fan dub",
             source: "Fandub Database"
         }
     },
@@ -1185,43 +994,18 @@ const dubs = [
         language: "Polish",
         flag: "🇵🇱",
         title: "Zabawny SpongeBob",
-        versions: [],
+        versions: [
+            {
+                name: "Chromium",
+                info: "Google Drive / YouTube"
+            }
+        ],
         realFandub: true,
         details: {
-            type: "Real fandub",
-            completeness: "Not yet documented",
-            distribution: "Google Drive; YouTube (presumably)",
+            type: "Fan dub",
+            completeness: "Documented",
+            distribution: "Google Drive / YouTube",
             notes: "Chromium fan dub",
-            source: "Fandub Database"
-        }
-    },
-
-    {
-        language: "Rexan",
-        flag: "🟪",
-        title: "Фсрогегрб фqхатетаофу",
-        versions: [],
-        realFandub: true,
-        details: {
-            type: "Real fandub",
-            completeness: "Not yet documented",
-            distribution: "Google Drive; YouTube",
-            notes: "Fan-made language",
-            source: "Fandub Database"
-        }
-    },
-
-    {
-        language: "Speaki",
-        flag: "🟪",
-        title: "Cuayo Speaki",
-        versions: [],
-        realFandub: true,
-        details: {
-            type: "Real fandub",
-            completeness: "Not yet documented",
-            distribution: "Internet Archive",
-            notes: "Fan-made language",
             source: "Fandub Database"
         }
     },
@@ -1230,12 +1014,17 @@ const dubs = [
         language: "Welsh",
         flag: "🏴",
         title: "SpynjBob Pantsgwâr",
-        versions: [],
+        versions: [
+            {
+                name: "Light Idea Productions",
+                info: "Google Drive — upcoming"
+            }
+        ],
         realFandub: true,
         details: {
-            type: "Real fandub",
-            completeness: "Not yet documented",
-            distribution: "Google Drive (upcoming)",
+            type: "Fan dub",
+            completeness: "Upcoming",
+            distribution: "Google Drive",
             notes: "Light Idea Productions fan dub",
             source: "Fandub Database"
         }
@@ -1245,33 +1034,20 @@ const dubs = [
         language: "Quebec Spanish",
         flag: "🇨🇦",
         title: "Bob Esponja",
-        versions: [],
+        versions: [
+            {
+                name: "Fan dub",
+                info: "YouTube / Google Drive"
+            }
+        ],
         realFandub: true,
         details: {
-            type: "Real fandub",
-            completeness: "Not yet documented",
-            distribution: "YouTube; Google Drive",
-            notes: "",
+            type: "Fan dub",
+            completeness: "Documented",
+            distribution: "YouTube / Google Drive",
+            notes: "Quebec Spanish fan dub",
             source: "Fandub Database"
         }
-    },
-
-    {
-        language: "Zenderstien",
-        flag: "🟪",
-        title: "Spûngubûb Sὰéἑἑupἑnήὀ",
-        versions: [],
-        realFandub: true,
-        details: {
-            type: "Real fandub",
-            completeness: "Not yet documented",
-            distribution: "YouTube; Google Drive",
-            notes: "Fan-made language",
-            source: "Fandub Database"
-        }
-    }
-        ]
-
     }
 
 ];
