@@ -2,836 +2,39 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>HELP WANTED — SpongeBob Dub Archive</title>
+    <title>HELP WANTED — SpongeBob Dub Archive</title>
 
-<style>
-
-/* =========================================================
-   BASIC PAGE
-========================================================= */
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-
-    font-family: Tahoma, Verdana, Arial, sans-serif;
-    font-size: 13px;
-
-    color: #123d52;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #62d2ef 0%,
-            #1aa5cf 45%,
-            #0876a5 100%
-        );
-
-    min-height: 100vh;
-}
-
-
-/* =========================================================
-   DECORATIVE BUBBLES
-========================================================= */
-
-body::before,
-body::after {
-    content: "";
-
-    position: fixed;
-
-    border-radius: 50%;
-
-    border: 2px solid rgba(255,255,255,0.35);
-
-    pointer-events: none;
-}
-
-body::before {
-    width: 25px;
-    height: 25px;
-
-    left: 6%;
-    top: 25%;
-}
-
-body::after {
-    width: 13px;
-    height: 13px;
-
-    right: 9%;
-    top: 15%;
-}
-
-
-/* =========================================================
-   MAIN PAGE
-========================================================= */
-
-.page {
-    width: 950px;
-    max-width: calc(100% - 20px);
-
-    margin: 20px auto;
-
-    background: #f4f4e9;
-
-    border: 2px solid #174b65;
-
-    box-shadow:
-        5px 5px 0 rgba(0,0,0,0.25),
-        inset 1px 1px 0 white;
-}
-
-
-/* =========================================================
-   WINDOWS XP TITLE BAR
-========================================================= */
-
-.titlebar {
-
-    height: 38px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 8px;
-
-    color: white;
-
-    font-weight: bold;
-    font-size: 14px;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #42c5f3 0%,
-            #0878ca 45%,
-            #0758a7 100%
-        );
-
-    border-bottom: 2px solid #164e82;
-
-    text-shadow: 1px 1px #174a79;
-}
-
-.titlebar-left {
-
-    display: flex;
-    align-items: center;
-
-    gap: 8px;
-}
-
-
-/* SpongeBob-ish yellow icon */
-
-.title-icon {
-
-    width: 23px;
-    height: 23px;
-
-    background: #f5e84c;
-
-    border: 2px solid white;
-
-    border-radius: 4px;
-
-    box-shadow:
-        inset -2px -2px #b5a800,
-        inset 2px 2px white;
-}
-
-
-.window-buttons {
-
-    display: flex;
-    gap: 3px;
-}
-
-.window-button {
-
-    width: 23px;
-    height: 21px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: white;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #55c8f4,
-            #0873bd
-        );
-
-    border: 1px solid white;
-
-    border-right-color: #174a78;
-    border-bottom-color: #174a78;
-}
-
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-.navbar {
-
-    display: flex;
-
-    gap: 5px;
-
-    padding: 6px;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #fffef0,
-            #d9d9ca
-        );
-
-    border-bottom: 1px solid #999;
-}
-
-
-.xp-button {
-
-    display: inline-block;
-
-    padding: 5px 14px;
-
-    color: #073d63;
-
-    text-decoration: none;
-
-    font-weight: bold;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #fffef4 0%,
-            #e9eddb 45%,
-            #c8d3bf 100%
-        );
-
-    border: 1px solid #6e8270;
-
-    border-radius: 3px;
-
-    box-shadow:
-        inset 1px 1px white,
-        inset -1px -1px #a1a99c;
-
-    cursor: pointer;
-}
-
-.xp-button:hover {
-
-    background:
-        linear-gradient(
-            to bottom,
-            #fff9a8,
-            #e9d83b
-        );
-
-    color: #173900;
-}
-
-.xp-button:active {
-
-    box-shadow:
-        inset 1px 1px #777,
-        inset -1px -1px white;
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero {
-
-    position: relative;
-
-    margin: 10px;
-
-    padding: 25px;
-
-    min-height: 165px;
-
-    overflow: hidden;
-
-    color: white;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #0da3d3,
-            #006b9c
-        );
-
-    border: 2px solid #075b80;
-
-    box-shadow:
-        inset 2px 2px rgba(255,255,255,0.35),
-        inset -2px -2px rgba(0,0,0,0.25);
-}
-
-.hero h1 {
-
-    margin: 0;
-
-    font-size: 42px;
-
-    letter-spacing: 5px;
-
-    color: #ffe943;
-
-    text-shadow:
-        2px 2px #735e00,
-        3px 3px rgba(0,0,0,0.3);
-}
-
-.hero p {
-
-    margin-top: 8px;
-
-    font-size: 15px;
-
-    max-width: 650px;
-}
-
-
-/* =========================================================
-   JELLYFISH
-========================================================= */
-
-.jellyfish {
-
-    position: absolute;
-
-    width: 55px;
-    height: 40px;
-
-    background: #ef8de8;
-
-    border-radius: 50px 50px 15px 15px;
-
-    opacity: 0.85;
-
-    box-shadow:
-        0 0 10px rgba(255,170,255,0.8);
-}
-
-.jellyfish::before,
-.jellyfish::after {
-
-    content: "";
-
-    position: absolute;
-
-    top: 30px;
-
-    width: 8px;
-    height: 35px;
-
-    border-left: 3px solid #ef8de8;
-
-    border-radius: 50%;
-}
-
-.jellyfish::before {
-    left: 12px;
-}
-
-.jellyfish::after {
-    right: 12px;
-}
-
-.jellyfish.one {
-
-    right: 80px;
-    top: 35px;
-
-    transform: rotate(10deg);
-}
-
-.jellyfish.two {
-
-    right: 25px;
-    bottom: 15px;
-
-    transform: scale(.65);
-}
-
-
-.bubble {
-
-    position: absolute;
-
-    border-radius: 50%;
-
-    border: 2px solid rgba(255,255,255,.55);
-}
-
-.bubble.one {
-
-    width: 18px;
-    height: 18px;
-
-    right: 180px;
-    top: 25px;
-}
-
-.bubble.two {
-
-    width: 10px;
-    height: 10px;
-
-    right: 160px;
-    top: 55px;
-}
-
-
-/* =========================================================
-   CONTENT LAYOUT
-========================================================= */
-
-.content {
-
-    display: grid;
-
-    grid-template-columns: 205px 1fr;
-
-    gap: 10px;
-
-    padding: 0 10px 10px;
-}
-
-
-/* =========================================================
-   XP WINDOWS
-========================================================= */
-
-.window {
-
-    background: #f5f5ea;
-
-    border: 2px solid #638092;
-
-    box-shadow:
-        inset 1px 1px white,
-        2px 2px rgba(0,0,0,.18);
-}
-
-.window-title {
-
-    padding: 5px 8px;
-
-    color: white;
-
-    font-weight: bold;
-
-    background:
-        linear-gradient(
-            to right,
-            #087bc4,
-            #36bce8
-        );
-
-    border-bottom: 1px solid #456c7d;
-}
-
-.window-body {
-
-    padding: 10px;
-}
-
-
-/* =========================================================
-   SIDEBAR
-========================================================= */
-
-.sidebar-menu {
-
-    list-style: none;
-
-    padding: 0;
-    margin: 0;
-}
-
-.sidebar-menu li {
-
-    margin-bottom: 4px;
-}
-
-.sidebar-menu a {
-
-    display: block;
-
-    padding: 5px 7px;
-
-    color: #075b86;
-
-    text-decoration: none;
-
-    background: #e8f0df;
-
-    border: 1px solid #b5c5ae;
-}
-
-.sidebar-menu a:hover {
-
-    background: #fff28b;
-}
-
-
-.stats {
-
-    margin-top: 15px;
-
-    padding: 8px;
-
-    background: #fffde0;
-
-    border: 1px solid #c5b95d;
-}
-
-
-/* =========================================================
-   VIDEO PLAYER
-========================================================= */
-
-.player-window {
-
-    margin-bottom: 10px;
-}
-
-.video {
-
-    width: 100%;
-
-    aspect-ratio: 16 / 9;
-
-    background: #111;
-
-    overflow: hidden;
-
-    border: 4px solid #333;
-
-    box-shadow:
-        inset 2px 2px #000,
-        2px 2px rgba(0,0,0,.3);
-}
-
-.video iframe {
-
-    width: 100%;
-    height: 100%;
-
-    border: 0;
-}
-
-.now-playing {
-
-    margin-top: 6px;
-
-    padding: 5px 7px;
-
-    background: #ffffd7;
-
-    border: 1px solid #bbb75c;
-
-    font-weight: bold;
-}
-
-
-/* =========================================================
-   DUB TABLE
-========================================================= */
-
-.dub-table {
-
-    width: 100%;
-
-    border-collapse: collapse;
-}
-
-.dub-table th {
-
-    padding: 7px;
-
-    text-align: left;
-
-    color: white;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #099bd0,
-            #076ca1
-        );
-
-    border: 1px solid #07557c;
-}
-
-.dub-table td {
-
-    padding: 7px;
-
-    vertical-align: middle;
-
-    border: 1px solid #b6c0b8;
-
-    background: #f9f9ef;
-}
-
-.dub-table tr.main-row:hover td {
-
-    background: #fffbd0;
-}
-
-.language {
-
-    font-weight: bold;
-
-    color: #075b86;
-}
-
-
-/* =========================================================
-   BUTTONS
-========================================================= */
-
-.small-button {
-
-    padding: 4px 9px;
-
-    font-family: Tahoma, Arial, sans-serif;
-
-    cursor: pointer;
-
-    color: #064d74;
-
-    font-weight: bold;
-
-    border: 1px solid #61756d;
-
-    border-radius: 3px;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #fffef4,
-            #d5dfcd
-        );
-
-    box-shadow:
-        inset 1px 1px white,
-        inset -1px -1px #a2aaa0;
-}
-
-.small-button:hover {
-
-    background:
-        linear-gradient(
-            to bottom,
-            #fffaa0,
-            #e4d23b
-        );
-}
-
-
-/* =========================================================
-   EXPANDED INFORMATION
-========================================================= */
-
-.archive-info {
-
-    display: none;
-
-    margin-top: 10px;
-
-    padding: 12px;
-
-    background:
-        linear-gradient(
-            to right,
-            #f7f4c9,
-            #fffef1
-        );
-
-    border: 1px solid #bbb45e;
-
-    border-left: 5px solid #f0d928;
-}
-
-.archive-info h3 {
-
-    margin-top: 0;
-
-    color: #075b86;
-}
-
-.details-grid {
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 8px;
-}
-
-.detail-box {
-
-    padding: 8px;
-
-    background: white;
-
-    border: 1px solid #b8b8a5;
-}
-
-.detail-label {
-
-    font-weight: bold;
-
-    color: #176d8e;
-}
-
-
-/* =========================================================
-   ABOUT
-========================================================= */
-
-.about {
-
-    margin-top: 10px;
-}
-
-.about p {
-
-    margin: 6px 0;
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-.footer {
-
-    margin-top: 5px;
-
-    padding: 12px;
-
-    text-align: center;
-
-    color: #275368;
-
-    background: #d7e2d1;
-
-    border-top: 2px solid #809487;
-
-    font-size: 11px;
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 750px) {
-
-    .content {
-
-        grid-template-columns: 1fr;
-    }
-
-    .hero h1 {
-
-        font-size: 30px;
-    }
-
-    .details-grid {
-
-        grid-template-columns: 1fr;
-    }
-}
-
-
-@media (max-width: 550px) {
-
-    .page {
-
-        max-width: 100%;
-
-        margin: 0;
-    }
-
-    .navbar {
-
-        flex-wrap: wrap;
-    }
-
-    .dub-table {
-
-        font-size: 12px;
-    }
-}
-
-</style>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
-
 <div class="page">
 
-
-    <!-- =====================================================
-         TITLE BAR
-    ====================================================== -->
-
+    <!-- XP TITLE BAR -->
     <div class="titlebar">
 
         <div class="titlebar-left">
-
             <div class="title-icon"></div>
 
             <span>
                 HELP WANTED — SpongeBob Dub Archive
             </span>
-
         </div>
 
-
         <div class="window-buttons">
-
             <div class="window-button">_</div>
             <div class="window-button">□</div>
             <div class="window-button">×</div>
-
         </div>
 
     </div>
 
 
-    <!-- =====================================================
-         NAVIGATION
-    ====================================================== -->
-
+    <!-- NAVIGATION -->
     <div class="navbar">
 
         <a class="xp-button" href="#">
@@ -846,58 +49,39 @@ body::after {
             About
         </a>
 
-        <a class="xp-button" href="#">
+        <a class="xp-button" href="#credits">
             Credits
         </a>
 
     </div>
 
 
-    <!-- =====================================================
-         HERO
-    ====================================================== -->
-
+    <!-- HERO -->
     <div class="hero">
 
         <div class="jellyfish one"></div>
-
         <div class="jellyfish two"></div>
 
-        <div class="bubble one"></div>
-
-        <div class="bubble two"></div>
-
-
-        <h1>
-            HELP WANTED
-        </h1>
-
+        <h1>HELP WANTED</h1>
 
         <p>
             A multilingual archive of SpongeBob SquarePants'
             first episode.
         </p>
 
-
         <p>
-            Explore different language versions,
-            broadcasters, casts and dub information.
+            Explore international dubs, alternate versions,
+            broadcasters and dubbing information.
         </p>
 
     </div>
 
 
-    <!-- =====================================================
-         MAIN CONTENT
-    ====================================================== -->
-
+    <!-- CONTENT -->
     <div class="content">
 
 
-        <!-- =================================================
-             SIDEBAR
-        ================================================== -->
-
+        <!-- SIDEBAR -->
         <aside>
 
             <div class="window">
@@ -905,7 +89,6 @@ body::after {
                 <div class="window-title">
                     Archive Menu
                 </div>
-
 
                 <div class="window-body">
 
@@ -952,16 +135,19 @@ body::after {
 
                         <hr>
 
-                        Dubs listed:
-                        <b>4</b>
+                        Languages:
+                        <b id="languageCount">0</b>
+
                         <br>
 
-                        Languages:
-                        <b>4</b>
+                        Multiple versions:
+                        <b id="versionCount">0</b>
+
                         <br>
 
                         Episode:
                         <b>1</b>
+
                         <br>
 
                         Status:
@@ -976,31 +162,20 @@ body::after {
         </aside>
 
 
-        <!-- =================================================
-             MAIN COLUMN
-        ================================================== -->
-
+        <!-- MAIN -->
         <main>
 
 
-            <!-- =============================================
-                 VIDEO PLAYER
-            ============================================== -->
-
+            <!-- VIDEO PLAYER -->
             <div class="window player-window">
 
                 <div class="window-title">
-
                     ▶ Currently Playing
-
                 </div>
-
 
                 <div class="window-body">
 
-                    <div
-                        class="video"
-                        id="videoPlayer">
+                    <div class="video" id="videoPlayer">
 
                         <iframe
                             src="https://streamtape.com/e/e3v3o7K0jLcwv4"
@@ -1009,15 +184,12 @@ body::after {
 
                     </div>
 
-
                     <div class="now-playing">
 
                         Now playing:
 
                         <span id="nowPlaying">
-
                             English — Help Wanted
-
                         </span>
 
                     </div>
@@ -1027,28 +199,16 @@ body::after {
             </div>
 
 
-
-            <!-- =============================================
-                 DUB TABLE
-            ============================================== -->
-
-            <div
-                class="window"
-                id="dubs">
-
+            <!-- DUB TABLE -->
+            <div class="window" id="dubs">
 
                 <div class="window-title">
-
-                    🌐 Available Dubs
-
+                    🌐 International Dubs
                 </div>
-
 
                 <div class="window-body">
 
-
                     <table class="dub-table">
-
 
                         <thead>
 
@@ -1059,7 +219,11 @@ body::after {
                                 </th>
 
                                 <th>
-                                    Dub Name
+                                    Title
+                                </th>
+
+                                <th>
+                                    Versions
                                 </th>
 
                                 <th>
@@ -1070,108 +234,279 @@ body::after {
 
                         </thead>
 
+                        <tbody id="dubTableBody">
+                            <!-- dubs.js generates the rows here -->
+                        </tbody>
 
-                        <tbody>
-
-
-                            <!-- ENGLISH -->
-
-                            <tr class="main-row">
-
-                                <td class="language">
-                                    🇺🇸 English
-                                </td>
-
-                                <td>
-                                    Help Wanted
-                                </td>
-
-                                <td>
-
-                                    <button
-                                        class="small-button"
-                                        onclick="changeVideo(
-                                            'https://streamtape.com/e/e3v3o7K0jLcwv4',
-                                            'English — Help Wanted'
-                                        )">
-
-                                        ▶ Play
-
-                                    </button>
-
-                                </td>
-
-                            </tr>
+                    </table>
 
 
-                            <!-- SPANISH -->
+                    <!-- SHOW MORE -->
+                    <div class="show-more-container">
 
-                            <tr class="main-row">
+                        <button
+                            class="xp-button"
+                            id="showMoreButton"
+                            onclick="toggleArchiveInfo()">
 
-                                <td class="language">
-                                    🇪🇸 Spanish
-                                </td>
+                            ▼ Show more information
 
-                                <td>
-                                    Spanish Dub
-                                </td>
+                        </button>
 
-                                <td>
-
-                                    <button
-                                        class="small-button"
-                                        onclick="changeVideo(
-                                            '',
-                                            'Spanish — Help Wanted'
-                                        )">
-
-                                        ▶ Play
-
-                                    </button>
-
-                                </td>
-
-                            </tr>
+                    </div>
 
 
-                            <!-- FRENCH -->
+                    <!-- ARCHIVE INFORMATION -->
+                    <div
+                        class="archive-info"
+                        id="archiveInfo">
 
-                            <tr class="main-row">
-
-                                <td class="language">
-                                    🇫🇷 French
-                                </td>
-
-                                <td>
-                                    French Dub
-                                </td>
-
-                                <td>
-
-                                    <button
-                                        class="small-button"
-                                        onclick="changeVideo(
-                                            '',
-                                            'French — Help Wanted'
-                                        )">
-
-                                        ▶ Play
-
-                                    </button>
-
-                                </td>
-
-                            </tr>
+                        <h3>
+                            📋 Archive Information
+                        </h3>
 
 
-                            <!-- GERMAN -->
+                        <div class="details-grid">
 
-                            <tr class="main-row">
 
-                                <td class="language">
-                                    🇩🇪 German
-                                </td>
+                            <div class="detail-box">
 
-                                <td>
-                                    German Dub
-    
+                                <span class="detail-label">
+                                    Description
+                                </span>
+
+                                <br><br>
+
+                                [Placeholder]
+
+                                <br>
+
+                                Information about the selected
+                                dub/version will go here.
+
+                            </div>
+
+
+                            <div class="detail-box">
+
+                                <span class="detail-label">
+                                    Dub completeness
+                                </span>
+
+                                <br><br>
+
+                                [Placeholder]
+
+                                <br>
+
+                                Complete / incomplete /
+                                partial / unknown.
+
+                            </div>
+
+
+                            <div class="detail-box">
+
+                                <span class="detail-label">
+                                    Broadcast network
+                                </span>
+
+                                <br><br>
+
+                                [Placeholder]
+
+                                <br>
+
+                                Original broadcaster(s).
+
+                            </div>
+
+
+                            <div class="detail-box">
+
+                                <span class="detail-label">
+                                    Broadcast date
+                                </span>
+
+                                <br><br>
+
+                                [Placeholder]
+
+                                <br>
+
+                                First known broadcast.
+
+                            </div>
+
+
+                            <div class="detail-box">
+
+                                <span class="detail-label">
+                                    Dub studio
+                                </span>
+
+                                <br><br>
+
+                                [Placeholder]
+
+                                <br>
+
+                                Dubbing studio / production company.
+
+                            </div>
+
+
+                            <div class="detail-box">
+
+                                <span class="detail-label">
+                                    Cast
+                                </span>
+
+                                <br><br>
+
+                                [Placeholder]
+
+                                <br>
+
+                                Voice actors and characters.
+
+                            </div>
+
+
+                            <div class="detail-box">
+
+                                <span class="detail-label">
+                                    Voice director
+                                </span>
+
+                                <br><br>
+
+                                [Placeholder]
+
+                                <br>
+
+                                Voice director information.
+
+                            </div>
+
+
+                            <div class="detail-box">
+
+                                <span class="detail-label">
+                                    Notes
+                                </span>
+
+                                <br><br>
+
+                                [Placeholder]
+
+                                <br>
+
+                                Additional version information.
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ABOUT -->
+            <div
+                class="window about"
+                id="about">
+
+                <div class="window-title">
+                    ℹ️ About This Archive
+                </div>
+
+                <div class="window-body">
+
+                    <p>
+                        This is a fan-made archive documenting
+                        international language versions of
+                        <strong>Help Wanted</strong>.
+                    </p>
+
+                    <p>
+                        The language and version information is
+                        based in part on information collected by
+                        The Dubbing Database.
+                    </p>
+
+                    <p>
+                        <strong>Archive status:</strong>
+                        Work in progress.
+                    </p>
+
+                    <p style="font-size:11px;">
+                        Source:
+                        The Dubbing Database —
+                        SpongeBob SquarePants international versions.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- CREDITS -->
+            <div
+                class="window about"
+                id="credits">
+
+                <div class="window-title">
+                    📝 Credits
+                </div>
+
+                <div class="window-body">
+
+                    <p>
+                        Archive design and development:
+                        Help Wanted Dub Archive
+                    </p>
+
+                    <p>
+                        International dubbing information:
+                        The Dubbing Database and other documented sources.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </main>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <div class="footer">
+
+        HELP WANTED DUB ARCHIVE
+
+        ·
+
+        Best viewed at 1024 × 768
+
+        ·
+
+        Windows XP compatible
+
+    </div>
+
+</div>
+
+
+<script src="dubs.js"></script>
+<script src="script.js"></script>
+
+</body>
+
+</html>
