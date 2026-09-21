@@ -15,7 +15,7 @@ video    = video URL, if available
 =========================================================
 */
 
-const dubs = [
+window.dubs = [
 
     {
         language: "Afrikaans",
