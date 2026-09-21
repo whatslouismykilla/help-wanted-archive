@@ -1,412 +1,308 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!DOCTYPE html><html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>HELP WANTED — SpongeBob Dub Archive</title>
 
-    <title>HELP WANTED — SpongeBob Dub Archive</title>
+<link rel="stylesheet" href="style.css?v=3">
 
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-<div class="page">
-
-    <!-- XP TITLE BAR -->
-    <div class="titlebar">
-
-        <div class="titlebar-left">
-            <div class="title-icon"></div>
-
-            <span>
-                HELP WANTED — SpongeBob Dub Archive
-            </span>
-        </div>
-
-        <div class="window-buttons">
-            <div class="window-button">_</div>
-            <div class="window-button">□</div>
-            <div class="window-button">×</div>
-        </div>
-
+</head><body><div class="page"><!-- XP TITLE BAR -->
+<div class="titlebar">
+    <div class="titlebar-left">
+        <div class="title-icon"></div>
+        <span>HELP WANTED — SpongeBob Dub Archive</span>
     </div>
 
-
-    <!-- NAVIGATION -->
-    <div class="navbar">
-
-        <a class="xp-button" href="#">
-            Home
-        </a>
-
-        <a class="xp-button" href="#dubs">
-            Dubs
-        </a>
-
-        <a class="xp-button" href="#about">
-            About
-        </a>
-
-        <a class="xp-button" href="#credits">
-            Credits
-        </a>
-
+    <div class="window-buttons">
+        <div class="window-button">_</div>
+        <div class="window-button">□</div>
+        <div class="window-button">×</div>
     </div>
+</div>
 
 
-    <!-- HERO -->
-    <div class="hero">
-
-        <div class="jellyfish one"></div>
-        <div class="jellyfish two"></div>
-
-        <h1>HELP WANTED</h1>
-
-        <p>
-            A multilingual archive of SpongeBob SquarePants'
-            first episode.
-        </p>
-
-        <p>
-            Explore international dubs, alternate versions,
-            broadcasters and dubbing information.
-        </p>
-
-    </div>
+<!-- NAVIGATION -->
+<div class="navbar">
+    <a class="xp-button" href="#">Home</a>
+    <a class="xp-button" href="#dubs">Dubs</a>
+    <a class="xp-button" href="#about">About</a>
+    <a class="xp-button" href="#credits">Credits</a>
+</div>
 
 
-    <!-- CONTENT -->
-    <div class="content">
+<!-- HERO -->
+<div class="hero">
+
+    <div class="jellyfish one"></div>
+    <div class="jellyfish two"></div>
+    <div class="jellyfish three"></div>
+
+    <h1>HELP WANTED</h1>
+
+    <p>
+        A multilingual archive of SpongeBob SquarePants'
+        first episode.
+    </p>
+
+    <p>
+        Explore international dubs, alternate versions,
+        broadcasters and dubbing information.
+    </p>
+
+</div>
 
 
-        <!-- SIDEBAR -->
-        <aside>
+<!-- CONTENT -->
+<div class="content">
 
-            <div class="window">
+    <!-- SIDEBAR -->
+    <aside>
 
-                <div class="window-title">
-                    Archive Menu
-                </div>
+        <div class="window">
 
-                <div class="window-body">
+            <div class="window-title">
+                Archive Menu
+            </div>
 
-                    <ul class="sidebar-menu">
+            <div class="window-body">
 
-                        <li>
-                            <a href="#dubs">
-                                🌐 All Dubs
-                            </a>
-                        </li>
+                <ul class="sidebar-menu">
+                    <li>
+                        <a href="#dubs">🌐 All Dubs</a>
+                    </li>
 
-                        <li>
-                            <a href="#">
-                                📺 TV Broadcasts
-                            </a>
-                        </li>
+                    <li>
+                        <a href="#dubs">📺 TV Broadcasts</a>
+                    </li>
 
-                        <li>
-                            <a href="#">
-                                🎙️ Cast Information
-                            </a>
-                        </li>
+                    <li>
+                        <a href="#dubs">🎙️ Cast Information</a>
+                    </li>
 
-                        <li>
-                            <a href="#">
-                                📅 Broadcast History
-                            </a>
-                        </li>
+                    <li>
+                        <a href="#dubs">📅 Broadcast History</a>
+                    </li>
 
-                        <li>
-                            <a href="#about">
-                                ℹ️ About
-                            </a>
-                        </li>
-
-                    </ul>
+                    <li>
+                        <a href="#about">ℹ️ About</a>
+                    </li>
+                </ul>
 
 
-                    <div class="stats">
+                <div class="stats">
 
-                        <strong>
-                            Archive Statistics
-                        </strong>
+                    <strong>Archive Statistics</strong>
 
-                        <hr>
+                    <hr>
 
-                        Languages:
-                        <b id="languageCount">0</b>
+                    Languages:
+                    <b id="languageCount">0</b>
 
-                        <br>
+                    <br>
 
-                        Multiple versions:
-                        <b id="versionCount">0</b>
+                    Multiple versions:
+                    <b id="versionCount">0</b>
 
-                        <br>
+                    <br>
 
-                        Episode:
-                        <b>1</b>
+                    Episode:
+                    <b>1</b>
 
-                        <br>
+                    <br>
 
-                        Status:
-                        <b>Work in progress</b>
-
-                    </div>
+                    Status:
+                    <b id="databaseStatus">Loading...</b>
 
                 </div>
 
             </div>
 
-        </aside>
+        </div>
+
+    </aside>
 
 
-        <!-- MAIN -->
-        <main>
+    <!-- MAIN -->
+    <main>
 
+        <!-- VIDEO PLAYER -->
+        <div class="window player-window">
 
-            <!-- VIDEO PLAYER -->
-            <div class="window player-window">
+            <div class="window-title">
+                ▶ Currently Playing
+            </div>
 
-                <div class="window-title">
-                    ▶ Currently Playing
+            <div class="window-body">
+
+                <div class="video" id="videoPlayer">
+
+                    <iframe
+                        src="https://streamtape.com/e/e3v3o7K0jLcwv4"
+                        title="Help Wanted"
+                        allowfullscreen>
+                    </iframe>
+
                 </div>
 
-                <div class="window-body">
-
-                    <div class="video" id="videoPlayer">
-
-                        <iframe
-                            src="https://streamtape.com/e/e3v3o7K0jLcwv4"
-                            allowfullscreen>
-                        </iframe>
-
-                    </div>
-
-                    <div class="now-playing">
-
-                        Now playing:
-
-                        <span id="nowPlaying">
-                            English — Help Wanted
-                        </span>
-
-                    </div>
-
+                <div class="now-playing">
+                    Now playing:
+                    <span id="nowPlaying">
+                        English — Help Wanted
+                    </span>
                 </div>
 
             </div>
 
+        </div>
 
-            <!-- DUB TABLE -->
-            <div class="window" id="dubs">
 
-                <div class="window-title">
-                    🌐 International Dubs
+        <!-- DUB TABLE -->
+        <div class="window" id="dubs">
+
+            <div class="window-title">
+                🌐 International Dubs
+            </div>
+
+            <div class="window-body">
+
+                <div id="databaseError" class="database-error" hidden>
+                    The dub database could not be loaded.
+                    Please check that <strong>dub.js</strong> exists
+                    in the same folder as this page.
                 </div>
 
-                <div class="window-body">
+                <div class="table-wrapper">
 
                     <table class="dub-table">
 
                         <thead>
-
                             <tr>
-
-                                <th>
-                                    Language
-                                </th>
-
-                                <th>
-                                    Title
-                                </th>
-
-                                <th>
-                                    Versions
-                                </th>
-
-                                <th>
-                                    Play
-                                </th>
-
+                                <th>Language</th>
+                                <th>Title</th>
+                                <th>Versions</th>
+                                <th>Play</th>
                             </tr>
-
                         </thead>
 
                         <tbody id="dubTableBody">
-                            <!-- dubs.js generates the rows here -->
                         </tbody>
 
                     </table>
 
-
-                    <!-- SHOW MORE -->
-                    <div class="show-more-container">
-
-                        <button
-                            class="xp-button"
-                            id="showMoreButton"
-                            onclick="toggleArchiveInfo()">
-
-                            ▼ Show more information
-
-                        </button>
-
-                    </div>
+                </div>
 
 
-                    <!-- ARCHIVE INFORMATION -->
-                    <div
-                        class="archive-info"
-                        id="archiveInfo">
+                <!-- SHOW MORE -->
+                <div class="show-more-container">
 
-                        <h3>
-                            📋 Archive Information
-                        </h3>
+                    <button
+                        class="xp-button"
+                        id="showMoreButton"
+                        type="button">
+
+                        ▼ Show more information
+
+                    </button>
+
+                </div>
 
 
-                        <div class="details-grid">
+                <!-- ARCHIVE INFORMATION -->
+                <div
+                    class="archive-info"
+                    id="archiveInfo">
 
+                    <h3>📋 Archive Information</h3>
 
-                            <div class="detail-box">
+                    <div class="details-grid">
 
-                                <span class="detail-label">
-                                    Description
-                                </span>
+                        <div class="detail-box">
+                            <span class="detail-label">
+                                Description
+                            </span>
 
-                                <br><br>
-
-                                [Placeholder]
-
-                                <br>
-
+                            <p>
                                 Information about the selected
-                                dub/version will go here.
+                                dub or version.
+                            </p>
+                        </div>
 
-                            </div>
 
+                        <div class="detail-box">
+                            <span class="detail-label">
+                                Dub completeness
+                            </span>
 
-                            <div class="detail-box">
-
-                                <span class="detail-label">
-                                    Dub completeness
-                                </span>
-
-                                <br><br>
-
-                                [Placeholder]
-
-                                <br>
-
+                            <p>
                                 Complete / incomplete /
                                 partial / unknown.
+                            </p>
+                        </div>
 
-                            </div>
 
+                        <div class="detail-box">
+                            <span class="detail-label">
+                                Broadcast network
+                            </span>
 
-                            <div class="detail-box">
-
-                                <span class="detail-label">
-                                    Broadcast network
-                                </span>
-
-                                <br><br>
-
-                                [Placeholder]
-
-                                <br>
-
+                            <p>
                                 Original broadcaster(s).
+                            </p>
+                        </div>
 
-                            </div>
 
+                        <div class="detail-box">
+                            <span class="detail-label">
+                                Broadcast date
+                            </span>
 
-                            <div class="detail-box">
-
-                                <span class="detail-label">
-                                    Broadcast date
-                                </span>
-
-                                <br><br>
-
-                                [Placeholder]
-
-                                <br>
-
+                            <p>
                                 First known broadcast.
-
-                            </div>
-
-
-                            <div class="detail-box">
-
-                                <span class="detail-label">
-                                    Dub studio
-                                </span>
-
-                                <br><br>
-
-                                [Placeholder]
-
-                                <br>
-
-                                Dubbing studio / production company.
-
-                            </div>
+                            </p>
+                        </div>
 
 
-                            <div class="detail-box">
+                        <div class="detail-box">
+                            <span class="detail-label">
+                                Dub studio
+                            </span>
 
-                                <span class="detail-label">
-                                    Cast
-                                </span>
+                            <p>
+                                Dubbing studio or
+                                production company.
+                            </p>
+                        </div>
 
-                                <br><br>
 
-                                [Placeholder]
+                        <div class="detail-box">
+                            <span class="detail-label">
+                                Cast
+                            </span>
 
-                                <br>
-
+                            <p>
                                 Voice actors and characters.
+                            </p>
+                        </div>
 
-                            </div>
 
+                        <div class="detail-box">
+                            <span class="detail-label">
+                                Voice director
+                            </span>
 
-                            <div class="detail-box">
-
-                                <span class="detail-label">
-                                    Voice director
-                                </span>
-
-                                <br><br>
-
-                                [Placeholder]
-
-                                <br>
-
+                            <p>
                                 Voice director information.
+                            </p>
+                        </div>
 
-                            </div>
 
+                        <div class="detail-box">
+                            <span class="detail-label">
+                                Notes
+                            </span>
 
-                            <div class="detail-box">
-
-                                <span class="detail-label">
-                                    Notes
-                                </span>
-
-                                <br><br>
-
-                                [Placeholder]
-
-                                <br>
-
+                            <p>
                                 Additional version information.
-
-                            </div>
-
-
+                            </p>
                         </div>
 
                     </div>
@@ -415,98 +311,79 @@
 
             </div>
 
+        </div>
 
-            <!-- ABOUT -->
-            <div
-                class="window about"
-                id="about">
 
-                <div class="window-title">
-                    ℹ️ About This Archive
-                </div>
+        <!-- ABOUT -->
+        <div class="window about" id="about">
 
-                <div class="window-body">
+            <div class="window-title">
+                ℹ️ About This Archive
+            </div>
 
-                    <p>
-                        This is a fan-made archive documenting
-                        international language versions of
-                        <strong>Help Wanted</strong>.
-                    </p>
+            <div class="window-body">
 
-                    <p>
-                        The language and version information is
-                        based in part on information collected by
-                        The Dubbing Database.
-                    </p>
+                <p>
+                    This is a fan-made archive documenting
+                    international language versions of
+                    <strong>Help Wanted</strong>.
+                </p>
 
-                    <p>
-                        <strong>Archive status:</strong>
-                        Work in progress.
-                    </p>
+                <p>
+                    Language and version information is based
+                    in part on information collected by
+                    The Dubbing Database.
+                </p>
 
-                    <p style="font-size:11px;">
-                        Source:
-                        The Dubbing Database —
-                        SpongeBob SquarePants international versions.
-                    </p>
-
-                </div>
+                <p>
+                    <strong>Archive status:</strong>
+                    Work in progress.
+                </p>
 
             </div>
 
+        </div>
 
-            <!-- CREDITS -->
-            <div
-                class="window about"
-                id="credits">
 
-                <div class="window-title">
-                    📝 Credits
-                </div>
+        <!-- CREDITS -->
+        <div class="window about" id="credits">
 
-                <div class="window-body">
+            <div class="window-title">
+                📝 Credits
+            </div>
 
-                    <p>
-                        Archive design and development:
-                        Help Wanted Dub Archive
-                    </p>
+            <div class="window-body">
 
-                    <p>
-                        International dubbing information:
-                        The Dubbing Database and other documented sources.
-                    </p>
+                <p>
+                    Archive design and development:
+                    Help Wanted Dub Archive
+                </p>
 
-                </div>
+                <p>
+                    International dubbing information:
+                    The Dubbing Database and other
+                    documented sources.
+                </p>
 
             </div>
 
+        </div>
 
-        </main>
-
-    </div>
-
-
-    <!-- FOOTER -->
-    <div class="footer">
-
-        HELP WANTED DUB ARCHIVE
-
-        ·
-
-        Best viewed at 1024 × 768
-
-        ·
-
-        Windows XP compatible
-
-    </div>
+    </main>
 
 </div>
 
 
-<script src="dub.js"></script>
-<script src="script.js"></script>
+<!-- FOOTER -->
+<div class="footer">
+    HELP WANTED DUB ARCHIVE
+    ·
+    Best viewed at 1024 × 768
+    ·
+    Windows XP compatible
+</div>
 
-</body>
-
+</div><!-- IMPORTANT:
+     dub.js MUST load before script.js.
+--><script src="dub.js?v=3"></script><script src="script.js?v=3"></script></body>
 </html>
