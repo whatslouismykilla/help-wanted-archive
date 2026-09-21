@@ -1,1018 +1,607 @@
-/* =========================================================
+/* ==========================================================================
    HELP WANTED — SpongeBob Dub Archive
-   All database data is contained in this file.
-   No external JS database is required.
-   ========================================================= */
+   Standalone Script & Multilingual Database
+   ========================================================================== */
 
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // Default video stream used for testing
+    const DEFAULT_TEST_VIDEO = "https://streamtape.com/e/e3v3o7K0jLcwv4";
 
-/* =========================================================
-   DUB DATABASE
-   ========================================================= */
+    /* ----------------------------------------------------------------------
+       1. Multilingual Database (Verified data & unknown structure fields)
+       ---------------------------------------------------------------------- */
+    const dubDatabase = [
+        {
+            language: "English",
+            title: "Help Wanted",
+            video: DEFAULT_TEST_VIDEO,
+            versions: []
+        },
+        {
+            language: "Afrikaans",
+            title: "Hulp Gevra",
+            versions: []
+        },
+        {
+            language: "Albanian",
+            title: "Kërkohet Ndihmë",
+            versions: []
+        },
+        {
+            language: "Arabic",
+            title: "مطلوب موظف",
+            versions: [
+                { name: "Childhood Voice Institute", studio: "Childhood Voice Institute" },
+                { name: "Image Production House", studio: "Image Production House" },
+                { name: "Neo Productions / New Interactive Studio", studio: "Neo Productions" }
+            ]
+        },
+        {
+            language: "Armenian",
+            title: "Փնտրվում է աշխատակից",
+            versions: []
+        },
+        {
+            language: "Assamese",
+            title: "Verification needed",
+            versions: []
+        },
+        {
+            language: "Azerbaijani",
+            title: "Köməkçilər Axtarılır",
+            versions: [
+                { name: "Northern Azerbaijani", studio: "Unknown studio" },
+                { name: "Southern Azerbaijani", studio: "Unknown studio" }
+            ]
+        },
+        {
+            language: "Bengali",
+            title: "সাহায্য চাই",
+            versions: [
+                { name: "Audio People version", studio: "Audio People" },
+                { name: "Octave Studio version", studio: "Octave Studio" }
+            ]
+        },
+        {
+            language: "Bulgarian",
+            title: "Tursi se pomoshtnik",
+            versions: []
+        },
+        {
+            language: "Cantonese",
+            title: "急聘助手",
+            versions: [
+                { name: "ATV Home broadcast", studio: "ATV Home" },
+                { name: "Netflix version", studio: "Netflix dubbing team" },
+                { name: "ViuTV version", studio: "ViuTV" }
+            ]
+        },
+        {
+            language: "Croatian",
+            title: "Traži se pomoćnik",
+            versions: [
+                { name: "Project 6 Studio version", studio: "Project 6 Studio" },
+                { name: "VSI-NET version", studio: "VSI-NET" }
+            ]
+        },
+        {
+            language: "Czech",
+            title: "Hledá se kuchař",
+            versions: []
+        },
+        {
+            language: "Danish",
+            title: "Hjælp Søges",
+            versions: []
+        },
+        {
+            language: "Dari",
+            title: "Verification needed",
+            versions: []
+        },
+        {
+            language: "Dutch",
+            title: "Hulp Gevraagd",
+            versions: []
+        },
+        {
+            language: "Filipino",
+            title: "Kailangan ng Tulong",
+            versions: []
+        },
+        {
+            language: "Finnish",
+            title: "Apuwa!",
+            versions: []
+        },
+        {
+            language: "French",
+            title: "Bienvenue à bord",
+            versions: []
+        },
+        {
+            language: "German",
+            title: "Aushilfe gesucht",
+            versions: []
+        },
+        {
+            language: "Gilaki",
+            title: "Verification needed",
+            versions: [
+                { name: "Filmiiz version", studio: "Filmiiz" },
+                { name: "Haft version", studio: "Haft" }
+            ]
+        },
+        {
+            language: "Greek",
+            title: "Ζητείται Βοηθός",
+            versions: []
+        },
+        {
+            language: "Gujarati",
+            title: "મદદ જોઈએ છે",
+            versions: [
+                { name: "Colors Gujarati", studio: "Colors Gujarati" },
+                { name: "ETV Bal Bharat", studio: "ETV Bal Bharat" }
+            ]
+        },
+        {
+            language: "Hebrew",
+            title: "דרוש עובד",
+            versions: []
+        },
+        {
+            language: "Hindi",
+            title: "मदद चाहिए",
+            versions: [
+                { name: "ETV Bal Bharat version", studio: "ETV Bal Bharat" },
+                { name: "Viacom18 / Nickelodeon version", studio: "Viacom18" }
+            ]
+        },
+        {
+            language: "Hungarian",
+            title: "Tengeri Muki állást keres",
+            versions: []
+        },
+        {
+            language: "Icelandic",
+            title: "Aðstoð Óskast",
+            versions: []
+        },
+        {
+            language: "Indonesian",
+            title: "Koki Handal",
+            versions: [
+                { name: "GTV / Nickelodeon version", studio: "GTV / Nickelodeon" },
+                { name: "Lativi version", studio: "Lativi" }
+            ]
+        },
+        {
+            language: "Irish",
+            title: "Cúntóir Ag Teastáil",
+            versions: []
+        },
+        {
+            language: "Italian",
+            title: "Cercasi aiuto",
+            versions: []
+        },
+        {
+            language: "Japanese",
+            title: "ヘルプ・ウォンテッド",
+            versions: []
+        },
+        {
+            language: "Kannada",
+            title: "Verification needed",
+            versions: []
+        },
+        {
+            language: "Kazakh",
+            title: "Көмекші қажет",
+            versions: []
+        },
+        {
+            language: "Korean",
+            title: "직원을 구합니다",
+            versions: [
+                { name: "EBS broadcast version", studio: "EBS" },
+                { name: "Nickelodeon Korea version", studio: "Nickelodeon" }
+            ]
+        },
+        {
+            language: "Kurdish (Central)",
+            title: "پێویستیمان بە یارمەتییە",
+            versions: [
+                { name: "Kurdsat version", studio: "Kurdsat" },
+                { name: "Pelistank TV original", studio: "Pelistank TV" },
+                { name: "Pelistank TV redub", studio: "Pelistank TV" },
+                { name: "Pelistank TV 2025", studio: "Pelistank TV" },
+                { name: "Zaro TV version", studio: "Zaro TV" }
+            ]
+        },
+        {
+            language: "Kurdish (Northern)",
+            title: "Verification needed",
+            versions: [
+                { name: "Filmiiz version", studio: "Filmiiz" },
+                { name: "Heshin TV version", studio: "Heshin TV" },
+                { name: "Türkiye version", studio: "Unknown broadcaster" }
+            ]
+        },
+        {
+            language: "Luri",
+            title: "Verification needed",
+            versions: []
+        },
+        {
+            language: "Macedonian",
+            title: "Се бара помошник",
+            versions: [
+                { name: "A1 broadcast", studio: "A1" },
+                { name: "HBO GO release", studio: "HBO GO" },
+                { name: "MRT 1 broadcast", studio: "MRT 1" }
+            ]
+        },
+        {
+            language: "Malay",
+            title: "Bantuan Dikehendaki",
+            versions: []
+        },
+        {
+            language: "Malayalam",
+            title: "Verification needed",
+            versions: []
+        },
+        {
+            language: "Mandarin (Mainland China)",
+            title: "招募助理",
+            versions: []
+        },
+        {
+            language: "Mandarin (Taiwan)",
+            title: "徵求助理",
+            versions: [
+                { name: "Nickelodeon Taiwan", studio: "Nickelodeon" },
+                { name: "YoYo TV release", studio: "YoYo TV" }
+            ]
+        },
+        {
+            language: "Marathi",
+            title: "मदत हवी आहे",
+            versions: []
+        },
+        {
+            language: "Māori",
+            title: "Kei te Rapu Kaimahi",
+            versions: [
+                { name: "Māori Television broadcast", studio: "Māori Television" },
+                { name: "Nickelodeon version", studio: "Nickelodeon" }
+            ]
+        },
+        {
+            language: "Mazandarani",
+            title: "Verification needed",
+            versions: []
+        },
+        {
+            language: "Norwegian",
+            title: "Hjelp Søkes",
+            versions: [
+                { name: "Eurotroll / NorDubb dub", studio: "Eurotroll / NorDubb" },
+                { name: "Sun Studio dub", studio: "Sun Studio" }
+            ]
+        },
+        {
+            language: "Odia",
+            title: "Verification needed",
+            versions: []
+        },
+        {
+            language: "Persian",
+            title: "جویای کار",
+            versions: [
+                { name: "Persian Version A", studio: "Unverified Persian Studio A" },
+                { name: "Persian Version B", studio: "Unverified Persian Studio B" }
+            ]
+        },
+        {
+            language: "Polish",
+            title: "Potrzebna pomoc",
+            versions: []
+        },
+        {
+            language: "Portuguese (Brazil)",
+            title: "Precisa-se de Ajudante",
+            versions: []
+        },
+        {
+            language: "Portuguese (Portugal)",
+            title: "Precisa-se de Empregado",
+            versions: [
+                { name: "Nickelodeon Portugal", studio: "Nickelodeon" },
+                { name: "SIC broadcast", studio: "SIC" }
+            ]
+        },
+        {
+            language: "Punjabi",
+            title: "Verification needed",
+            versions: []
+        },
+        {
+            language: "Romanian",
+            title: "Se caută angajat",
+            versions: []
+        },
+        {
+            language: "Russian",
+            title: "Требуется помощник",
+            versions: []
+        },
+        {
+            language: "Semnani",
+            title: "Verification needed",
+            versions: []
+        },
+        {
+            language: "Serbian",
+            title: "Тражи се помоћник",
+            versions: [
+                { name: "B92 broadcast", studio: "B92" },
+                { name: "Gold Digi Net (DVD)", studio: "Gold Digi Net" },
+                { name: "Gold Digi Net (TV)", studio: "Gold Digi Net" }
+            ]
+        },
+        {
+            language: "Sinhala",
+            title: "Verification needed",
+            versions: []
+        },
+        {
+            language: "Slovak",
+            title: "Hľadá sa pomocník",
+            versions: [
+                { name: "Markíza broadcast", studio: "Markíza" },
+                { name: "Štúdio FINIKIN dub", studio: "Štúdio FINIKIN" }
+            ]
+        },
+        {
+            language: "Slovene",
+            title: "Išče se pomočnik",
+            versions: [
+                { name: "Nickelodeon dub", studio: "Nickelodeon" },
+                { name: "Studio Ritem dub", studio: "Studio Ritem" },
+                { name: "TV3 broadcast", studio: "TV3" }
+            ]
+        },
+        {
+            language: "Spanish (Latin America)",
+            title: "Se Busca Ayudante",
+            versions: []
+        },
+        {
+            language: "Spanish (Spain)",
+            title: "Se Busca Ayudante",
+            versions: []
+        },
+        {
+            language: "Swedish",
+            title: "Hjälp Sökes",
+            versions: []
+        },
+        {
+            language: "Tamil",
+            title: "வேலைக்கு ஆட்கள் தேவை",
+            versions: [
+                { name: "Chutti TV release", studio: "Chutti TV" },
+                { name: "ETV Bal Bharat release", studio: "ETV Bal Bharat" },
+                { name: "Nickelodeon Tamil", studio: "Nickelodeon" }
+            ]
+        },
+        {
+            language: "Telugu",
+            title: "సాయం కావాలి",
+            versions: [
+                { name: "ETV Bal Bharat release", studio: "ETV Bal Bharat" },
+                { name: "Kushi TV release", studio: "Kushi TV" },
+                { name: "Nickelodeon Telugu", studio: "Nickelodeon" }
+            ]
+        },
+        {
+            language: "Thai",
+            title: "ต้องการความช่วยเหลือ",
+            versions: []
+        },
+        {
+            language: "Tibetan",
+            title: "Verification needed",
+            versions: []
+        },
+        {
+            language: "Turkish",
+            title: "Eleman Aranıyor",
+            versions: [
+                { name: "Nickelodeon Turkey", studio: "Nickelodeon" },
+                { name: "CNBC-e broadcast", studio: "CNBC-e" }
+            ]
+        },
+        {
+            language: "Ukrainian",
+            title: "Потрібен помічник",
+            versions: []
+        },
+        {
+            language: "Urdu",
+            title: "مدد درکار ہے",
+            versions: []
+        },
+        {
+            language: "Uyghur",
+            title: "Verification needed",
+            versions: []
+        },
+        {
+            language: "Vietnamese",
+            title: "Tuyển Dụng Koki",
+            versions: [
+                { name: "Netflix release", studio: "Netflix" },
+                { name: "YouTV broadcast", studio: "YouTV" }
+            ]
+        },
+        {
+            language: "Welsh",
+            title: "Cymorth Ei Angen",
+            versions: []
+        },
+        {
+            language: "Zaza",
+            title: "Verification needed",
+            versions: []
+        },
+        {
+            language: "Zulu",
+            title: "Kudingeka Usizo",
+            versions: []
+        }
+    ];
 
-const dubs = [
+    /* ----------------------------------------------------------------------
+       2. Dynamic Calculations & Statistics Updates
+       ---------------------------------------------------------------------- */
+    function updateStatistics() {
+        let totalDubs = 0;
+        const languagesCount = dubDatabase.length;
 
-    {
-        language: "🇺🇸 English",
-        title: "Help Wanted",
-        versions: [
-            {
-                name: "Original English version",
-                studio: "Nickelodeon"
+        dubDatabase.forEach(item => {
+            if (item.versions && item.versions.length > 0) {
+                totalDubs += item.versions.length;
+            } else {
+                totalDubs += 1;
             }
-        ]
-    },
+        });
 
+        const dubsStatEl = document.getElementById("stat-dubs-count");
+        const langsStatEl = document.getElementById("stat-languages-count");
 
-    {
-        language: "🇪🇸 Spanish",
-        title: "Se Busca Ayudante",
-        versions: [
-            {
-                name: "Latin American Spanish",
-                studio: "Nickelodeon Latin America"
-            },
-            {
-                name: "European Spanish",
-                studio: "Nickelodeon Spain"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇫🇷 French",
-        title: "Employé du mois",
-        versions: [
-            {
-                name: "French dub",
-                studio: "Nickelodeon France"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇩🇪 German",
-        title: "Mitarbeiter gesucht",
-        versions: [
-            {
-                name: "German dub",
-                studio: "Nickelodeon Germany"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇮🇹 Italian",
-        title: "Aiuto cercasi",
-        versions: [
-            {
-                name: "Italian dub",
-                studio: "Nickelodeon Italy"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇵🇹 Portuguese",
-        title: "Precisa-se de Funcionário",
-        versions: [
-            {
-                name: "Brazilian Portuguese",
-                studio: "Nickelodeon Brazil"
-            },
-            {
-                name: "European Portuguese",
-                studio: "Nickelodeon Portugal"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇹🇷 Turkish",
-        title: "Eleman Aranıyor",
-        versions: [
-            {
-                name: "Nickelodeon version",
-                studio: "Nickelodeon Turkey"
-            },
-            {
-                name: "CNBC-e version",
-                studio: "CNBC-e"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇯🇵 Japanese",
-        title: "Help Wanted",
-        versions: [
-            {
-                name: "Japanese dub",
-                studio: "Nickelodeon Japan"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇰🇷 Korean",
-        title: "도와주세요",
-        versions: [
-            {
-                name: "EBS version",
-                studio: "EBS"
-            },
-            {
-                name: "Nickelodeon version",
-                studio: "Nickelodeon Korea"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇮🇩 Indonesian",
-        title: "Dicari Karyawan",
-        versions: [
-            {
-                name: "GTV / Nickelodeon version",
-                studio: "GTV / Nickelodeon"
-            },
-            {
-                name: "Lativi version",
-                studio: "Lativi"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇷🇺 Russian",
-        title: "Требуется работник",
-        versions: [
-            {
-                name: "Russian dub",
-                studio: "Nickelodeon Russia"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇵🇱 Polish",
-        title: "Poszukiwany pracownik",
-        versions: [
-            {
-                name: "Polish dub",
-                studio: "Nickelodeon Poland"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇳🇱 Dutch",
-        title: "Hulp Gezocht",
-        versions: [
-            {
-                name: "Dutch dub",
-                studio: "Nickelodeon Netherlands"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇸🇪 Swedish",
-        title: "Hjälp sökes",
-        versions: [
-            {
-                name: "Swedish dub",
-                studio: "Nickelodeon Sweden"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇳🇴 Norwegian",
-        title: "Hjelp søkes",
-        versions: [
-            {
-                name: "Norwegian dub",
-                studio: "NorDubb / Eurotroll"
-            },
-            {
-                name: "Sun Studio version",
-                studio: "Sun Studio"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇫🇮 Finnish",
-        title: "Apua tarvitaan",
-        versions: [
-            {
-                name: "Finnish dub",
-                studio: "Nickelodeon Finland"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇩🇰 Danish",
-        title: "Hjælp søges",
-        versions: [
-            {
-                name: "Danish dub",
-                studio: "Nickelodeon Denmark"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇬🇷 Greek",
-        title: "Ζητείται Βοήθεια",
-        versions: [
-            {
-                name: "Greek dub",
-                studio: "Nickelodeon Greece"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇭🇺 Hungarian",
-        title: "Munkatársat keresünk",
-        versions: [
-            {
-                name: "Hungarian dub",
-                studio: "Nickelodeon Hungary"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇷🇴 Romanian",
-        title: "Se caută ajutor",
-        versions: [
-            {
-                name: "Romanian dub",
-                studio: "Nickelodeon Romania"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇨🇿 Czech",
-        title: "Hledá se pomocník",
-        versions: [
-            {
-                name: "Czech dub",
-                studio: "Nickelodeon Czech Republic"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇸🇰 Slovak",
-        title: "Hľadá sa pomocník",
-        versions: [
-            {
-                name: "Markíza version",
-                studio: "Markíza"
-            },
-            {
-                name: "Štúdio FINIKIN version",
-                studio: "Štúdio FINIKIN"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇺🇦 Ukrainian",
-        title: "Потрібен працівник",
-        versions: [
-            {
-                name: "Ukrainian dub",
-                studio: "Nickelodeon Ukraine"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇧🇬 Bulgarian",
-        title: "Търси се помощник",
-        versions: [
-            {
-                name: "Bulgarian dub",
-                studio: "Nickelodeon Bulgaria"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇷🇸 Serbian",
-        title: "Traži se radnik",
-        versions: [
-            {
-                name: "B92 version",
-                studio: "B92"
-            },
-            {
-                name: "Gold Digi Net version",
-                studio: "Gold Digi Net"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇭🇷 Croatian",
-        title: "Traži se pomoćnik",
-        versions: [
-            {
-                name: "Project 6 Studio version",
-                studio: "Project 6 Studio"
-            },
-            {
-                name: "VSI-NET version",
-                studio: "VSI-NET"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇸🇮 Slovene",
-        title: "Iščemo pomoč",
-        versions: [
-            {
-                name: "Nickelodeon version",
-                studio: "Nickelodeon"
-            },
-            {
-                name: "Studio Ritem version",
-                studio: "Studio Ritem"
-            },
-            {
-                name: "TV3 version",
-                studio: "TV3"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇮🇱 Hebrew",
-        title: "דרוש עובד",
-        versions: [
-            {
-                name: "Hebrew dub",
-                studio: "Nickelodeon Israel"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇮🇷 Persian",
-        title: "کارمند مورد نیاز است",
-        versions: [
-            {
-                name: "Persian version",
-                studio: "Various studios"
-            },
-            {
-                name: "Persian redub",
-                studio: "Various studios"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇮🇳 Hindi",
-        title: "मदद चाहिए",
-        versions: [
-            {
-                name: "ETV Bal Bharat version",
-                studio: "ETV Bal Bharat"
-            },
-            {
-                name: "Viacom18 version",
-                studio: "Viacom18"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇮🇳 Bengali",
-        title: "সহকারী চাই",
-        versions: [
-            {
-                name: "Audio People version",
-                studio: "Audio People"
-            },
-            {
-                name: "Octave Studio version",
-                studio: "Octave Studio"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇮🇳 Tamil",
-        title: "உதவி தேவை",
-        versions: [
-            {
-                name: "Chutti TV version",
-                studio: "Chutti TV"
-            },
-            {
-                name: "ETV Bal Bharat version",
-                studio: "ETV Bal Bharat"
-            },
-            {
-                name: "Nickelodeon version",
-                studio: "Nickelodeon"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇮🇳 Telugu",
-        title: "సహాయకుడు కావాలి",
-        versions: [
-            {
-                name: "ETV Bal Bharat version",
-                studio: "ETV Bal Bharat"
-            },
-            {
-                name: "Kushi TV version",
-                studio: "Kushi TV"
-            },
-            {
-                name: "Nickelodeon version",
-                studio: "Nickelodeon"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇮🇳 Kannada",
-        title: "ಸಹಾಯಕ ಬೇಕು",
-        versions: [
-            {
-                name: "Chintu TV version",
-                studio: "Chintu TV"
-            },
-            {
-                name: "ETV Bal Bharat version",
-                studio: "ETV Bal Bharat"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇮🇳 Malayalam",
-        title: "സഹായിയെ ആവശ്യമുണ്ട്",
-        versions: [
-            {
-                name: "ETV Bal Bharat version",
-                studio: "ETV Bal Bharat"
-            },
-            {
-                name: "Kochu TV version",
-                studio: "Kochu TV"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇹🇭 Thai",
-        title: "รับสมัครพนักงาน",
-        versions: [
-            {
-                name: "Thai dub",
-                studio: "Nickelodeon Thailand"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇻🇳 Vietnamese",
-        title: "Cần tuyển nhân viên",
-        versions: [
-            {
-                name: "Netflix version",
-                studio: "Netflix"
-            },
-            {
-                name: "YouTV version",
-                studio: "YouTV"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇲🇾 Malay",
-        title: "Pembantu Diperlukan",
-        versions: [
-            {
-                name: "Malay dub",
-                studio: "Nickelodeon Southeast Asia"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇵🇭 Filipino",
-        title: "Kailangan ng Tulong",
-        versions: [
-            {
-                name: "Filipino dub",
-                studio: "Nickelodeon Philippines"
-            }
-        ]
-    },
-
-
-    {
-        language: "🇿🇦 Afrikaans",
-        title: "Hulp benodig",
-        versions: [
-            {
-                name: "Afrikaans dub",
-                studio: "Nickelodeon"
-            }
-        ]
+        if (dubsStatEl) dubsStatEl.textContent = `${totalDubs}+`;
+        if (langsStatEl) langsStatEl.textContent = languagesCount;
     }
 
-];
+    /* ----------------------------------------------------------------------
+       3. Video Player Management Function
+       ---------------------------------------------------------------------- */
+    function playVideo(videoUrl, displayTitle) {
+        const iframe = document.getElementById("video-player");
+        const fallback = document.getElementById("video-fallback");
+        const label = document.getElementById("now-playing-label");
+        const fallbackMessage = document.getElementById("fallback-message");
 
+        if (label) label.textContent = displayTitle;
 
-/* =========================================================
-   BUILD THE TABLE
-   ========================================================= */
-
-function buildTable() {
-
-    const table = document.getElementById("dubTable");
-
-    if (!table) {
-        console.error("Could not find #dubTable");
-        return;
-    }
-
-    table.innerHTML = "";
-
-
-    dubs.forEach(function (dub, index) {
-
-        /*
-         * MAIN ROW
-         */
-
-        const row = document.createElement("tr");
-
-        row.className = "main-row";
-
-
-        /* Language */
-
-        const languageCell =
-            document.createElement("td");
-
-        languageCell.className =
-            "language-cell";
-
-        languageCell.textContent =
-            dub.language;
-
-
-        /* Title */
-
-        const titleCell =
-            document.createElement("td");
-
-        titleCell.className =
-            "title-cell";
-
-        titleCell.textContent =
-            dub.title;
-
-
-        /* Versions */
-
-        const versionsCell =
-            document.createElement("td");
-
-        versionsCell.className =
-            "versions-cell";
-
-
-        if (dub.versions.length > 1) {
-
-            const versionButton =
-                document.createElement("button");
-
-            versionButton.type = "button";
-
-            versionButton.className =
-                "version-button";
-
-            versionButton.textContent =
-                "▶ Show versions";
-
-            versionButton.addEventListener(
-                "click",
-                function () {
-                    toggleVersions(
-                        index,
-                        versionButton
-                    );
-                }
-            );
-
-            versionsCell.appendChild(
-                versionButton
-            );
-
+        if (videoUrl && typeof videoUrl === "string" && videoUrl.trim() !== "") {
+            // Show iframe, hide fallback message
+            if (iframe) {
+                iframe.src = videoUrl;
+                iframe.style.display = "block";
+            }
+            if (fallback) fallback.classList.add("hidden");
         } else {
-
-            versionsCell.textContent = "—";
-
-        }
-
-
-        /* Play */
-
-        const playCell =
-            document.createElement("td");
-
-        playCell.className =
-            "play-cell";
-
-
-        const playButton =
-            document.createElement("button");
-
-        playButton.type = "button";
-
-        playButton.className =
-            "play-button";
-
-        playButton.textContent =
-            "▶ Play";
-
-
-        playButton.addEventListener(
-            "click",
-            function () {
-
-                /*
-                 * The first entry is the version
-                 * selected when pressing the main
-                 * Play button.
-                 */
-
-                const version =
-                    dub.versions[0];
-
-                playVersion(
-                    version,
-                    dub
-                );
-
+            // Show graceful missing video message
+            if (iframe) {
+                iframe.style.display = "none";
+                iframe.src = "";
             }
-        );
+            if (fallbackMessage) {
+                fallbackMessage.textContent = `No confirmed video URL is currently cataloged for "${displayTitle}". Metadata archived.`;
+            }
+            if (fallback) fallback.classList.remove("hidden");
+        }
+    }
 
+    /* ----------------------------------------------------------------------
+       4. Render Table Rows Dynamically
+       ---------------------------------------------------------------------- */
+    function renderDubTable() {
+        const tbody = document.getElementById("dub-table-body");
+        if (!tbody) return;
 
-        playCell.appendChild(
-            playButton
-        );
+        tbody.innerHTML = ""; // Clear existing rows
 
+        dubDatabase.forEach((entry, index) => {
+            const hasVersions = entry.versions && entry.versions.length > 0;
+            const mainRowId = `main-row-${index}`;
+            const subRowId = `version-row-${index}`;
 
-        /*
-         * Assemble main row
-         */
+            // Create Main Row
+            const mainTr = document.createElement("tr");
+            mainTr.className = "main-row";
+            mainTr.id = mainRowId;
 
-        row.appendChild(languageCell);
+            // Column 1: Language
+            const tdLang = document.createElement("td");
+            tdLang.innerHTML = `<strong>${escapeHtml(entry.language)}</strong>`;
+            mainTr.appendChild(tdLang);
 
-        row.appendChild(titleCell);
+            // Column 2: Dub Name / Title
+            const tdTitle = document.createElement("td");
+            tdTitle.textContent = entry.title || "—";
+            mainTr.appendChild(tdTitle);
 
-        row.appendChild(versionsCell);
-
-        row.appendChild(playCell);
-
-
-        table.appendChild(row);
-
-
-        /*
-         * VERSION ROW
-         */
-
-        if (dub.versions.length > 1) {
-
-            const versionRow =
-                document.createElement("tr");
-
-            versionRow.className =
-                "version-row";
-
-            versionRow.id =
-                "versions-" + index;
-
-
-            const versionCell =
-                document.createElement("td");
-
-            versionCell.colSpan = 4;
-
-            versionCell.className =
-                "version-list-cell";
-
-
-            const versionList =
-                document.createElement("div");
-
-            versionList.className =
-                "version-list";
-
-
-            dub.versions.forEach(
-                function (version) {
-
-                    const item =
-                        document.createElement("div");
-
-                    item.className =
-                        "version-item";
-
-
-                    const info =
-                        document.createElement("div");
-
-                    info.className =
-                        "version-info";
-
-
-                    const name =
-                        document.createElement("strong");
-
-                    name.textContent =
-                        version.name;
-
-
-                    info.appendChild(name);
-
-
-                    if (version.studio) {
-
-                        const studio =
-                            document.createElement("span");
-
-                        studio.className =
-                            "version-studio";
-
-                        studio.textContent =
-                            " — " +
-                            version.studio;
-
-                        info.appendChild(studio);
-                    }
-
-
-                    const button =
-                        document.createElement("button");
-
-                    button.type = "button";
-
-                    button.className =
-                        "play-button";
-
-                    button.textContent =
-                        "▶ Play";
-
-
-                    button.addEventListener(
-                        "click",
-                        function () {
-
-                            playVersion(
-                                version,
-                                dub
-                            );
-
+            // Column 3: Versions Column
+            const tdVersions = document.createElement("td");
+            if (hasVersions) {
+                const versionBtn = document.createElement("button");
+                versionBtn.className = "xp-action-btn version-btn";
+                versionBtn.innerHTML = `▶ Show versions (${entry.versions.length})`;
+                versionBtn.setAttribute("aria-expanded", "false");
+                
+                versionBtn.addEventListener("click", () => {
+                    const subRow = document.getElementById(subRowId);
+                    if (subRow) {
+                        const isHidden = subRow.classList.contains("hidden");
+                        if (isHidden) {
+                            subRow.classList.remove("hidden");
+                            versionBtn.innerHTML = `▼ Hide versions (${entry.versions.length})`;
+                            versionBtn.setAttribute("aria-expanded", "true");
+                        } else {
+                            subRow.classList.add("hidden");
+                            versionBtn.innerHTML = `▶ Show versions (${entry.versions.length})`;
+                            versionBtn.setAttribute("aria-expanded", "false");
                         }
-                    );
-
-
-                    item.appendChild(info);
-
-                    item.appendChild(button);
-
-                    versionList.appendChild(item);
-
-                }
-            );
-
-
-            versionCell.appendChild(
-                versionList
-            );
-
-            versionRow.appendChild(
-                versionCell
-            );
-
-            table.appendChild(
-                versionRow
-            );
-
-        }
-
-    });
-
-
-    /*
-     * Update statistics
-     */
-
-    document.getElementById(
-        "dubCount"
-    ).textContent = dubs.length;
-
-
-    document.getElementById(
-        "languageCount"
-    ).textContent = dubs.length;
-
-}
-
-
-/* =========================================================
-   VERSION TOGGLE
-   ========================================================= */
-
-function toggleVersions(index, button) {
-
-    const row =
-        document.getElementById(
-            "versions-" + index
-        );
-
-
-    if (!row) {
-        return;
-    }
-
-
-    const isOpen =
-        row.classList.contains("open");
-
-
-    if (isOpen) {
-
-        row.classList.remove("open");
-
-        button.textContent =
-            "▶ Show versions";
-
-    } else {
-
-        row.classList.add("open");
-
-        button.textContent =
-            "▼ Hide versions";
-
-    }
-
-}
-
-
-/* =========================================================
-   PLAY VERSION
-   ========================================================= */
-
-function playVersion(version, dub) {
-
-    const player =
-        document.getElementById(
-            "videoPlayer"
-        );
-
-
-    const nowPlaying =
-        document.getElementById(
-            "nowPlaying"
-        );
-
-
-    /*
-     * We deliberately don't invent video URLs.
-     *
-     * Until an actual video URL is entered for a
-     * version, the player stays on the current video.
-     */
-
-    if (version.video) {
-
-        player.src =
-            version.video;
-
-    }
-
-
-    nowPlaying.textContent =
-        dub.language +
-        " — " +
-        version.name;
-
-
-    document.querySelector(
-        ".player-section"
-    ).scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
-
-}
-
-
-/* =========================================================
-   INFORMATION BUTTON
-   ========================================================= */
-
-function setupInformationButton() {
-
-    const button =
-        document.getElementById(
-            "infoButton"
-        );
-
-
-    const info =
-        document.getElementById(
-            "archiveInfo"
-        );
-
-
-    if (!button || !info) {
-        return;
-    }
-
-
-    button.addEventListener(
-        "click",
-        function () {
-
-            const isHidden =
-                info.hidden;
-
-
-            info.hidden =
-                !isHidden;
-
-
-            button.textContent =
-                isHidden
-                    ? "▲ Hide information"
-                    : "▼ Show more information";
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   START
-   =================
+                    }
+                });
+                tdVersions.appendChild(versionBtn);
+            } else {
+                const span = document.createElement("span");
+                span.className = "no-versions";
+                span.textContent = "—";
+                tdVersions.appendChild(span);
+            }
+            mainTr.appendChild(tdVersions);
+
+            // Column 4: Main Play Button
+            const tdPlay = document.createElement("td");
+            const playBtn = document.createElement("button");
+            playBtn.className = "xp-action-btn play-btn";
+            playBtn.innerHTML = "▶ Play";
+            
+            playBtn.addEventListener("click", () => {
+                const titleText = `${entry.language} — ${entry.title}`;
+                playVideo(entry.video, titleText);
+            });
+            
+            tdPlay.appendChild(playBtn);
+            mainTr.appendChild(tdPlay);
+
+            // Append Main Row to Table
+            tbody.appendChild(mainTr);
+
+            // If entry has versions, create expandable Sub-Row
+            if (hasVersions) {
+                const subTr = document.createElement("tr");
+                subTr.className = "version-row hidden";
+                subTr.id = subRowId;
+
+                const subTd = document.createElement("td");
+      
