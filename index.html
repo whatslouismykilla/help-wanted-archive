@@ -8,27 +8,17 @@
 
 <style>
 
-/* ==============================
-   GENERAL
-============================== */
-
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    background:
-        linear-gradient(#b7d7f5, #e9f4ff 250px);
+    background: linear-gradient(#b7d7f5, #e9f4ff 250px);
     font-family: Tahoma, Verdana, Arial, sans-serif;
     font-size: 13px;
     color: #222;
 }
-
-
-/* ==============================
-   MAIN WINDOW
-============================== */
 
 .page {
     width: 950px;
@@ -36,262 +26,137 @@ body {
     margin: 20px auto;
     background: #fff;
     border: 1px solid #003c7a;
-    box-shadow:
-        3px 3px 0 rgba(0,0,0,.25);
+    box-shadow: 3px 3px 0 rgba(0,0,0,.25);
 }
-
-
-/* ==============================
-   XP TITLE BAR
-============================== */
 
 .titlebar {
     height: 36px;
-
-    background:
-        linear-gradient(
-            #3b8eea,
-            #1465bd 50%,
-            #0b55a5 51%,
-            #0b6ac7
-        );
-
+    background: linear-gradient(
+        #3b8eea,
+        #1465bd 50%,
+        #0b55a5 51%,
+        #0b6ac7
+    );
     color: white;
-
     display: flex;
     align-items: center;
-
     padding: 0 8px;
-
     font-weight: bold;
-
-    text-shadow:
-        1px 1px 1px #003b75;
+    text-shadow: 1px 1px 1px #003b75;
 }
 
 .titlebar-icon {
     width: 22px;
     height: 22px;
-
     margin-right: 7px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     background: #f7d24a;
     color: #064b9c;
-
     border: 1px solid white;
-
     font-weight: bold;
 }
 
-
-/* ==============================
-   XP BUTTONS
-============================== */
-
 .xp-button {
-
-    background:
-        linear-gradient(
-            #ffffff,
-            #e8e8e8 45%,
-            #d2d2d2 46%,
-            #eeeeee
-        );
+    background: linear-gradient(
+        #ffffff,
+        #e8e8e8 45%,
+        #d2d2d2 46%,
+        #eeeeee
+    );
 
     border: 1px solid #777;
-
     border-radius: 3px;
-
     padding: 5px 13px;
-
     color: #111;
-
     font-family: Tahoma, sans-serif;
-
     cursor: pointer;
-
-    box-shadow:
-        inset 1px 1px white;
+    box-shadow: inset 1px 1px white;
 }
 
 .xp-button:hover {
-    background:
-        linear-gradient(
-            #fff,
-            #fff1c5 45%,
-            #ffd86b 46%,
-            #fff
-        );
+    background: linear-gradient(
+        #fff,
+        #fff1c5 45%,
+        #ffd86b 46%,
+        #fff
+    );
 }
-
-.xp-button:active {
-    box-shadow:
-        inset 1px 1px #888;
-}
-
-
-/* ==============================
-   NAVIGATION
-============================== */
 
 .navbar {
-
-    background:
-        linear-gradient(
-            #f7f7f7,
-            #dedede
-        );
-
+    background: linear-gradient(#f7f7f7, #dedede);
     border-bottom: 1px solid #aaa;
-
     padding: 5px;
-
     display: flex;
-
     gap: 5px;
 }
-
-
-/* ==============================
-   CONTENT
-============================== */
 
 .content {
     padding: 15px;
 }
 
-
-/* ==============================
-   HERO
-============================== */
-
 .hero {
-
     border: 1px solid #6d9bd0;
-
-    background:
-        linear-gradient(
-            #eaf4ff,
-            #c9e1fb
-        );
-
+    background: linear-gradient(#eaf4ff, #c9e1fb);
     padding: 18px;
-
     margin-bottom: 15px;
 }
 
 .hero h1 {
-
     margin: 0;
-
     color: #064b91;
-
     font-size: 34px;
-
-    text-shadow:
-        1px 1px white;
+    text-shadow: 1px 1px white;
 }
 
 .hero p {
     margin-bottom: 0;
 }
 
-
-/* ==============================
-   TWO COLUMN LAYOUT
-============================== */
-
 .columns {
-
     display: grid;
-
-    grid-template-columns:
-        190px 1fr;
-
+    grid-template-columns: 190px 1fr;
     gap: 15px;
 }
 
-
-/* ==============================
-   SIDEBAR
-============================== */
-
 .sidebar {
-
     border: 1px solid #9aaec4;
-
     background: #eef5fc;
 }
 
 .sidebar-title {
-
-    background:
-        linear-gradient(
-            #4b9be8,
-            #1764b4
-        );
-
+    background: linear-gradient(#4b9be8, #1764b4);
     color: white;
-
     font-weight: bold;
-
     padding: 6px;
-
     text-shadow: 1px 1px #003d77;
 }
 
 .sidebar a {
-
     display: block;
-
     padding: 7px 9px;
-
     color: #064b91;
-
     text-decoration: none;
-
     border-bottom: 1px solid #d2dce7;
 }
 
 .sidebar a:hover {
-
     background: #316ac5;
-
     color: white;
 }
 
-
-/* ==============================
-   SECTION WINDOWS
-============================== */
-
 .window {
-
     border: 1px solid #8ca7c4;
-
     margin-bottom: 15px;
-
     background: white;
 }
 
 .window-title {
-
-    background:
-        linear-gradient(
-            #e7f2ff,
-            #c5d9ef
-        );
-
+    background: linear-gradient(#e7f2ff, #c5d9ef);
     border-bottom: 1px solid #8ca7c4;
-
     color: #164d83;
-
     font-weight: bold;
-
     padding: 6px 8px;
 }
 
@@ -300,36 +165,39 @@ body {
 }
 
 
-/* ==============================
-   LANGUAGE TABLE
-============================== */
+/* VIDEO PLAYER */
+
+.video {
+    background: #111;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    overflow: hidden;
+    border: 4px solid #333;
+}
+
+.video iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+
+/* LANGUAGE TABLE */
 
 .language {
-
     width: 100%;
-
     border-collapse: collapse;
 }
 
 .language th {
-
     text-align: left;
-
-    background:
-        linear-gradient(
-            #f4f4f4,
-            #dcdcdc
-        );
-
+    background: linear-gradient(#f4f4f4, #dcdcdc);
     border: 1px solid #aaa;
-
     padding: 6px;
 }
 
 .language td {
-
     border: 1px solid #ccc;
-
     padding: 7px;
 }
 
@@ -337,109 +205,35 @@ body {
     background: #eef6ff;
 }
 
-
-/* ==============================
-   STATUS
-============================== */
-
 .status {
-
     font-size: 11px;
-
     padding: 2px 6px;
-
     border: 1px solid #aaa;
-
     background: #eee;
 }
 
 .missing {
-
     color: #777;
-
     background: #f1f1f1;
 }
 
 .available {
-
     color: #075b0b;
-
     background: #dff3df;
-
     border-color: #76a976;
 }
 
-
-/* ==============================
-   VIDEO PLACEHOLDER
-============================== */
-
-.video {
-
-    background: #111;
-
-    height: 330px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    color: #aaa;
-
-    border: 4px solid #333;
-
-}
-
-.video-inner {
-
-    text-align: center;
-}
-
-.play {
-
-    width: 65px;
-    height: 65px;
-
-    border-radius: 50%;
-
-    background: #555;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    font-size: 28px;
-
-    margin: auto auto 10px;
-}
-
-
-/* ==============================
-   FOOTER
-============================== */
-
 .footer {
-
     background: #e8e8e8;
-
     border-top: 1px solid #aaa;
-
     padding: 10px;
-
     text-align: center;
-
     font-size: 11px;
-
     color: #555;
 }
 
 
-/* ==============================
-   MOBILE
-============================== */
+/* MOBILE */
 
 @media (max-width: 700px) {
 
@@ -456,13 +250,6 @@ body {
         order: 2;
     }
 
-    .video {
-        height: 230px;
-    }
-
-    .navbar {
-        flex-wrap: wrap;
-    }
 }
 
 </style>
@@ -471,11 +258,10 @@ body {
 
 <body>
 
-
 <div class="page">
 
 
-    <!-- XP WINDOW TITLE -->
+    <!-- TITLE BAR -->
 
     <div class="titlebar">
 
@@ -575,13 +361,13 @@ body {
                 </a>
 
                 <a href="#">
-                    Videos: 0
+                    Videos: 1
                 </a>
 
             </aside>
 
 
-            <!-- MAIN -->
+            <!-- MAIN CONTENT -->
 
             <main>
 
@@ -598,15 +384,10 @@ body {
 
                         <div class="video">
 
-                            <div class="video-inner">
-
-                                <div class="play">
-                                    ▶
-                                </div>
-
-                                No video available yet.
-
-                            </div>
+                            <iframe
+                                src="https://streamtape.com/e/e3v3o7K0jLcwv4"
+                                allowfullscreen>
+                            </iframe>
 
                         </div>
 
@@ -625,188 +406,90 @@ body {
 
                     <div class="window-content">
 
-
                         <table class="language">
 
                             <tr>
-
-                                <th>
-                                    Language
-                                </th>
-
-                                <th>
-                                    Region
-                                </th>
-
-                                <th>
-                                    Status
-                                </th>
-
-                                <th>
-                                    Video
-                                </th>
-
+                                <th>Language</th>
+                                <th>Region</th>
+                                <th>Status</th>
+                                <th>Video</th>
                             </tr>
 
+                            <tr>
+                                <td>🇺🇸 English</td>
+                                <td>United States</td>
+                                <td>
+                                    <span class="status available">
+                                        Available
+                                    </span>
+                                </td>
+                                <td>▶ Watch</td>
+                            </tr>
 
                             <tr>
-
-                                <td>
-                                    🇺🇸 English
-                                </td>
-
-                                <td>
-                                    United States
-                                </td>
-
+                                <td>🇪🇸 Spanish</td>
+                                <td>Spain</td>
                                 <td>
                                     <span class="status missing">
                                         Missing
                                     </span>
                                 </td>
-
-                                <td>
-                                    —
-                                </td>
-
+                                <td>—</td>
                             </tr>
 
-
                             <tr>
-
-                                <td>
-                                    🇪🇸 Spanish
-                                </td>
-
-                                <td>
-                                    Spain
-                                </td>
-
+                                <td>🇲🇽 Spanish</td>
+                                <td>Latin America</td>
                                 <td>
                                     <span class="status missing">
                                         Missing
                                     </span>
                                 </td>
-
-                                <td>
-                                    —
-                                </td>
-
+                                <td>—</td>
                             </tr>
 
-
                             <tr>
-
-                                <td>
-                                    🇲🇽 Spanish
-                                </td>
-
-                                <td>
-                                    Latin America
-                                </td>
-
+                                <td>🇫🇷 French</td>
+                                <td>France</td>
                                 <td>
                                     <span class="status missing">
                                         Missing
                                     </span>
                                 </td>
-
-                                <td>
-                                    —
-                                </td>
-
+                                <td>—</td>
                             </tr>
 
-
                             <tr>
-
-                                <td>
-                                    🇫🇷 French
-                                </td>
-
-                                <td>
-                                    France
-                                </td>
-
+                                <td>🇩🇪 German</td>
+                                <td>Germany</td>
                                 <td>
                                     <span class="status missing">
                                         Missing
                                     </span>
                                 </td>
-
-                                <td>
-                                    —
-                                </td>
-
+                                <td>—</td>
                             </tr>
 
-
                             <tr>
-
-                                <td>
-                                    🇩🇪 German
-                                </td>
-
-                                <td>
-                                    Germany
-                                </td>
-
+                                <td>🇹🇷 Turkish</td>
+                                <td>Turkey</td>
                                 <td>
                                     <span class="status missing">
                                         Missing
                                     </span>
                                 </td>
-
-                                <td>
-                                    —
-                                </td>
-
+                                <td>—</td>
                             </tr>
 
-
                             <tr>
-
-                                <td>
-                                    🇹🇷 Turkish
-                                </td>
-
-                                <td>
-                                    Turkey
-                                </td>
-
+                                <td>🇧🇷 Portuguese</td>
+                                <td>Brazil</td>
                                 <td>
                                     <span class="status missing">
                                         Missing
                                     </span>
                                 </td>
-
-                                <td>
-                                    —
-                                </td>
-
-                            </tr>
-
-
-                            <tr>
-
-                                <td>
-                                    🇧🇷 Portuguese
-                                </td>
-
-                                <td>
-                                    Brazil
-                                </td>
-
-                                <td>
-                                    <span class="status missing">
-                                        Missing
-                                    </span>
-                                </td>
-
-                                <td>
-                                    —
-                                </td>
-
+                                <td>—</td>
                             </tr>
 
                         </table>
@@ -816,7 +499,7 @@ body {
                 </div>
 
 
-                <!-- INFORMATION -->
+                <!-- ABOUT -->
 
                 <div class="window">
 
@@ -864,7 +547,6 @@ body {
 
 
 </div>
-
 
 </body>
 </html>
