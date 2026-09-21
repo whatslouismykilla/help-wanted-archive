@@ -22,13 +22,21 @@ function buildDubTable() {
 
     let multipleVersions = 0;
 
-
     dubs.forEach(function (dub, index) {
 
         const mainRow =
             document.createElement("tr");
 
-        mainRow.className = "main-row";
+        mainRow.className =
+            "main-row" +
+            (dub.realFandub ? " real-fandub-row" : "");
+
+        mainRow.tabIndex = 0;
+        mainRow.setAttribute("role", "button");
+        mainRow.setAttribute("aria-expanded", "false");
+
+        mainRow.title =
+            "Click for more information";
 
 
         /* -----------------------------------------
@@ -66,7 +74,6 @@ function buildDubTable() {
         const versionsCell =
             document.createElement("td");
 
-
         if (
             Array.isArray(dub.versions) &&
             dub.versions.length > 1
@@ -83,14 +90,14 @@ function buildDubTable() {
             versionButton.textContent =
                 "▶ Show versions";
 
-
             const versionId =
                 "versions-" + index;
 
-
             versionButton.addEventListener(
                 "click",
-                function () {
+                function (event) {
+
+                    event.stopPropagation();
 
                     toggleVersions(
                         versionId,
@@ -100,7 +107,6 @@ function buildDubTable() {
                 }
             );
 
-
             const count =
                 document.createElement("span");
 
@@ -109,7 +115,6 @@ function buildDubTable() {
 
             count.textContent =
                 " " + dub.versions.length;
-
 
             versionsCell.appendChild(
                 versionButton
@@ -143,10 +148,11 @@ function buildDubTable() {
         playButton.textContent =
             "▶ Play";
 
-
         playButton.addEventListener(
             "click",
-            function () {
+            function (event) {
+
+                event.stopPropagation();
 
                 changeVideo(
                     dub.video || "",
@@ -155,7 +161,6 @@ function buildDubTable() {
 
             }
         );
-
 
         playCell.appendChild(
             playButton
@@ -182,9 +187,55 @@ function buildDubTable() {
             playCell
         );
 
-
         tableBody.appendChild(
             mainRow
+        );
+
+
+        /* -----------------------------------------
+           CLICKABLE MORE INFO
+        ----------------------------------------- */
+
+        const detailsId =
+            "details-" + index;
+
+        mainRow.addEventListener(
+            "click",
+            function (event) {
+
+                if (
+                    event.target.closest("button")
+                ) {
+                    return;
+                }
+
+                toggleDetails(
+                    detailsId,
+                    mainRow
+                );
+
+            }
+        );
+
+        mainRow.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key === "Enter" ||
+                    event.key === " "
+                ) {
+
+                    event.preventDefault();
+
+                    toggleDetails(
+                        detailsId,
+                        mainRow
+                    );
+
+                }
+
+            }
         );
 
 
@@ -206,19 +257,16 @@ function buildDubTable() {
             versionRow.id =
                 "versions-" + index;
 
-
             const versionCell =
                 document.createElement("td");
 
             versionCell.colSpan = 4;
-
 
             const versionList =
                 document.createElement("div");
 
             versionList.className =
                 "version-list";
-
 
             const heading =
                 document.createElement("h3");
@@ -229,11 +277,9 @@ function buildDubTable() {
             heading.textContent =
                 dub.language + " versions";
 
-
             versionList.appendChild(
                 heading
             );
-
 
             dub.versions.forEach(
                 function (version) {
@@ -244,7 +290,6 @@ function buildDubTable() {
                     versionBox.className =
                         "version";
 
-
                     const versionName =
                         document.createElement("div");
 
@@ -252,8 +297,8 @@ function buildDubTable() {
                         "version-name";
 
                     versionName.textContent =
-                        version.name || "Documented version";
-
+                        version.name ||
+                        "Documented version";
 
                     const versionInfo =
                         document.createElement("div");
@@ -264,7 +309,6 @@ function buildDubTable() {
                     versionInfo.textContent =
                         version.info || "";
 
-
                     versionBox.appendChild(
                         versionName
                     );
@@ -273,14 +317,12 @@ function buildDubTable() {
                         versionInfo
                     );
 
-
                     versionList.appendChild(
                         versionBox
                     );
 
                 }
             );
-
 
             versionCell.appendChild(
                 versionList
@@ -295,6 +337,171 @@ function buildDubTable() {
             );
 
         }
+
+
+        /* -----------------------------------------
+           MORE INFORMATION ROW
+        ----------------------------------------- */
+
+        const detailsRow =
+            document.createElement("tr");
+
+        detailsRow.className =
+            "details-row" +
+            (dub.realFandub
+                ? " real-fandub-details"
+                : "");
+
+        detailsRow.id =
+            detailsId;
+
+        const detailsCell =
+            document.createElement("td");
+
+        detailsCell.colSpan = 4;
+
+        const detailsPanel =
+            document.createElement("div");
+
+        detailsPanel.className =
+            "details-panel";
+
+
+        /* TITLE */
+
+        const detailsTitle =
+            document.createElement("div");
+
+        detailsTitle.className =
+            "details-panel-title";
+
+        detailsTitle.textContent =
+            "ℹ More information — " +
+            dub.language;
+
+        detailsPanel.appendChild(
+            detailsTitle
+        );
+
+
+        /* DATA */
+
+        const details =
+            dub.details || {};
+
+        const fields = [
+
+            [
+                "Type",
+                details.type
+            ],
+
+            [
+                "Completeness",
+                details.completeness
+            ],
+
+            [
+                "Channels / distribution",
+                details.distribution
+            ],
+
+            [
+                "Notes",
+                details.notes
+            ],
+
+            [
+                "Source",
+                details.source
+            ]
+
+        ];
+
+
+        let hasDetails = false;
+
+
+        fields.forEach(
+            function (field) {
+
+                if (
+                    field[1] !== undefined &&
+                    field[1] !== null &&
+                    field[1] !== ""
+                ) {
+
+                    hasDetails = true;
+
+                    const item =
+                        document.createElement("div");
+
+                    item.className =
+                        "detail-item";
+
+                    const label =
+                        document.createElement("strong");
+
+                    label.textContent =
+                        field[0] + ": ";
+
+                    const value =
+                        document.createElement("span");
+
+                    value.textContent =
+                        Array.isArray(field[1])
+                            ? field[1].join("; ")
+                            : field[1];
+
+                    item.appendChild(
+                        label
+                    );
+
+                    item.appendChild(
+                        value
+                    );
+
+                    detailsPanel.appendChild(
+                        item
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* EMPTY INFO */
+
+        if (!hasDetails) {
+
+            const empty =
+                document.createElement("div");
+
+            empty.className =
+                "detail-empty";
+
+            empty.textContent =
+                "No additional information has been added yet. Edit this entry in dub.js to add completeness, notes, sources, or other archive information.";
+
+            detailsPanel.appendChild(
+                empty
+            );
+
+        }
+
+
+        detailsCell.appendChild(
+            detailsPanel
+        );
+
+        detailsRow.appendChild(
+            detailsCell
+        );
+
+        tableBody.appendChild(
+            detailsRow
+        );
 
     });
 
@@ -315,13 +522,18 @@ function buildDubTable() {
 
 
     if (languageCount) {
+
         languageCount.textContent =
             dubs.length;
+
     }
 
+
     if (versionCount) {
+
         versionCount.textContent =
             multipleVersions;
+
     }
 
 }
@@ -341,7 +553,9 @@ function toggleVersions(id, button) {
     }
 
 
-    if (row.classList.contains("open")) {
+    if (
+        row.classList.contains("open")
+    ) {
 
         row.classList.remove("open");
 
@@ -354,6 +568,46 @@ function toggleVersions(id, button) {
 
         button.textContent =
             "▼ Hide versions";
+
+    }
+
+}
+
+
+/* =========================================================
+   SHOW / HIDE DUB INFORMATION
+========================================================= */
+
+function toggleDetails(id, mainRow) {
+
+    const row =
+        document.getElementById(id);
+
+    if (!row) {
+        return;
+    }
+
+
+    const isOpen =
+        row.classList.contains("open");
+
+
+    row.classList.toggle(
+        "open"
+    );
+
+
+    if (mainRow) {
+
+        mainRow.classList.toggle(
+            "selected",
+            !isOpen
+        );
+
+        mainRow.setAttribute(
+            "aria-expanded",
+            String(!isOpen)
+        );
 
     }
 
@@ -432,24 +686,24 @@ function changeVideo(url, title) {
         title;
 
 
-    /*
-       No video URL:
-       Show a friendly placeholder instead of trying
-       to load an invalid iframe.
-    */
-
     if (!url) {
 
         player.innerHTML = `
             <div class="video-placeholder">
-                <div class="video-placeholder-icon">▶</div>
 
-                <strong>No video source attached</strong>
+                <div class="video-placeholder-icon">
+                    ▶
+                </div>
+
+                <strong>
+                    No video source attached
+                </strong>
 
                 <span>
-                    Add an authorized video URL to this
-                    dub entry in dub.js.
+                    Add an authorized video URL
+                    to this dub entry in dub.js.
                 </span>
+
             </div>
         `;
 
@@ -457,18 +711,14 @@ function changeVideo(url, title) {
     }
 
 
-    /*
-       Only load an iframe when a URL has actually
-       been supplied in the database.
-    */
-
     const iframe =
         document.createElement("iframe");
 
     iframe.src =
         url;
 
-    iframe.allowFullscreen = true;
+    iframe.allowFullscreen =
+        true;
 
     iframe.referrerPolicy =
         "no-referrer-when-downgrade";
@@ -510,15 +760,21 @@ document.addEventListener(
 
                 tableBody.innerHTML = `
                     <tr>
+
                         <td colspan="4">
+
                             <strong>
                                 The dub database could not
                                 be loaded.
                             </strong>
+
                             <br>
+
                             Make sure dub.js exists and
                             is loaded before script.js.
+
                         </td>
+
                     </tr>
                 `;
 
