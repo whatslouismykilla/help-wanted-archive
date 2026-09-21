@@ -1289,4 +1289,146 @@ body {
         padding: 8px;
     }
 
+/* =========================================================
+   CLICKABLE DUB ENTRIES
+========================================================= */
+
+.dub-table tr.main-row {
+    cursor: pointer;
+}
+
+.dub-table tr.main-row:focus {
+    outline: 3px solid #8e43bd;
+    outline-offset: -3px;
+}
+
+
+/* =========================================================
+   NORMAL SELECTED ENTRY
+========================================================= */
+
+.dub-table tr.main-row.selected td {
+    background: #fff0a8;
+}
+
+
+/* =========================================================
+   REAL FANDUB PINK TINT
+========================================================= */
+
+.dub-table tr.real-fandub-row td {
+    background: #ffe6ef !important;
+}
+
+.dub-table tr.real-fandub-row:hover td,
+.dub-table tr.real-fandub-row.selected td {
+    background: #ffd1df !important;
+}
+
+
+/* =========================================================
+   MORE INFO ROW
+========================================================= */
+
+.dub-table tr.details-row {
+    display: none;
+}
+
+.dub-table tr.details-row.open {
+    display: table-row;
+}
+
+
+/* =========================================================
+   FANDUB INFO PANEL
+========================================================= */
+
+.dub-table tr.real-fandub-details td {
+    background: #fff0f5;
+}
+
+.details-panel {
+    padding: 10px 12px;
+
+    background: #fffafc;
+
+    border-left: 5px solid #e98eac;
+
+    box-shadow:
+        inset 0 0 0 1px #f1c4d1;
+}
+
+.real-fandub-details .details-panel {
+    background: #fff0f5;
+
+    border-left-color: #e06f98;
+}
+
+
+/* =========================================================
+   INFO TITLE
+========================================================= */
+
+.details-panel-title {
+    margin-bottom: 8px;
+
+    color: #a53c66;
+
+    font-weight: bold;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   INFO FIELDS
+========================================================= */
+
+.detail-item {
+    padding: 5px 0;
+
+    border-bottom:
+        1px dotted #ddb1c0;
+
+    line-height: 1.45;
+}
+
+.detail-item:last-child {
+    border-bottom: 0;
+}
+
+.detail-item strong {
+    color: #8b3157;
+}
+
+
+/* =========================================================
+   EMPTY INFO
+========================================================= */
+
+.detail-empty {
+    color: #765b66;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .details-panel {
+        padding: 9px;
+    }
+
+    .detail-item {
+        line-height: 1.5;
+    }
+
+}
+
 }
