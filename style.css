@@ -1,7 +1,7 @@
 /* =========================================================
    HELP WANTED — SPONGEBOB DUB ARCHIVE
-   Nickelodeon-inspired palette
-   Yellow • Orange • Green • Purple
+   Nickelodeon / Windows XP inspired
+   Mobile-friendly version
 ========================================================= */
 
 * {
@@ -14,6 +14,7 @@ html {
 
 body {
     margin: 0;
+    min-height: 100vh;
 
     font-family:
         Tahoma,
@@ -22,7 +23,6 @@ body {
         sans-serif;
 
     font-size: 13px;
-
     color: #3b2148;
 
     background:
@@ -43,13 +43,11 @@ body {
             #32b87d 65%,
             #6b3fa0 100%
         );
-
-    min-height: 100vh;
 }
 
 
 /* =========================================================
-   PAGE
+   MAIN PAGE
 ========================================================= */
 
 .page {
@@ -75,13 +73,13 @@ body {
 ========================================================= */
 
 .titlebar {
-    height: 38px;
+    min-height: 38px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    padding: 0 8px;
+    padding: 5px 8px;
 
     color: white;
 
@@ -112,8 +110,9 @@ body {
 }
 
 .titlebar-left span {
-    white-space: nowrap;
     overflow: hidden;
+
+    white-space: nowrap;
     text-overflow: ellipsis;
 }
 
@@ -147,6 +146,8 @@ body {
 .window-buttons {
     display: flex;
     gap: 3px;
+
+    flex-shrink: 0;
 }
 
 .window-button {
@@ -199,7 +200,7 @@ body {
 .xp-button {
     display: inline-block;
 
-    padding: 5px 14px;
+    padding: 7px 14px;
 
     color: #4c2461;
 
@@ -224,6 +225,8 @@ body {
         inset -1px -1px #c8780e;
 
     cursor: pointer;
+
+    touch-action: manipulation;
 }
 
 .xp-button:hover {
@@ -236,12 +239,6 @@ body {
         );
 
     color: #2c5221;
-}
-
-.xp-button:active {
-    box-shadow:
-        inset -1px -1px white,
-        inset 1px 1px #b76b0c;
 }
 
 
@@ -263,11 +260,6 @@ body {
     color: white;
 
     background:
-        radial-gradient(
-            circle at 80% 25%,
-            rgba(255,255,255,.2) 0 12px,
-            transparent 13px
-        ),
         linear-gradient(
             135deg,
             #8d44c2,
@@ -291,7 +283,6 @@ body {
     display: inline-block;
 
     padding: 4px 8px;
-
     margin-bottom: 8px;
 
     color: #56310a;
@@ -309,7 +300,6 @@ body {
     margin: 0;
 
     font-size: 44px;
-
     letter-spacing: 5px;
 
     color: #fff13b;
@@ -382,8 +372,6 @@ body {
 .jellyfish.one {
     right: 80px;
     top: 35px;
-
-    transform: rotate(10deg);
 }
 
 .jellyfish.two {
@@ -423,10 +411,12 @@ body {
         2px 2px rgba(0,0,0,.18);
 
     margin-bottom: 10px;
+
+    min-width: 0;
 }
 
 .window-title {
-    padding: 5px 8px;
+    padding: 6px 8px;
 
     color: white;
 
@@ -445,6 +435,8 @@ body {
 
 .window-body {
     padding: 10px;
+
+    min-width: 0;
 }
 
 
@@ -466,7 +458,7 @@ body {
 .sidebar-menu a {
     display: block;
 
-    padding: 5px 7px;
+    padding: 7px;
 
     color: #51316b;
 
@@ -515,12 +507,8 @@ body {
 
 
 /* =========================================================
-   PLAYER
+   VIDEO PLAYER
 ========================================================= */
-
-.player-window {
-    margin-bottom: 10px;
-}
 
 .video {
     width: 100%;
@@ -561,6 +549,8 @@ body {
     color: white;
 
     text-align: center;
+
+    padding: 15px;
 }
 
 .video-placeholder-icon {
@@ -590,7 +580,7 @@ body {
 .now-playing {
     margin-top: 6px;
 
-    padding: 5px 7px;
+    padding: 7px;
 
     background:
         linear-gradient(
@@ -602,6 +592,8 @@ body {
     border: 1px solid #b1a642;
 
     font-weight: bold;
+
+    overflow-wrap: anywhere;
 }
 
 #nowPlaying {
@@ -631,7 +623,13 @@ body {
 }
 
 .table-wrapper {
+    width: 100%;
+
     overflow-x: auto;
+
+    -webkit-overflow-scrolling: touch;
+
+    border: 1px solid #c7b9a4;
 }
 
 .dub-table {
@@ -643,7 +641,7 @@ body {
 }
 
 .dub-table th {
-    padding: 7px;
+    padding: 8px;
 
     text-align: left;
 
@@ -662,7 +660,7 @@ body {
 }
 
 .dub-table td {
-    padding: 7px;
+    padding: 8px;
 
     vertical-align: middle;
 
@@ -681,19 +679,16 @@ body {
 
 .language {
     font-weight: bold;
-
     color: #69308d;
 }
 
 .show-title {
     font-weight: bold;
-
     color: #4d7131;
 }
 
 .version-count {
     color: #8d5311;
-
     font-weight: bold;
 }
 
@@ -704,7 +699,9 @@ body {
 
 .version-button,
 .play-button {
-    padding: 4px 8px;
+    min-height: 36px;
+
+    padding: 7px 10px;
 
     font-family:
         Tahoma,
@@ -732,6 +729,8 @@ body {
     box-shadow:
         inset 1px 1px white,
         inset -1px -1px #bd7611;
+
+    touch-action: manipulation;
 }
 
 .version-button:hover,
@@ -782,14 +781,13 @@ body {
 .version {
     margin-bottom: 7px;
 
-    padding: 7px;
+    padding: 8px;
 
     background: #fffdf0;
 
     border: 1px solid #d0b96e;
 
-    box-shadow:
-        2px 2px 0 rgba(107, 57, 130, .08);
+    line-height: 1.45;
 }
 
 .version:last-child {
@@ -798,7 +796,6 @@ body {
 
 .version-name {
     font-weight: bold;
-
     color: #e26317;
 }
 
@@ -808,8 +805,6 @@ body {
     color: #55465c;
 
     font-size: 12px;
-
-    line-height: 1.5;
 }
 
 
@@ -867,7 +862,6 @@ body {
 
 .detail-label {
     font-weight: bold;
-
     color: #e26717;
 }
 
@@ -908,65 +902,391 @@ body {
 
     font-size: 11px;
     font-weight: bold;
+
+    line-height: 1.5;
 }
 
 
 /* =========================================================
-   RESPONSIVE
+   TABLET
 ========================================================= */
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
 
     .page {
-        max-width: calc(100% - 10px);
-
-        margin: 5px auto;
+        width: calc(100% - 16px);
+        margin: 8px auto;
     }
 
     .content {
         grid-template-columns: 1fr;
     }
 
-    .hero h1 {
-        font-size: 34px;
+    /*
+       Put the sidebar above the main archive.
+    */
+
+    aside {
+        order: -1;
     }
+
+    .sidebar-menu {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 4px;
+    }
+
+    .sidebar-menu li {
+        margin: 0;
+    }
+
+    .stats {
+        margin-top: 8px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        font-size: 13px;
+
+        /*
+           Prevent horizontal page movement.
+           The table itself is allowed to scroll.
+        */
+        overflow-x: hidden;
+    }
+
+
+    .page {
+        width: calc(100% - 8px);
+
+        max-width: none;
+
+        margin: 4px auto;
+
+        border-width: 2px;
+
+        box-shadow:
+            3px 3px 0 rgba(72, 35, 87, .3);
+    }
+
+
+    /* ---------------------------------------------
+       TITLE BAR
+    --------------------------------------------- */
+
+    .titlebar {
+        min-height: 40px;
+
+        padding: 5px;
+
+        font-size: 12px;
+    }
+
+    .title-icon {
+        width: 21px;
+        height: 21px;
+    }
+
+    /*
+       Hide the fake minimize/maximize controls
+       because they aren't functional and take
+       valuable phone space.
+    */
+
+    .window-buttons {
+        display: none;
+    }
+
+
+    /* ---------------------------------------------
+       NAVIGATION
+    --------------------------------------------- */
+
+    .navbar {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 4px;
+
+        padding: 5px;
+    }
+
+    .navbar .xp-button {
+        text-align: center;
+
+        padding: 9px 5px;
+    }
+
+
+    /* ---------------------------------------------
+       HERO
+    --------------------------------------------- */
+
+    .hero {
+        margin: 6px;
+
+        padding: 18px 14px;
+
+        min-height: 155px;
+    }
+
+    .hero h1 {
+        font-size: clamp(27px, 9vw, 40px);
+
+        letter-spacing: 2px;
+
+        line-height: 1.05;
+    }
+
+    .hero p {
+        font-size: 13px;
+
+        line-height: 1.45;
+    }
+
+    .hero-badge {
+        max-width: 100%;
+
+        font-size: 8px;
+
+        letter-spacing: .5px;
+
+        line-height: 1.4;
+    }
+
+    /*
+       Decorative jellyfish are hidden on small
+       screens so they don't cover text.
+    */
+
+    .jellyfish {
+        display: none;
+    }
+
+
+    /* ---------------------------------------------
+       CONTENT
+    --------------------------------------------- */
+
+    .content {
+        display: block;
+
+        padding: 0 5px 5px;
+    }
+
+
+    /* ---------------------------------------------
+       WINDOWS
+    --------------------------------------------- */
+
+    .window {
+        margin-bottom: 7px;
+    }
+
+    .window-title {
+        padding: 8px;
+
+        font-size: 13px;
+    }
+
+    .window-body {
+        padding: 8px;
+    }
+
+
+    /* ---------------------------------------------
+       SIDEBAR
+    --------------------------------------------- */
+
+    .sidebar-menu {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 4px;
+    }
+
+    .sidebar-menu a {
+        min-height: 42px;
+
+        display: flex;
+        align-items: center;
+
+        padding: 7px;
+
+        line-height: 1.2;
+    }
+
+    .stats {
+        font-size: 12px;
+
+        line-height: 1.6;
+    }
+
+
+    /* ---------------------------------------------
+       VIDEO
+    --------------------------------------------- */
+
+    .video {
+        border-width: 3px;
+    }
+
+    .video-placeholder-icon {
+        width: 46px;
+        height: 46px;
+
+        font-size: 18px;
+    }
+
+    .video-placeholder strong {
+        font-size: 12px;
+    }
+
+    .video-placeholder span {
+        max-width: 230px;
+
+        line-height: 1.4;
+    }
+
+
+    /* ---------------------------------------------
+       TABLE
+    --------------------------------------------- */
+
+    .table-note {
+        line-height: 1.4;
+
+        padding: 8px;
+    }
+
+    /*
+       The table intentionally stays wide.
+       Users swipe horizontally rather than having
+       microscopic columns.
+    */
+
+    .table-wrapper {
+        max-width: 100%;
+
+        overflow-x: auto;
+    }
+
+    .dub-table {
+        min-width: 620px;
+    }
+
+    .dub-table th,
+    .dub-table td {
+        padding: 8px 7px;
+    }
+
+
+    /* ---------------------------------------------
+       BUTTONS
+    --------------------------------------------- */
+
+    .version-button,
+    .play-button {
+        min-height: 40px;
+
+        padding: 8px 10px;
+
+        font-size: 12px;
+    }
+
+    .xp-button {
+        min-height: 40px;
+    }
+
+
+    /* ---------------------------------------------
+       VERSION DETAILS
+    --------------------------------------------- */
+
+    .version-list {
+        padding: 8px;
+
+        border-left-width: 4px;
+    }
+
+    .version {
+        padding: 9px;
+
+        font-size: 12px;
+    }
+
+
+    /* ---------------------------------------------
+       ARCHIVE INFO
+    --------------------------------------------- */
 
     .details-grid {
         grid-template-columns: 1fr;
     }
 
-    .navbar {
-        flex-wrap: wrap;
+    .detail-box {
+        padding: 9px;
     }
 
-    .titlebar {
-        height: auto;
-        min-height: 38px;
-    }
 
+    /* ---------------------------------------------
+       FOOTER
+    --------------------------------------------- */
+
+    .footer {
+        padding: 10px 7px;
+
+        font-size: 10px;
+    }
 }
 
-@media (max-width: 500px) {
 
-    body {
-        font-size: 12px;
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .titlebar-left span {
+        font-size: 11px;
+    }
+
+    .navbar {
+        grid-template-columns: 1fr 1fr;
     }
 
     .hero {
-        padding: 18px;
+        min-height: 145px;
+
+        padding: 15px 11px;
     }
 
     .hero h1 {
-        font-size: 28px;
-        letter-spacing: 3px;
+        font-size: 25px;
     }
 
-    .window-body {
-        padding: 7px;
+    .hero p {
+        font-size: 12px;
     }
 
-    .content {
-        padding: 0 6px 6px;
+    .sidebar-menu {
+        grid-template-columns: 1fr;
+    }
+
+    .video-placeholder {
+        padding: 8px;
     }
 
 }
