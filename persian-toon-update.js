@@ -17,7 +17,7 @@
     }
 
     const videoUrl =
-        "https://streamtape.com/embed/8zOgBpGeoXTozRA/persian.mp4";
+        "https://streamtape.com/v/8zOgBpGeoXTozRA/persian.mp4";
 
     let version = persian.versions.find(function (item) {
         return item.name === "Persian Toon";
