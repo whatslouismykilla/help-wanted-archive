@@ -1,8 +1,6 @@
 /* =========================================================
-   HELP WANTED — SPONGEBOB DUB ARCHIVE
-   Nickelodeon / Windows XP inspired
-   Mobile-friendly version
-========================================================= */
+   GENERAL
+   ========================================================= */
 
 * {
     box-sizing: border-box;
@@ -14,1421 +12,417 @@ html {
 
 body {
     margin: 0;
-    min-height: 100vh;
-
-    font-family:
-        Tahoma,
-        Verdana,
-        Arial,
-        sans-serif;
-
-    font-size: 13px;
-    color: #3b2148;
-
-    background:
-        radial-gradient(
-            circle at 10% 15%,
-            rgba(255,255,255,.35) 0 18px,
-            transparent 19px
-        ),
-        radial-gradient(
-            circle at 88% 30%,
-            rgba(255,255,255,.25) 0 11px,
-            transparent 12px
-        ),
-        linear-gradient(
-            to bottom,
-            #c7f15b 0%,
-            #6bd34b 30%,
-            #32b87d 65%,
-            #6b3fa0 100%
-        );
-}
-
-
-/* =========================================================
-   MAIN PAGE
-========================================================= */
-
-.page {
-    width: 1000px;
-    max-width: calc(100% - 20px);
-
-    margin: 20px auto;
-
-    background: #fff9d9;
-
-    border: 3px solid #5a2c73;
-
-    box-shadow:
-        6px 6px 0 rgba(72, 35, 87, .3),
-        inset 1px 1px white;
-
-    overflow: hidden;
-}
-
-
-/* =========================================================
-   XP TITLE BAR
-========================================================= */
-
-.titlebar {
-    min-height: 38px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 5px 8px;
-
-    color: white;
-
-    font-weight: bold;
-    font-size: 14px;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #a45ad4,
-            #7d35ae 50%,
-            #5a237e
-        );
-
-    border-bottom: 3px solid #3e1b58;
-
-    text-shadow:
-        1px 1px #3e1b58;
-}
-
-.titlebar-left {
-    display: flex;
-    align-items: center;
-
-    gap: 8px;
-
-    min-width: 0;
-}
-
-.titlebar-left span {
-    overflow: hidden;
-
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-.title-icon {
-    width: 23px;
-    height: 23px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    flex-shrink: 0;
-
-    color: #7b4200;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #fff86a,
-            #ffd21e
-        );
-
-    border: 2px solid white;
-    border-radius: 4px;
-
-    box-shadow:
-        inset -2px -2px #c99500,
-        inset 2px 2px white;
-}
-
-.window-buttons {
-    display: flex;
-    gap: 3px;
-
-    flex-shrink: 0;
-}
-
-.window-button {
-    width: 23px;
-    height: 21px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: white;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #c873ec,
-            #7330a5
-        );
-
-    border: 1px solid white;
-
-    border-right-color: #40195d;
-    border-bottom-color: #40195d;
-
-    font-weight: bold;
-}
-
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-.navbar {
-    display: flex;
-
-    gap: 5px;
-
-    padding: 6px;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #fffde8,
-            #f0e6bd
-        );
-
-    border-bottom: 2px solid #e58b19;
-}
-
-.xp-button {
-    display: inline-block;
-
-    padding: 7px 14px;
-
-    color: #4c2461;
-
-    text-decoration: none;
-
-    font-weight: bold;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #fffef2,
-            #ffe768 48%,
-            #ffad21
-        );
-
-    border: 1px solid #a75d13;
-
-    border-radius: 3px;
-
-    box-shadow:
-        inset 1px 1px white,
-        inset -1px -1px #c8780e;
-
-    cursor: pointer;
-
-    touch-action: manipulation;
-}
-
-.xp-button:hover {
-    background:
-        linear-gradient(
-            to bottom,
-            #f2ff75,
-            #a9df39 48%,
-            #58b72e
-        );
-
-    color: #2c5221;
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero {
-    position: relative;
-
-    margin: 10px;
-
-    padding: 25px;
-
-    min-height: 175px;
-
-    overflow: hidden;
-
-    color: white;
-
-    background:
-        linear-gradient(
-            135deg,
-            #8d44c2,
-            #a8399e 45%,
-            #ee6b1c 100%
-        );
-
-    border: 3px solid #5c247c;
-
-    box-shadow:
-        inset 2px 2px rgba(255,255,255,.4),
-        inset -2px -2px rgba(0,0,0,.2);
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-}
-
-.hero-badge {
-    display: inline-block;
-
-    padding: 4px 8px;
-    margin-bottom: 8px;
-
-    color: #56310a;
-
-    background: #fff05a;
-
-    border: 1px solid #c48d00;
-
-    font-size: 10px;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.hero h1 {
-    margin: 0;
-
-    font-size: 44px;
-    letter-spacing: 5px;
-
-    color: #fff13b;
-
-    text-shadow:
-        2px 2px #7c3d0b,
-        4px 4px rgba(0,0,0,.25);
-}
-
-.hero p {
-    margin-top: 8px;
-
-    font-size: 15px;
-
-    max-width: 680px;
-}
-
-
-/* =========================================================
-   JELLYFISH
-========================================================= */
-
-.jellyfish {
-    position: absolute;
-
-    width: 55px;
-    height: 40px;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #e6a1ff,
-            #a94ad7
-        );
-
-    border: 2px solid #70259a;
-
-    border-radius: 50px 50px 15px 15px;
-
-    opacity: .9;
-
-    box-shadow:
-        0 0 12px rgba(246, 190, 255, .9);
-}
-
-.jellyfish::before,
-.jellyfish::after {
-    content: "";
-
-    position: absolute;
-
-    top: 30px;
-
-    width: 8px;
-    height: 35px;
-
-    border-left: 3px solid #c86be9;
-
-    border-radius: 50%;
-}
-
-.jellyfish::before {
-    left: 12px;
-}
-
-.jellyfish::after {
-    right: 12px;
-}
-
-.jellyfish.one {
-    right: 80px;
-    top: 35px;
-}
-
-.jellyfish.two {
-    right: 25px;
-    bottom: 15px;
-
-    transform: scale(.65);
-}
-
-
-/* =========================================================
-   CONTENT
-========================================================= */
-
-.content {
-    display: grid;
-
-    grid-template-columns: 205px minmax(0, 1fr);
-
-    gap: 10px;
-
-    padding: 0 10px 10px;
-}
-
-
-/* =========================================================
-   WINDOWS
-========================================================= */
-
-.window {
-    background: #fffbed;
-
-    border: 2px solid #6a367c;
-
-    box-shadow:
-        inset 1px 1px white,
-        2px 2px rgba(0,0,0,.18);
-
-    margin-bottom: 10px;
-
-    min-width: 0;
-}
-
-.window-title {
-    padding: 6px 8px;
-
-    color: white;
-
-    font-weight: bold;
-
-    background:
-        linear-gradient(
-            to right,
-            #7935a8,
-            #a95dd1 50%,
-            #ed741d
-        );
-
-    border-bottom: 2px solid #5a2678;
-}
-
-.window-body {
-    padding: 10px;
-
-    min-width: 0;
-}
-
-
-/* =========================================================
-   SIDEBAR
-========================================================= */
-
-.sidebar-menu {
-    list-style: none;
-
     padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f5dc;
+    color: #222;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+button {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   MAIN SITE
+   ========================================================= */
+
+.container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.site-header {
+    padding: 20px;
+    text-align: center;
+}
+
+.site-title {
     margin: 0;
 }
 
-.sidebar-menu li {
-    margin-bottom: 4px;
-}
-
-.sidebar-menu a {
-    display: block;
-
-    padding: 7px;
-
-    color: #51316b;
-
-    text-decoration: none;
-
-    background:
-        linear-gradient(
-            to right,
-            #f0ff9b,
-            #fff2a7
-        );
-
-    border: 1px solid #b5a044;
-}
-
-.sidebar-menu a:hover {
-    background:
-        linear-gradient(
-            to right,
-            #ffe75d,
-            #ffae26
-        );
-}
-
-.stats {
-    margin-top: 15px;
-
-    padding: 8px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #efff9d,
-            #fff0aa
-        );
-
-    border: 2px solid #8fa83a;
-
-    line-height: 1.7;
-}
-
-.stats hr {
-    border: 0;
-    border-top: 1px solid #b7a94e;
+.site-description {
+    margin: 10px 0;
 }
 
 
 /* =========================================================
-   VIDEO PLAYER
-========================================================= */
-
-.video {
-    width: 100%;
-
-    aspect-ratio: 16 / 9;
-
-    background:
-        linear-gradient(
-            135deg,
-            #241d2c,
-            #493050
-        );
-
-    overflow: hidden;
-
-    border: 4px solid #4c2a59;
-}
-
-.video iframe {
-    width: 100%;
-    height: 100%;
-
-    border: 0;
-}
-
-.video-placeholder {
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 8px;
-
-    color: white;
-
-    text-align: center;
-
-    padding: 15px;
-}
-
-.video-placeholder-icon {
-    width: 55px;
-    height: 55px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: #5a2b69;
-
-    background: #ffe83f;
-
-    border: 3px solid #c8830d;
-
-    border-radius: 50%;
-
-    font-size: 22px;
-}
-
-.video-placeholder span {
-    color: #dfd0e7;
-    font-size: 11px;
-}
-
-.now-playing {
-    margin-top: 6px;
-
-    padding: 7px;
-
-    background:
-        linear-gradient(
-            to right,
-            #ffffbd,
-            #f1ff8c
-        );
-
-    border: 1px solid #b1a642;
-
-    font-weight: bold;
-
-    overflow-wrap: anywhere;
-}
-
-#nowPlaying {
-    color: #703494;
-}
-
-
-/* =========================================================
-   TABLE
-========================================================= */
-
-.table-note {
-    margin-bottom: 8px;
-
-    padding: 7px 9px;
-
-    background:
-        linear-gradient(
-            to right,
-            #fff17a,
-            #ffca35
-        );
-
-    border: 1px solid #b87510;
-
-    color: #54320b;
-}
+   DUB TABLE
+   ========================================================= */
 
 .table-wrapper {
     width: 100%;
-
     overflow-x: auto;
-
-    -webkit-overflow-scrolling: touch;
-
-    border: 1px solid #c7b9a4;
+    margin: 20px 0;
 }
 
 .dub-table {
     width: 100%;
-
     border-collapse: collapse;
-
-    min-width: 650px;
+    background: white;
+    border: 3px solid #222;
+    box-shadow: 4px 4px 0 #222;
 }
 
 .dub-table th {
-    padding: 8px;
-
+    padding: 12px;
+    background: #ffdd57;
+    color: #222;
+    border: 2px solid #222;
     text-align: left;
-
-    color: white;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #ff9b25,
-            #e45d17
-        );
-
-    border: 1px solid #a93f12;
-
-    text-shadow: 1px 1px #87330e;
+    font-weight: bold;
 }
 
 .dub-table td {
-    padding: 8px;
-
+    padding: 10px 12px;
+    border: 2px solid #222;
     vertical-align: middle;
-
-    border: 1px solid #c7b9a4;
-
-    background: #fffdf0;
 }
 
-.dub-table tr.main-row:nth-child(even) td {
-    background: #f5ffd3;
+.dub-table .main-row td {
+    background: #fff;
 }
 
-.dub-table tr.main-row:hover td {
-    background: #fff08a;
-}
-
-.language {
-    font-weight: bold;
-    color: #69308d;
-}
-
-.show-title {
-    font-weight: bold;
-    color: #4d7131;
-}
-
-.version-count {
-    color: #8d5311;
-    font-weight: bold;
+.dub-table .main-row:hover td {
+    background: #fff8d6;
 }
 
 
 /* =========================================================
-   TABLE BUTTONS
-========================================================= */
+   BUTTONS
+   ========================================================= */
 
-.version-button,
-.play-button {
-    min-height: 36px;
-
-    padding: 7px 10px;
-
-    font-family:
-        Tahoma,
-        Arial,
-        sans-serif;
-
+.play-button,
+.toggle-button {
+    display: inline-block;
+    padding: 7px 12px;
+    border: 2px solid #222;
+    border-radius: 4px;
+    background: #ffdd57;
+    color: #222;
     font-weight: bold;
-
-    color: #52256b;
-
     cursor: pointer;
-
-    border: 1px solid #9a6119;
-
-    border-radius: 3px;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #fffecf,
-            #ffe55a 48%,
-            #ffad24
-        );
-
-    box-shadow:
-        inset 1px 1px white,
-        inset -1px -1px #bd7611;
-
-    touch-action: manipulation;
+    box-shadow: 2px 2px 0 #222;
 }
 
-.version-button:hover,
-.play-button:hover {
-    background:
-        linear-gradient(
-            to bottom,
-            #efff9d,
-            #bde650 48%,
-            #60b938
-        );
+.play-button:hover,
+.toggle-button:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0 #222;
+}
+
+.play-button:active,
+.toggle-button:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 #222;
+}
+
+.play-button:disabled,
+.play-button.unavailable {
+    background: #ccc;
+    color: #666;
+    cursor: not-allowed;
+    box-shadow: 2px 2px 0 #777;
+}
+
+.play-button:disabled:hover,
+.play-button.unavailable:hover {
+    transform: none;
+    box-shadow: 2px 2px 0 #777;
 }
 
 
 /* =========================================================
-   EXPANDED VERSIONS
-========================================================= */
+   VERSION ROWS
+   ========================================================= */
 
-.version-row {
-    display: none;
+.version-row td {
+    padding: 12px;
+    background: #eeeeee;
 }
 
-.version-row.open {
-    display: table-row;
+.version-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px dashed #777;
 }
 
-.version-list {
-    padding: 10px;
-
-    background:
-        linear-gradient(
-            to right,
-            #f4ffbf,
-            #fff4b0
-        );
-
-    border-left: 6px solid #8e43bd;
-}
-
-.version-list-title {
-    margin-top: 0;
-
-    color: #713492;
-
-    font-size: 14px;
-}
-
-.version {
-    margin-bottom: 7px;
-
-    padding: 8px;
-
-    background: #fffdf0;
-
-    border: 1px solid #d0b96e;
-
-    line-height: 1.45;
-}
-
-.version:last-child {
-    margin-bottom: 0;
+.version-item:last-child {
+    border-bottom: none;
 }
 
 .version-name {
     font-weight: bold;
-    color: #e26317;
 }
 
-.version-info {
-    margin-top: 3px;
-
-    color: #55465c;
-
-    font-size: 12px;
+.version-play-button {
+    flex-shrink: 0;
 }
 
 
 /* =========================================================
-   SHOW MORE
-========================================================= */
+   DETAILS / ARCHIVE
+   ========================================================= */
 
-.show-more-container {
-    text-align: center;
-
-    margin-top: 12px;
+.details-row td {
+    background: #f0f0f0;
+    padding: 15px;
 }
 
 .archive-info {
-    display: none;
-
-    margin-top: 12px;
-
-    padding: 10px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #f1ffb0,
-            #fff0bd
-        );
-
-    border: 2px solid #8e43bd;
+    margin-top: 10px;
 }
 
-.archive-info h3 {
-    margin-top: 0;
 
-    color: #713492;
+/* =========================================================
+   FAN DUB SECTION
+   ========================================================= */
+
+#fanDubSection {
+    width: 100%;
+    margin: 25px 0 35px;
 }
 
-.details-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-
-    gap: 8px;
+.fan-dub-heading {
+    margin: 0 0 8px;
+    font-size: 1.5rem;
 }
 
-.detail-box {
-    padding: 9px;
-
-    background: #fffdf0;
-
-    border: 1px solid #d1b873;
-
-    line-height: 1.45;
+.fan-dub-description {
+    margin: 0 0 12px;
+    color: #444;
 }
 
-.detail-label {
+#fanDubToggle {
+    margin: 8px 0 15px;
+    padding: 9px 14px;
+    border: 2px solid #222;
+    border-radius: 4px;
+    background: #ffdd57;
+    color: #222;
     font-weight: bold;
-    color: #e26717;
+    cursor: pointer;
+    box-shadow: 3px 3px 0 #222;
 }
 
-
-/* =========================================================
-   ABOUT / CREDITS
-========================================================= */
-
-.about p {
-    line-height: 1.6;
+#fanDubToggle:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 #222;
 }
 
-.about strong {
-    color: #743696;
+#fanDubToggle:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 #222;
 }
 
+#fanDubTableWrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 10px;
+}
 
-/* =========================================================
-   FOOTER
-========================================================= */
+.fan-dub-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border: 3px solid #222;
+    box-shadow: 4px 4px 0 #222;
+}
 
-.footer {
+.fan-dub-table th {
     padding: 12px;
-
-    text-align: center;
-
-    color: white;
-
-    background:
-        linear-gradient(
-            to right,
-            #6d3097,
-            #943fc0,
-            #e36c19
-        );
-
-    border-top: 3px solid #4d226c;
-
-    font-size: 11px;
+    background: #ff9fbd;
+    color: #222;
+    border: 2px solid #222;
+    text-align: left;
     font-weight: bold;
+}
 
-    line-height: 1.5;
+.fan-dub-table td {
+    padding: 10px 12px;
+    border: 2px solid #222;
+    vertical-align: middle;
+}
+
+.fan-dub-table .main-row td {
+    background: #fff0f5;
+}
+
+.fan-dub-table .main-row:hover td {
+    background: #ffe1eb;
+}
+
+.fan-dub-table .version-row td {
+    background: #f7e8ed;
 }
 
 
 /* =========================================================
-   TABLET
-========================================================= */
+   AD BLOCK POPUP
+   ========================================================= */
 
-@media (max-width: 850px) {
-
-    .page {
-        width: calc(100% - 16px);
-        margin: 8px auto;
-    }
-
-    .content {
-        grid-template-columns: 1fr;
-    }
-
-    /*
-       Put the sidebar above the main archive.
-    */
-
-    aside {
-        order: -1;
-    }
-
-    .sidebar-menu {
-        display: grid;
-
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-
-        gap: 4px;
-    }
-
-    .sidebar-menu li {
-        margin: 0;
-    }
-
-    .stats {
-        margin-top: 8px;
-    }
+.site-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.72);
 }
 
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 600px) {
-
-    body {
-        font-size: 13px;
-
-        /*
-           Prevent horizontal page movement.
-           The table itself is allowed to scroll.
-        */
-        overflow-x: hidden;
-    }
-
-
-    .page {
-        width: calc(100% - 8px);
-
-        max-width: none;
-
-        margin: 4px auto;
-
-        border-width: 2px;
-
-        box-shadow:
-            3px 3px 0 rgba(72, 35, 87, .3);
-    }
-
-
-    /* ---------------------------------------------
-       TITLE BAR
-    --------------------------------------------- */
-
-    .titlebar {
-        min-height: 40px;
-
-        padding: 5px;
-
-        font-size: 12px;
-    }
-
-    .title-icon {
-        width: 21px;
-        height: 21px;
-    }
-
-    /*
-       Hide the fake minimize/maximize controls
-       because they aren't functional and take
-       valuable phone space.
-    */
-
-    .window-buttons {
-        display: none;
-    }
-
-
-    /* ---------------------------------------------
-       NAVIGATION
-    --------------------------------------------- */
-
-    .navbar {
-        display: grid;
-
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-
-        gap: 4px;
-
-        padding: 5px;
-    }
-
-    .navbar .xp-button {
-        text-align: center;
-
-        padding: 9px 5px;
-    }
-
-
-    /* ---------------------------------------------
-       HERO
-    --------------------------------------------- */
-
-    .hero {
-        margin: 6px;
-
-        padding: 18px 14px;
-
-        min-height: 155px;
-    }
-
-    .hero h1 {
-        font-size: clamp(27px, 9vw, 40px);
-
-        letter-spacing: 2px;
-
-        line-height: 1.05;
-    }
-
-    .hero p {
-        font-size: 13px;
-
-        line-height: 1.45;
-    }
-
-    .hero-badge {
-        max-width: 100%;
-
-        font-size: 8px;
-
-        letter-spacing: .5px;
-
-        line-height: 1.4;
-    }
-
-    /*
-       Decorative jellyfish are hidden on small
-       screens so they don't cover text.
-    */
-
-    .jellyfish {
-        display: none;
-    }
-
-
-    /* ---------------------------------------------
-       CONTENT
-    --------------------------------------------- */
-
-    .content {
-        display: block;
-
-        padding: 0 5px 5px;
-    }
-
-
-    /* ---------------------------------------------
-       WINDOWS
-    --------------------------------------------- */
-
-    .window {
-        margin-bottom: 7px;
-    }
-
-    .window-title {
-        padding: 8px;
-
-        font-size: 13px;
-    }
-
-    .window-body {
-        padding: 8px;
-    }
-
-
-    /* ---------------------------------------------
-       SIDEBAR
-    --------------------------------------------- */
-
-    .sidebar-menu {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-
-        gap: 4px;
-    }
-
-    .sidebar-menu a {
-        min-height: 42px;
-
-        display: flex;
-        align-items: center;
-
-        padding: 7px;
-
-        line-height: 1.2;
-    }
-
-    .stats {
-        font-size: 12px;
-
-        line-height: 1.6;
-    }
-
-
-    /* ---------------------------------------------
-       VIDEO
-    --------------------------------------------- */
-
-    .video {
-        border-width: 3px;
-    }
-
-    .video-placeholder-icon {
-        width: 46px;
-        height: 46px;
-
-        font-size: 18px;
-    }
-
-    .video-placeholder strong {
-        font-size: 12px;
-    }
-
-    .video-placeholder span {
-        max-width: 230px;
-
-        line-height: 1.4;
-    }
-
-
-    /* ---------------------------------------------
-       TABLE
-    --------------------------------------------- */
-
-    .table-note {
-        line-height: 1.4;
-
-        padding: 8px;
-    }
-
-    /*
-       The table intentionally stays wide.
-       Users swipe horizontally rather than having
-       microscopic columns.
-    */
-
-    .table-wrapper {
-        max-width: 100%;
-
-        overflow-x: auto;
-    }
-
-    .dub-table {
-        min-width: 620px;
-    }
-
-    .dub-table th,
-    .dub-table td {
-        padding: 8px 7px;
-    }
-
-
-    /* ---------------------------------------------
-       BUTTONS
-    --------------------------------------------- */
-
-    .version-button,
-    .play-button {
-        min-height: 40px;
-
-        padding: 8px 10px;
-
-        font-size: 12px;
-    }
-
-    .xp-button {
-        min-height: 40px;
-    }
-
-
-    /* ---------------------------------------------
-       VERSION DETAILS
-    --------------------------------------------- */
-
-    .version-list {
-        padding: 8px;
-
-        border-left-width: 4px;
-    }
-
-    .version {
-        padding: 9px;
-
-        font-size: 12px;
-    }
-
-
-    /* ---------------------------------------------
-       ARCHIVE INFO
-    --------------------------------------------- */
-
-    .details-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .detail-box {
-        padding: 9px;
-    }
-
-
-    /* ---------------------------------------------
-       FOOTER
-    --------------------------------------------- */
-
-    .footer {
-        padding: 10px 7px;
-
-        font-size: 10px;
-    }
+.site-modal[hidden] {
+    display: none;
 }
 
+.site-modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    padding: 28px;
+    border: 4px solid #222;
+    border-radius: 8px;
+    background: #fffde7;
+    color: #222;
+    box-shadow: 8px 8px 0 #111;
+}
 
-/* =========================================================
-   VERY SMALL PHONES
-========================================================= */
+.site-modal-content h2 {
+    margin: 0 35px 15px 0;
+    font-size: 1.6rem;
+}
 
-@media (max-width: 380px) {
+.site-modal-content p {
+    margin: 0 0 15px;
+    line-height: 1.55;
+}
 
-    .titlebar-left span {
-        font-size: 11px;
-    }
+.site-modal-content ul {
+    margin: 12px 0 20px;
+    padding-left: 22px;
+}
 
-    .navbar {
-        grid-template-columns: 1fr 1fr;
-    }
+.site-modal-content li {
+    margin-bottom: 8px;
+}
 
-    .hero {
-        min-height: 145px;
-
-        padding: 15px 11px;
-    }
-
-    .hero h1 {
-        font-size: 25px;
-    }
-
-    .hero p {
-        font-size: 12px;
-    }
-
-    .sidebar-menu {
-        grid-template-columns: 1fr;
-    }
-
-    .video-placeholder {
-        padding: 8px;
-    }
-
-/* =========================================================
-   CLICKABLE DUB ENTRIES
-========================================================= */
-
-.dub-table tr.main-row {
+.site-modal-close {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 2px solid #222;
+    border-radius: 4px;
+    background: #ff6b6b;
+    color: #222;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 28px;
     cursor: pointer;
 }
 
-.dub-table tr.main-row:focus {
-    outline: 3px solid #8e43bd;
-    outline-offset: -3px;
+.site-modal-close:hover {
+    background: #ff8585;
 }
 
-
-/* =========================================================
-   NORMAL SELECTED ENTRY
-========================================================= */
-
-.dub-table tr.main-row.selected td {
-    background: #fff0a8;
+.site-modal-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
 }
 
-
-/* =========================================================
-   REAL FANDUB PINK TINT
-========================================================= */
-
-.dub-table tr.real-fandub-row td {
-    background: #ffe6ef !important;
-}
-
-.dub-table tr.real-fandub-row:hover td,
-.dub-table tr.real-fandub-row.selected td {
-    background: #ffd1df !important;
-}
-
-
-/* =========================================================
-   MORE INFO ROW
-========================================================= */
-
-.dub-table tr.details-row {
-    display: none;
-}
-
-.dub-table tr.details-row.open {
-    display: table-row;
-}
-
-
-/* =========================================================
-   FANDUB INFO PANEL
-========================================================= */
-
-.dub-table tr.real-fandub-details td {
-    background: #fff0f5;
-}
-
-.details-panel {
-    padding: 10px 12px;
-
-    background: #fffafc;
-
-    border-left: 5px solid #e98eac;
-
-    box-shadow:
-        inset 0 0 0 1px #f1c4d1;
-}
-
-.real-fandub-details .details-panel {
-    background: #fff0f5;
-
-    border-left-color: #e06f98;
-}
-
-
-/* =========================================================
-   INFO TITLE
-========================================================= */
-
-.details-panel-title {
-    margin-bottom: 8px;
-
-    color: #a53c66;
-
+.site-modal-actions button {
+    padding: 10px 14px;
+    border: 2px solid #222;
+    border-radius: 4px;
+    background: #ffdd57;
+    color: #222;
     font-weight: bold;
+    cursor: pointer;
+    box-shadow: 3px 3px 0 #222;
+}
 
-    font-size: 13px;
+.site-modal-actions button:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 #222;
+}
+
+.site-modal-actions button:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 #222;
+}
+
+.site-modal-actions .secondary {
+    background: #e5e5e5;
 }
 
 
 /* =========================================================
-   INFO FIELDS
-========================================================= */
+   RESPONSIVE
+   ========================================================= */
 
-.detail-item {
-    padding: 5px 0;
-
-    border-bottom:
-        1px dotted #ddb1c0;
-
-    line-height: 1.45;
-}
-
-.detail-item:last-child {
-    border-bottom: 0;
-}
-
-.detail-item strong {
-    color: #8b3157;
-}
-
-
-/* =========================================================
-   EMPTY INFO
-========================================================= */
-
-.detail-empty {
-    color: #765b66;
-
-    font-size: 12px;
-
-    line-height: 1.5;
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 600px) {
-
-    .details-panel {
-        padding: 9px;
+@media (max-width: 700px) {
+    .container {
+        width: 94%;
     }
 
-    .detail-item {
-        line-height: 1.5;
+    .dub-table,
+    .fan-dub-table {
+        min-width: 650px;
     }
 
+    .table-wrapper,
+    #fanDubTableWrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .site-modal {
+        padding: 12px;
+    }
+
+    .site-modal-content {
+        padding: 22px 18px;
+        box-shadow: 5px 5px 0 #111;
+    }
+
+    .site-modal-content h2 {
+        font-size: 1.35rem;
+    }
+
+    .site-modal-actions {
+        flex-direction: column;
+    }
+
+    .site-modal-actions button {
+        width: 100%;
+    }
 }
 
+@media (max-width: 480px) {
+    .dub-table,
+    .fan-dub-table {
+        min-width: 600px;
+    }
+
+    .site-modal-content {
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .fan-dub-heading {
+        font-size: 1.3rem;
+    }
 }
