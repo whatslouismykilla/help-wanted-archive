@@ -31,7 +31,7 @@ const VIDEO_LINKS = [
         language: "Persian",
         version: "Persian Toon",
         info: "Persian Toon Persian dub",
-        video: "https://streamtape.com/embed/8zOgBpGeoXTozRA/persian.mp4"
+        video: "https://streamtape.com/e/8zOgBpGeoXTozRA/persian.mp4"
     },
 
     // Afrikaans
