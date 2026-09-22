@@ -1,395 +1,365 @@
-function setupAdblockNotice() {
-    const modal = document.getElementById("adblockNotice");
-
-    if (!modal) {
-        return;
-    }
-
-    const closeButton = document.getElementById("adblockNoticeClose");
-    const dismissButton = document.getElementById("adblockNoticeDismiss");
-    const continueButton = document.getElementById("adblockNoticeContinue");
-
-    const storageKey = "helpWantedAdblockNoticeDismissed";
-
-    let permanentlyDismissed = false;
-
-    try {
-        permanentlyDismissed = localStorage.getItem(storageKey) === "1";
-    } catch (error) {
-        permanentlyDismissed = false;
-    }
-
-    if (permanentlyDismissed) {
-        modal.hidden = true;
-        return;
-    }
-
-    function closeModal() {
-        modal.hidden = true;
-        document.body.classList.remove("modal-open");
-    }
-
-    function dismissPermanently() {
-        try {
-            localStorage.setItem(storageKey, "1");
-        } catch (error) {
-            // Storage may be disabled. The popup can still be closed normally.
-        }
-
-        closeModal();
-    }
-
-    modal.hidden = false;
-    document.body.classList.add("modal-open");
-
-    if (closeButton) {
-        closeButton.addEventListener("click", closeModal);
-    }
-
-    if (continueButton) {
-        continueButton.addEventListener("click", closeModal);
-    }
-
-    if (dismissButton) {
-        dismissButton.addEventListener("click", dismissPermanently);
-    }
-
-    modal.addEventListener("click", function (event) {
-        if (event.target === modal) {
-            closeModal();
-        }
-    });
-
-    document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape" && !modal.hidden) {
-            closeModal();
-        }
-    });
-}
-
-
 /* =========================================================
-   DUB TABLE
-   ========================================================= */
+   HELP WANTED — DUB ARCHIVE SCRIPT
+========================================================= */
 
-function getDubEntries(includeFanDubs) {
-    if (typeof dubs === "undefined" || !Array.isArray(dubs)) {
-        return [];
-    }
+"use strict";
 
-    return dubs.filter(function (dub) {
-        const isFanDub = Boolean(dub.realFandub);
-
-        return includeFanDubs ? isFanDub : !isFanDub;
-    });
+function isAvailable(item) {
+    return item && item.available === true;
 }
 
+function buildDubTable() {
+    const tableBody = document.getElementById("dubTableBody");
 
-function getDubLanguage(dub) {
-    return dub.language || dub.lang || "Unknown";
-}
-
-
-function getDubTitle(dub) {
-    return dub.title || dub.name || "Untitled";
-}
-
-
-function getDubVersions(dub) {
-    if (Array.isArray(dub.versions)) {
-        return dub.versions;
-    }
-
-    return [];
-}
-
-
-function getVideoUrl(version) {
-    return version.video || version.url || version.link || "";
-}
-
-
-function getVersionTitle(version, index) {
-    return version.title ||
-        version.name ||
-        version.version ||
-        ("Version " + (index + 1));
-}
-
-
-function escapeHtml(value) {
-    return String(value == null ? "" : value)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-}
-
-
-function renderDubTable(tableBody, entries, tablePrefix) {
-    if (!tableBody) {
-        return;
-    }
+    if (!tableBody) return;
 
     tableBody.innerHTML = "";
+    let multipleVersions = 0;
 
-    entries.forEach(function (dub, localIndex) {
-        const globalIndex = dubs.indexOf(dub);
-        const dubIndex = globalIndex >= 0 ? globalIndex : localIndex;
+    dubs.forEach(function (dub, index) {
+        const mainRow = document.createElement("tr");
 
-        const language = getDubLanguage(dub);
-        const title = getDubTitle(dub);
-        const versions = getDubVersions(dub);
+        mainRow.className =
+            "main-row" +
+            (dub.realFandub ? " real-fandub-row" : "");
 
-        const hasVersions = versions.length > 0;
-
-        const row = document.createElement("tr");
-
-        row.className = "main-row";
-        row.dataset.dubIndex = String(dubIndex);
+        mainRow.tabIndex = 0;
+        mainRow.setAttribute("role", "button");
+        mainRow.setAttribute("aria-expanded", "false");
+        mainRow.title = "Click for more information";
 
         const languageCell = document.createElement("td");
-        languageCell.textContent = language;
+        languageCell.className = "language";
+        languageCell.textContent =
+            dub.flag ? dub.flag + " " + dub.language : dub.language;
 
         const titleCell = document.createElement("td");
-        titleCell.textContent = title;
+        titleCell.className = "show-title";
+        titleCell.textContent = dub.title || "Unknown";
 
         const versionsCell = document.createElement("td");
 
-        if (hasVersions) {
+        if (Array.isArray(dub.versions) && dub.versions.length > 1) {
+            multipleVersions++;
+
             const versionButton = document.createElement("button");
-
-            versionButton.className = "toggle-button";
+            versionButton.className = "version-button";
             versionButton.type = "button";
-            versionButton.textContent =
-                versions.length + " version" +
-                (versions.length === 1 ? "" : "s");
+            versionButton.textContent = "▶ Show versions";
 
-            versionButton.addEventListener("click", function () {
-                toggleVersions(tablePrefix, dubIndex);
+            const versionId = "versions-" + index;
+
+            versionButton.addEventListener("click", function (event) {
+                event.stopPropagation();
+                toggleVersions(versionId, versionButton);
             });
 
             versionsCell.appendChild(versionButton);
+
+            const count = document.createElement("span");
+            count.className = "version-count";
+            count.textContent = " " + dub.versions.length;
+            versionsCell.appendChild(count);
         } else {
             versionsCell.textContent = "—";
         }
 
         const playCell = document.createElement("td");
 
-        const playButton = document.createElement("button");
+        if (Array.isArray(dub.versions) && dub.versions.length > 1) {
+            const chooseButton = document.createElement("button");
+            chooseButton.className = "version-button";
+            chooseButton.type = "button";
+            chooseButton.textContent = "Choose version";
 
-        playButton.className = "play-button";
-        playButton.type = "button";
-        playButton.textContent = "▶ Play";
-
-        playButton.addEventListener("click", function () {
-            changeVideo(dubIndex);
-        });
-
-        playCell.appendChild(playButton);
-
-        row.appendChild(languageCell);
-        row.appendChild(titleCell);
-        row.appendChild(versionsCell);
-        row.appendChild(playCell);
-
-        tableBody.appendChild(row);
-
-        if (hasVersions) {
-            const versionsRow = document.createElement("tr");
-
-            versionsRow.className = "version-row";
-            versionsRow.id = tablePrefix + "-versions-" + dubIndex;
-            versionsRow.dataset.dubIndex = String(dubIndex);
-            versionsRow.style.display = "none";
-
-            const versionsCellFull = document.createElement("td");
-
-            versionsCellFull.colSpan = 4;
-
-            versions.forEach(function (version, versionIndex) {
-                const versionContainer = document.createElement("div");
-
-                versionContainer.className = "version-item";
-
-                const versionName = document.createElement("span");
-
-                versionName.className = "version-name";
-                versionName.textContent =
-                    getVersionTitle(version, versionIndex);
-
-                const versionPlayButton = document.createElement("button");
-
-                versionPlayButton.className =
-                    "play-button version-play-button";
-
-                versionPlayButton.type = "button";
-                versionPlayButton.textContent = "▶ Play";
-
-                versionPlayButton.dataset.versionIndex =
-                    String(versionIndex);
-
-                versionPlayButton.addEventListener("click", function () {
-                    const url = getVideoUrl(version);
-
-                    if (url) {
-                        window.open(url, "_blank");
-                    }
-                });
-
-                versionContainer.appendChild(versionName);
-                versionContainer.appendChild(versionPlayButton);
-
-                versionsCellFull.appendChild(versionContainer);
+            chooseButton.addEventListener("click", function (event) {
+                event.stopPropagation();
+                toggleVersions("versions-" + index, chooseButton);
             });
 
-            versionsRow.appendChild(versionsCellFull);
-            tableBody.appendChild(versionsRow);
+            playCell.appendChild(chooseButton);
+        } else if (isAvailable(dub)) {
+            const playButton = document.createElement("button");
+            playButton.className = "play-button";
+            playButton.type = "button";
+            playButton.textContent = "▶ Play";
+
+            playButton.addEventListener("click", function (event) {
+                event.stopPropagation();
+
+                changeVideo(
+                    dub.video || "",
+                    dub.language + " — " + dub.title
+                );
+            });
+
+            playCell.appendChild(playButton);
+        } else {
+            const unavailable = document.createElement("span");
+            unavailable.className = "unavailable-label";
+            unavailable.textContent = "Unavailable";
+            playCell.appendChild(unavailable);
         }
+
+        mainRow.appendChild(languageCell);
+        mainRow.appendChild(titleCell);
+        mainRow.appendChild(versionsCell);
+        mainRow.appendChild(playCell);
+
+        tableBody.appendChild(mainRow);
+
+        const detailsId = "details-" + index;
+
+        mainRow.addEventListener("click", function (event) {
+            if (event.target.closest("button")) return;
+            toggleDetails(detailsId, mainRow);
+        });
+
+        mainRow.addEventListener("keydown", function (event) {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                toggleDetails(detailsId, mainRow);
+            }
+        });
+
+        if (Array.isArray(dub.versions) && dub.versions.length > 1) {
+            const versionRow = document.createElement("tr");
+            versionRow.className = "version-row";
+            versionRow.id = "versions-" + index;
+
+            const versionCell = document.createElement("td");
+            versionCell.colSpan = 4;
+
+            const versionList = document.createElement("div");
+            versionList.className = "version-list";
+
+            const heading = document.createElement("h3");
+            heading.className = "version-list-title";
+            heading.textContent = dub.language + " versions";
+            versionList.appendChild(heading);
+
+            dub.versions.forEach(function (version) {
+                const versionBox = document.createElement("div");
+                versionBox.className = "version";
+
+                const versionName = document.createElement("div");
+                versionName.className = "version-name";
+                versionName.textContent =
+                    version.name || "Documented version";
+
+                const versionInfo = document.createElement("div");
+                versionInfo.className = "version-info";
+                versionInfo.textContent = version.info || "";
+
+                versionBox.appendChild(versionName);
+                versionBox.appendChild(versionInfo);
+
+                if (isAvailable(version)) {
+                    const playButton = document.createElement("button");
+                    playButton.className = "play-button";
+                    playButton.type = "button";
+                    playButton.textContent = "▶ Play";
+
+                    playButton.addEventListener("click", function (event) {
+                        event.stopPropagation();
+
+                        changeVideo(
+                            version.video || "",
+                            dub.language + " — " + version.name
+                        );
+                    });
+
+                    versionBox.appendChild(playButton);
+                } else {
+                    const unavailable = document.createElement("span");
+                    unavailable.className = "unavailable-label";
+                    unavailable.textContent = "Unavailable";
+                    versionBox.appendChild(unavailable);
+                }
+
+                versionList.appendChild(versionBox);
+            });
+
+            versionCell.appendChild(versionList);
+            versionRow.appendChild(versionCell);
+            tableBody.appendChild(versionRow);
+        }
+
+        const detailsRow = document.createElement("tr");
+
+        detailsRow.className =
+            "details-row" +
+            (dub.realFandub ? " real-fandub-details" : "");
+
+        detailsRow.id = detailsId;
+
+        const detailsCell = document.createElement("td");
+        detailsCell.colSpan = 4;
+
+        const detailsPanel = document.createElement("div");
+        detailsPanel.className = "details-panel";
+
+        const detailsTitle = document.createElement("div");
+        detailsTitle.className = "details-panel-title";
+        detailsTitle.textContent =
+            "ℹ More information — " + dub.language;
+
+        detailsPanel.appendChild(detailsTitle);
+
+        const status = document.createElement("div");
+        status.className = "detail-item";
+
+        const statusLabel = document.createElement("strong");
+        statusLabel.textContent = "Status: ";
+
+        status.appendChild(statusLabel);
+        status.appendChild(
+            document.createTextNode(
+                isAvailable(dub) ? "Available" : "Currently unavailable"
+            )
+        );
+
+        detailsPanel.appendChild(status);
+
+        const details = dub.details || {};
+
+        const fields = [
+            ["Type", details.type],
+            ["Completeness", details.completeness],
+            ["Channels / distribution", details.distribution],
+            ["Notes", details.notes],
+            ["Source", details.source]
+        ];
+
+        let hasDetails = false;
+
+        fields.forEach(function (field) {
+            if (
+                field[1] !== undefined &&
+                field[1] !== null &&
+                field[1] !== ""
+            ) {
+                hasDetails = true;
+
+                const item = document.createElement("div");
+                item.className = "detail-item";
+
+                const label = document.createElement("strong");
+                label.textContent = field[0] + ": ";
+
+                const value = document.createElement("span");
+                value.textContent =
+                    Array.isArray(field[1])
+                        ? field[1].join("; ")
+                        : field[1];
+
+                item.appendChild(label);
+                item.appendChild(value);
+                detailsPanel.appendChild(item);
+            }
+        });
+
+        if (!hasDetails) {
+            const empty = document.createElement("div");
+            empty.className = "detail-empty";
+            empty.textContent =
+                "No additional information has been added yet.";
+            detailsPanel.appendChild(empty);
+        }
+
+        detailsCell.appendChild(detailsPanel);
+        detailsRow.appendChild(detailsCell);
+        tableBody.appendChild(detailsRow);
     });
+
+    const languageCount = document.getElementById("languageCount");
+    const versionCount = document.getElementById("versionCount");
+
+    if (languageCount) languageCount.textContent = dubs.length;
+    if (versionCount) versionCount.textContent = multipleVersions;
 }
 
-
-function buildDubTable() {
-    const tableBody = document.getElementById("dubTableBody");
-
-    if (!tableBody) {
-        return;
-    }
-
-    const entries = getDubEntries(false);
-
-    renderDubTable(tableBody, entries, "main");
-
-    updateCounts();
-}
-
-
-function buildFanDubTable() {
-    const tableBody = document.getElementById("fanDubTableBody");
-
-    if (!tableBody) {
-        return;
-    }
-
-    const entries = getDubEntries(true);
-
-    renderDubTable(tableBody, entries, "fan");
-
-    updateCounts();
-}
-
-
-function updateCounts() {
-    if (typeof dubs === "undefined" || !Array.isArray(dubs)) {
-        return;
-    }
-
-    const languageCountElement =
-        document.getElementById("languageCount");
-
-    const versionCountElement =
-        document.getElementById("versionCount");
-
-    if (languageCountElement) {
-        languageCountElement.textContent = dubs.length;
-    }
-
-    if (versionCountElement) {
-        const versionCount = dubs.filter(function (dub) {
-            return Array.isArray(dub.versions) &&
-                dub.versions.length > 0;
-        }).length;
-
-        versionCountElement.textContent = versionCount;
-    }
-}
-
-
-function toggleVersions(tablePrefix, dubIndex) {
-    const row = document.getElementById(
-        tablePrefix + "-versions-" + dubIndex
-    );
-
-    if (!row) {
-        return;
-    }
-
-    if (row.style.display === "none" || row.style.display === "") {
-        row.style.display = "table-row";
-    } else {
-        row.style.display = "none";
-    }
-}
-
-
-function toggleDetails(id) {
+function toggleVersions(id, button) {
     const row = document.getElementById(id);
+    if (!row) return;
 
-    if (!row) {
-        return;
-    }
-
-    if (row.style.display === "none" || row.style.display === "") {
-        row.style.display = "table-row";
+    if (row.classList.contains("open")) {
+        row.classList.remove("open");
+        button.textContent = "▶ Show versions";
     } else {
-        row.style.display = "none";
+        row.classList.add("open");
+        button.textContent = "▼ Hide versions";
     }
 }
 
+function toggleDetails(id, mainRow) {
+    const row = document.getElementById(id);
+    if (!row) return;
 
-function toggleArchiveInfo(id) {
-    const element = document.getElementById(id);
+    const isOpen = row.classList.contains("open");
 
-    if (!element) {
-        return;
-    }
+    row.classList.toggle("open");
 
-    if (element.style.display === "none" || element.style.display === "") {
-        element.style.display = "block";
+    mainRow.classList.toggle("selected", !isOpen);
+    mainRow.setAttribute("aria-expanded", String(!isOpen));
+}
+
+function toggleArchiveInfo() {
+    const info = document.getElementById("archiveInfo");
+    const button = document.getElementById("showMoreButton");
+
+    if (!info || !button) return;
+
+    if (
+        info.style.display === "none" ||
+        info.style.display === ""
+    ) {
+        info.style.display = "block";
+        button.textContent = "▲ Show less information";
     } else {
-        element.style.display = "none";
+        info.style.display = "none";
+        button.textContent = "▼ Show more information";
     }
 }
 
+function changeVideo(url, title) {
+    const player = document.getElementById("videoPlayer");
+    const nowPlaying = document.getElementById("nowPlaying");
 
-function changeVideo(index) {
-    if (typeof dubs === "undefined" || !Array.isArray(dubs)) {
+    if (!player || !nowPlaying) return;
+
+    nowPlaying.textContent = title;
+
+    if (!url) {
+        player.innerHTML = `
+            <div class="video-placeholder">
+                <div class="video-placeholder-icon">▶</div>
+                <strong>No video source attached</strong>
+                <span>Add a video URL to this dub entry in dub.js.</span>
+            </div>
+        `;
         return;
     }
 
-    const dub = dubs[index];
+    const iframe = document.createElement("iframe");
+    iframe.src = url;
+    iframe.allowFullscreen = true;
+    iframe.setAttribute("allow", "fullscreen");
+    iframe.referrerPolicy = "no-referrer-when-downgrade";
 
-    if (!dub) {
-        return;
-    }
+    player.innerHTML = "";
+    player.appendChild(iframe);
 
-    let url = "";
-
-    if (dub.video) {
-        url = dub.video;
-    } else if (dub.url) {
-        url = dub.url;
-    } else if (dub.link) {
-        url = dub.link;
-    }
-
-    if (!url && Array.isArray(dub.versions) && dub.versions.length > 0) {
-        const firstVersion = dub.versions[0];
-
-        url = getVideoUrl(firstVersion);
-    }
-
-    if (url) {
-        window.open(url, "_blank");
+    const playerWindow = document.querySelector(".player-window");
+    if (playerWindow) {
+        playerWindow.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
     }
 }
-
 
 document.addEventListener("DOMContentLoaded", function () {
-    setupAdblockNotice();
-
     if (typeof dubs === "undefined" || !Array.isArray(dubs)) {
         return;
     }
