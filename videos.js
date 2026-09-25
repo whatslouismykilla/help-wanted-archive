@@ -53,7 +53,7 @@ const VIDEO_LINKS = [
     { language: "Assamese", video: "" },
 
     // Azerbaijani
-    { language: "Azerbaijani", version: "Northern Azerbaijani", video: "" },
+    { language: "Azerbaijani", version: "Northern Azerbaijani", video: "https://streamtape.com/e/MrbmxQLPr9TYQ0/Azerbaijani.mp4" },
     { language: "Azerbaijani", version: "Southern Azerbaijani", video: "" },
 
     // Bengali
