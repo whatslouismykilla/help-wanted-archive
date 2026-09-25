@@ -43,7 +43,7 @@ const VIDEO_LINKS = [
 
     // Arabic
     { language: "Arabic", version: "Image Production House", video: "" },
-    { language: "Arabic", version: "Neo Productions / New Interactive Studio", video: "" },
+    { language: "Arabic", version: "Neo Productions / New Interactive Studio", video: "https://streamtape.com/e/pMjrgGxqAgHrevv/Arabic.mp4" },
     { language: "Arabic", version: "Childhood Voice Institute", video: "" },
 
     // Armenian
